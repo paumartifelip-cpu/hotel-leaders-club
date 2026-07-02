@@ -342,15 +342,13 @@
 
   .chips {
     display: flex;
-    gap: 8px;
-    max-width: 100%;
-    overflow-x: auto;
-    padding: 6px 4px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    max-width: 980px;
+    padding: 6px 4px 4px;
     pointer-events: auto;
-    scrollbar-width: none;
   }
-
-  .chips::-webkit-scrollbar { display: none; }
 
   .chip {
     font-family: 'Poppins', sans-serif;
@@ -358,15 +356,20 @@
     font-weight: 600;
     white-space: nowrap;
     color: var(--crema);
-    background: rgba(20, 42, 64, 0.75);
+    background: rgba(20, 42, 64, 0.78);
     border: 1.5px solid rgba(138, 199, 175, 0.35);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    padding: 9px 16px;
+    padding: 8px 14px;
     border-radius: 999px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
+
+  .chip .chip-bandera { font-size: 15px; line-height: 1; }
 
   .chip:hover { transform: translateY(-2px); border-color: var(--pino-claro); }
 
@@ -409,11 +412,22 @@
 
   /* ---------- Móvil ---------- */
   @media (max-width: 640px) {
+    /* chips compactos: solo bandera, todos visibles sin arrastrar */
+    .chip { padding: 8px 10px; }
+
+    .chip .chip-texto { display: none; }
+
+    .chip .chip-bandera { font-size: 19px; }
+
+    .chip.activo { transform: scale(1.15); }
+
+    .pista { display: none; }
+
     #tarjeta {
       top: auto;
       right: 12px;
       left: 12px;
-      bottom: 118px;
+      bottom: 128px;
       width: auto;
       transform: translateY(30px) scale(0.97);
     }
@@ -583,6 +597,66 @@
       texto: 'Cuando casi nada depende de ti, puedes dirigir tu hotel desde una playa de Bali. O simplemente librar un domingo entero.'
     },
     {
+      codigo: 'CAN', bandera: 'ca', lat: 56.1, lng: -106.3, emoji: '❄️',
+      pais: 'Canadá', chip: '🇨🇦 Equipo',
+      titulo: 'Equipos que no dependen de ti',
+      texto: '¿Personal que va y viene? Sistemas que forman solos al que llega, para que cada baja no sea un incendio.'
+    },
+    {
+      codigo: 'COL', bandera: 'co', lat: 3.9, lng: -73.0, emoji: '☕',
+      pais: 'Colombia', chip: '🇨🇴 El trato',
+      titulo: 'El tiempo liberado se nota en el trato',
+      texto: 'Menos horas de despacho, más presencia en el lobby. Esa calidez ningún competidor la puede copiar.'
+    },
+    {
+      codigo: 'PER', bandera: 'pe', lat: -9.2, lng: -75.0, emoji: '🏔️',
+      pais: 'Perú', chip: '🇵🇪 Paso a paso',
+      titulo: 'Paso a paso, sin vértigo',
+      texto: 'No necesitas transformar tu hotel en un mes. Una automatización por semana y en un año no lo reconoces.'
+    },
+    {
+      codigo: 'CHL', bandera: 'cl', lat: -35.7, lng: -71.5, emoji: '🍇',
+      pais: 'Chile', chip: '🇨🇱 Sin humo',
+      titulo: 'Resultados, no promesas',
+      texto: 'Sin fórmulas mágicas: cambios pequeños que se miden en horas dormidas y domingos libres.'
+    },
+    {
+      codigo: 'MAR', bandera: 'ma', lat: 31.8, lng: -7.1, emoji: '🏺',
+      pais: 'Marruecos', chip: '🇲🇦 El alma',
+      titulo: 'El alma no se automatiza',
+      texto: 'Automatizamos lo repetitivo para proteger lo artesanal: el recibimiento, el detalle, la casa.'
+    },
+    {
+      codigo: 'EGY', bandera: 'eg', lat: 26.8, lng: 30.0, emoji: '⭐',
+      pais: 'Egipto', chip: '🇪🇬 Reseñas',
+      titulo: 'Cada reseña, respondida',
+      texto: 'Responde todas las reseñas, en cualquier idioma, en minutos — y sin sonar a robot.'
+    },
+    {
+      codigo: 'IND', bandera: 'in', lat: 21.0, lng: 78.0, emoji: '🛎️',
+      pais: 'India', chip: '🇮🇳 24/7',
+      titulo: 'Recepción despierta 24/7',
+      texto: 'Huéspedes atendidos al momento a cualquier hora, aunque tú estés durmiendo. La IA no libra ni en Nochevieja.'
+    },
+    {
+      codigo: 'KOR', bandera: 'kr', lat: 36.5, lng: 127.8, emoji: '⚡',
+      pais: 'Corea del Sur', chip: '🇰🇷 Al día',
+      titulo: 'La tecnología, filtrada',
+      texto: 'Cada mes sale algo nuevo. Dentro del club te llega filtrado: solo lo que de verdad sirve para un hotel.'
+    },
+    {
+      codigo: 'AUS', bandera: 'au', lat: -25.3, lng: 133.8, emoji: '🏄',
+      pais: 'Australia', chip: '🇦🇺 Desconectar',
+      titulo: 'Desconectar de verdad',
+      texto: 'Vacaciones sin mirar el móvil cada diez minutos. El hotel sigue funcionando; tú también.'
+    },
+    {
+      codigo: 'TUR', bandera: 'tr', lat: 39.0, lng: 35.2, emoji: '🫖',
+      pais: 'Turquía', chip: '🇹🇷 Reserva directa',
+      titulo: 'Menos OTAs, más reserva directa',
+      texto: 'Respuestas instantáneas y una web que convierte: menos comisiones, más control de tu negocio.'
+    },
+    {
       codigo: 'ARE', bandera: 'ae', lat: 24.0, lng: 54.0, emoji: '🔑',
       pais: 'Emiratos Árabes', chip: '🇦🇪 Cómo entrar',
       titulo: 'No te apuntas. Aplicas.',
@@ -635,12 +709,15 @@
     setTimeout(function () { if (mundo) mundo.controls().autoRotate = true; }, 2600);
   }
 
-  /* Chips inferiores */
+  /* Chips inferiores: bandera + texto (en móvil solo bandera) */
   DESTINOS.forEach(function (d) {
+    var partes = d.chip.split(' ');
+    var bandera = partes.shift();
     var b = document.createElement('button');
     b.className = 'chip';
     b.dataset.codigo = d.codigo;
-    b.textContent = d.chip;
+    b.title = d.pais + ' · ' + d.titulo;
+    b.innerHTML = '<span class="chip-bandera">' + bandera + '</span><span class="chip-texto">' + partes.join(' ') + '</span>';
     b.addEventListener('click', function () { volarA(d); });
     elChips.appendChild(b);
   });
