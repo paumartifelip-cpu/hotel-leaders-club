@@ -2,169 +2,99 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Leaders Club — El club privado de directores de hotel</title>
-<meta name="description" content="Un club privado de directores de hotel que usan la IA para trabajar menos horas, dejar de ser el cuello de botella de todo, y volver a tener tiempo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Hotel Leaders Club — Explora el club por el mundo</title>
+<meta name="description" content="Un club privado de directores de hotel que usan la IA para trabajar menos horas. Explora el mapa y descubre el club.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cielo: #cbd0dc;
-    --cielo-claro: #dcdfe8;
-    --nube: #f5f3ec;
+    --noche: #0e2033;
+    --noche-2: #0a1828;
     --crema: #f6f1e4;
     --madera: #e9d492;
-    --madera-clara: #f0e0ac;
-    --madera-oscura: #d9bf7c;
-    --veta: #c9a95e;
+    --madera-clara: #f5e6b0;
     --sombra-madera: #bd9c55;
     --pino: #3c8f77;
     --pino-oscuro: #2f7361;
     --pino-claro: #8ac7af;
     --carbon: #2e3243;
-    --carbon-2: #252938;
-    --texto: #2e3243;
-    --texto-suave: #5c6172;
+    --texto-suave: #9fb3c8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
 
   body {
     font-family: 'Nunito Sans', -apple-system, sans-serif;
-    background: var(--crema);
-    color: var(--texto);
-    line-height: 1.7;
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--crema);
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 45%, rgba(60, 143, 119, 0.16), transparent 65%),
+      radial-gradient(ellipse 90% 80% at 50% 110%, rgba(20, 45, 70, 0.8), transparent 70%),
+      linear-gradient(#0a1828, #0e2033 45%, #122b42);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    touch-action: none;
   }
 
-  /* Grano / textura de toda la página */
+  /* Grano de toda la página */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 60;
     pointer-events: none;
-    opacity: 0.06;
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.25; }
+
+  #globo {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    cursor: grab;
   }
 
-  .contenedor {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  #globo:active { cursor: grabbing; }
 
-  section { padding: 100px 0; position: relative; }
-
-  /* Veta de madera reutilizable */
-  .vetas, .plank {
-    background-color: var(--madera);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='%23c9a95e' stroke-width='1.6' opacity='0.55'%3E%3Cpath d='M0 18q32-9 64 0t64 0 64 0 64 0'/%3E%3Cpath d='M0 48q40 10 80 0t80 0 100 0'/%3E%3Cpath d='M0 74q28-7 56 0t56 0 56 0 56 0 36 0'/%3E%3Cellipse cx='150' cy='33' rx='10' ry='4'/%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  /* ---------- Etiqueta pequeña ---------- */
-  .etiqueta {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--pino);
-    margin-bottom: 18px;
-  }
-
-  /* ---------- Botones ---------- */
-  .boton {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    padding: 17px 40px;
-    border-radius: 14px;
-    color: var(--crema);
-    background: var(--carbon);
-    box-shadow: 0 6px 0 #191d2b;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .boton:hover {
-    transform: translateY(3px);
-    box-shadow: 0 3px 0 #191d2b;
-  }
-
-  .boton-madera {
-    color: var(--carbon);
-    background-color: var(--madera);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='%23c9a95e' stroke-width='1.6' opacity='0.5'%3E%3Cpath d='M0 18q32-9 64 0t64 0 64 0 64 0'/%3E%3Cpath d='M0 48q40 10 80 0t80 0 100 0'/%3E%3Cpath d='M0 74q28-7 56 0t56 0 56 0 56 0 36 0'/%3E%3C/g%3E%3C/svg%3E");
-    box-shadow: 0 6px 0 var(--sombra-madera);
-  }
-
-  .boton-madera:hover { box-shadow: 0 3px 0 var(--sombra-madera); }
-
-  .boton-verde {
-    background: var(--pino);
-    box-shadow: 0 6px 0 #235b4b;
-  }
-
-  .boton-verde:hover { box-shadow: 0 3px 0 #235b4b; }
-
-  .nota-boton {
-    display: block;
-    margin-top: 18px;
-    font-size: 14px;
-    color: var(--texto-suave);
-  }
-
-  /* ---------- Navegación ---------- */
-  nav {
+  /* ---------- Barra superior ---------- */
+  header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 14px 0;
-    background: rgba(246, 241, 228, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 3px solid var(--madera);
-  }
-
-  nav .contenedor {
+    z-index: 40;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 16px 22px;
+    pointer-events: none;
   }
 
   .marca {
     font-family: 'Poppins', sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--carbon);
+    color: var(--crema);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px;
+    pointer-events: auto;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
 
-  .marca svg { flex-shrink: 0; }
+  .marca span { color: var(--pino-claro); }
 
-  .marca span { color: var(--pino); }
-
-  .nav-cta {
+  .boton {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -172,606 +102,17 @@
     color: var(--carbon);
     background-color: var(--madera);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='%23c9a95e' stroke-width='1.6' opacity='0.5'%3E%3Cpath d='M0 18q32-9 64 0t64 0 64 0 64 0'/%3E%3Cpath d='M0 48q40 10 80 0t80 0 100 0'/%3E%3C/g%3E%3C/svg%3E");
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 0 var(--sombra-madera);
+    padding: 11px 22px;
+    border-radius: 12px;
+    box-shadow: 0 5px 0 var(--sombra-madera);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .nav-cta:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--sombra-madera); }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    background: linear-gradient(var(--cielo-claro), var(--cielo));
-    padding: 150px 0 0;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .hero-sello {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--pino-oscuro);
-    margin-bottom: 28px;
-  }
-
-  .hero-sello::before, .hero-sello::after {
-    content: "";
-    width: 36px;
-    height: 2px;
-    background: var(--pino);
-    border-radius: 2px;
-    opacity: 0.6;
-  }
-
-  .hero h1 {
-    font-size: clamp(38px, 6.5vw, 68px);
-    font-weight: 700;
-    max-width: 820px;
-    margin: 0 auto 26px;
-    color: var(--carbon);
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--pino);
+    pointer-events: auto;
     position: relative;
+    overflow: hidden;
     white-space: nowrap;
   }
 
-  .hero h1 em::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -2px;
-    height: 6px;
-    border-radius: 3px;
-    background-color: var(--madera);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='%23c9a95e' stroke-width='4' opacity='0.6'%3E%3Cpath d='M0 45q60-20 130 0t130 0'/%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .hero p {
-    font-size: clamp(17px, 2.2vw, 20px);
-    color: var(--texto-suave);
-    max-width: 600px;
-    margin: 0 auto 40px;
-  }
-
-  .hero .cta-zona { margin-bottom: 30px; }
-
-  .escena { display: block; width: 100%; margin-top: 20px; }
-
-  /* ---------- El problema (tablones de madera) ---------- */
-  .problema { background: var(--crema); }
-
-  .problema h2 {
-    font-size: clamp(30px, 4.5vw, 44px);
-    margin-bottom: 54px;
-    max-width: 620px;
-  }
-
-  .lista-dolor {
-    list-style: none;
-    max-width: 780px;
-    display: grid;
-    gap: 16px;
-  }
-
-  .lista-dolor li {
-    padding: 22px 30px;
-    border-radius: 14px;
-    font-size: clamp(16px, 2vw, 18.5px);
-    font-weight: 600;
-    color: var(--carbon);
-    display: flex;
-    gap: 18px;
-    align-items: baseline;
-    box-shadow: 0 5px 0 var(--sombra-madera);
-  }
-
-  .lista-dolor li::before {
-    content: "";
-    flex-shrink: 0;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--pino);
-    transform: translateY(-1px);
-  }
-
-  .cierre-problema {
-    margin-top: 54px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: clamp(22px, 3.2vw, 30px);
-    color: var(--pino-oscuro);
-    max-width: 680px;
-    line-height: 1.4;
-  }
-
-  /* ---------- El giro (bosque verde) ---------- */
-  .giro {
-    background: var(--pino);
-    color: var(--crema);
-    text-align: center;
-    padding-bottom: 0;
-  }
-
-  .giro .etiqueta { color: var(--madera); }
-
-  .giro h2 {
-    font-size: clamp(30px, 5vw, 50px);
-    max-width: 820px;
-    margin: 0 auto 36px;
-    color: #fdfaf1;
-  }
-
-  .giro h2 em { font-style: normal; color: var(--madera); }
-
-  .giro p {
-    font-size: clamp(17px, 2.2vw, 20px);
-    max-width: 660px;
-    margin: 0 auto;
-    color: #dcebe3;
-  }
-
-  .giro p strong { color: #fff; font-weight: 700; }
-
-  .giro .destacado {
-    margin-top: 36px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: clamp(20px, 2.8vw, 26px);
-    color: var(--madera-clara);
-  }
-
-  .bosque-borde { display: block; width: 100%; margin-top: 70px; }
-
-  /* ---------- Qué es el club ---------- */
-  .club { background: var(--cielo); }
-
-  .club h2 { font-size: clamp(30px, 5vw, 48px); margin-bottom: 18px; }
-
-  .club .intro {
-    color: var(--texto-suave);
-    max-width: 560px;
-    margin-bottom: 60px;
-    font-size: 18px;
-  }
-
-  .pilares {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .pilar {
-    background: var(--nube);
-    border-radius: 18px;
-    padding: 0 0 38px;
-    overflow: hidden;
-    box-shadow: 0 7px 0 rgba(46, 50, 67, 0.18);
-    transition: transform 0.2s ease;
-  }
-
-  .pilar:hover { transform: translateY(-4px); }
-
-  /* listón de madera arriba de cada tarjeta */
-  .pilar .liston {
-    height: 16px;
-    border-bottom: 3px solid var(--sombra-madera);
-  }
-
-  .pilar .icono {
-    width: 78px;
-    height: 78px;
-    margin: 34px auto 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(60, 143, 119, 0.12);
-  }
-
-  .pilar h3 {
-    font-size: 21px;
-    margin: 14px 30px 12px;
-    text-align: center;
-  }
-
-  .pilar p {
-    font-size: 15.5px;
-    color: var(--texto-suave);
-    margin: 0 30px;
-    text-align: center;
-  }
-
-  /* ---------- El método (semáforo) ---------- */
-  .metodo { background: var(--crema); }
-
-  .metodo h2 { font-size: clamp(30px, 5vw, 48px); margin-bottom: 16px; }
-
-  .metodo .intro {
-    color: var(--texto-suave);
-    max-width: 620px;
-    margin-bottom: 60px;
-    font-size: 18px;
-  }
-
-  .semaforo { display: grid; gap: 22px; max-width: 780px; }
-
-  .paso-semaforo {
-    display: grid;
-    grid-template-columns: 74px 1fr;
-    gap: 26px;
-    align-items: center;
-    background: #fffdf6;
-    border-radius: 18px;
-    padding: 30px 34px;
-    box-shadow: 0 6px 0 rgba(46, 50, 67, 0.12);
-  }
-
-  .luz {
-    width: 62px;
-    height: 62px;
-    border-radius: 50%;
-    border: 5px solid rgba(46, 50, 67, 0.12);
-  }
-
-  .luz-roja { background: #c96a5b; }
-  .luz-amarilla { background: #e0b558; }
-  .luz-verde { background: #4ba184; }
-
-  .paso-semaforo h3 { font-size: 21px; margin-bottom: 6px; }
-
-  .paso-semaforo .nombre-luz {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .nombre-luz.rojo { color: #c96a5b; }
-  .nombre-luz.amarillo { color: #c29635; }
-  .nombre-luz.verde { color: var(--pino); }
-
-  .paso-semaforo p { color: var(--texto-suave); font-size: 15.5px; }
-
-  .cierre-metodo {
-    margin-top: 50px;
-    max-width: 760px;
-    padding: 30px 36px;
-    border-radius: 16px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: clamp(19px, 2.6vw, 25px);
-    color: var(--carbon);
-    line-height: 1.45;
-    box-shadow: 0 6px 0 var(--sombra-madera);
-  }
-
-  /* ---------- Sí / No ---------- */
-  .filtro { background: var(--cielo); }
-
-  .filtro h2 {
-    font-size: clamp(30px, 5vw, 48px);
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
-  .columnas-filtro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    max-width: 920px;
-    margin: 0 auto;
-  }
-
-  .col-filtro {
-    border-radius: 18px;
-    padding: 44px 40px;
-  }
-
-  .col-filtro.si {
-    box-shadow: 0 7px 0 var(--sombra-madera);
-    color: var(--carbon);
-  }
-
-  .col-filtro.no {
-    background: var(--carbon);
-    box-shadow: 0 7px 0 #171b28;
-    color: #b9bfd0;
-  }
-
-  .col-filtro h3 {
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-
-  .col-filtro.si h3 { color: var(--pino-oscuro); }
-  .col-filtro.no h3 { color: #7d8496; }
-
-  .col-filtro ul { list-style: none; }
-
-  .col-filtro li {
-    padding: 12px 0;
-    font-size: 16.5px;
-    font-weight: 600;
-    display: flex;
-    gap: 14px;
-    align-items: baseline;
-  }
-
-  .col-filtro.si li::before {
-    content: "";
-    flex-shrink: 0;
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    background: var(--pino);
-  }
-
-  .col-filtro.no li { font-weight: 400; }
-
-  .col-filtro.no li::before {
-    content: "";
-    flex-shrink: 0;
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    background: #565d72;
-  }
-
-  /* ---------- Sobre Pau ---------- */
-  .pau { background: var(--crema); }
-
-  .pau .contenedor {
-    display: grid;
-    grid-template-columns: 330px 1fr;
-    gap: 70px;
-    align-items: center;
-  }
-
-  .retrato {
-    aspect-ratio: 4 / 5;
-    border-radius: 18px;
-    border: 14px solid var(--madera);
-    background: linear-gradient(var(--cielo-claro), var(--cielo) 55%, var(--pino-claro) 55.2%, var(--pino) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 0 var(--sombra-madera);
-  }
-
-  /* Sustituir por: <img src="pau.jpg" alt="Pau Martí"> */
-  .retrato img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .retrato .monograma {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 72px;
-    color: var(--carbon);
-    letter-spacing: 0.02em;
-    position: relative;
-    z-index: 1;
-  }
-
-  .pau h2 { font-size: clamp(28px, 4.5vw, 42px); margin-bottom: 22px; }
-
-  .pau p { font-size: 18px; color: var(--texto-suave); max-width: 520px; }
-
-  .pau p + p { margin-top: 18px; }
-
-  .firma {
-    margin-top: 28px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--pino-oscuro);
-  }
-
-  /* ---------- Cómo entrar ---------- */
-  .proceso { background: var(--cielo); }
-
-  .proceso h2 {
-    font-size: clamp(32px, 5.5vw, 52px);
-    text-align: center;
-    margin-bottom: 16px;
-  }
-
-  .proceso .intro {
-    text-align: center;
-    color: var(--texto-suave);
-    max-width: 520px;
-    margin: 0 auto 70px;
-    font-size: 18px;
-  }
-
-  .pasos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-
-  .paso {
-    text-align: center;
-    background: var(--nube);
-    border-radius: 18px;
-    padding: 40px 28px 36px;
-    box-shadow: 0 7px 0 rgba(46, 50, 67, 0.18);
-  }
-
-  .paso .num {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
-    color: var(--carbon);
-    width: 58px;
-    height: 58px;
-    line-height: 54px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    box-shadow: 0 4px 0 var(--sombra-madera);
-  }
-
-  .paso h3 { font-size: 20px; margin-bottom: 10px; }
-
-  .paso p { color: var(--texto-suave); font-size: 15.5px; }
-
-  /* ---------- CTA final ---------- */
-  .cta-final {
-    background: var(--carbon);
-    text-align: center;
-    padding: 120px 0 0;
-    color: var(--crema);
-    overflow: hidden;
-  }
-
-  .cta-final h2 {
-    font-size: clamp(32px, 6vw, 58px);
-    font-weight: 700;
-    max-width: 780px;
-    margin: 0 auto 22px;
-    color: #fdfaf1;
-  }
-
-  .cta-final h2 em { font-style: normal; color: var(--madera); }
-
-  .cta-final .sub {
-    color: #aeb4c6;
-    font-size: 18px;
-    max-width: 560px;
-    margin: 0 auto 46px;
-  }
-
-  .boton-grande { font-size: 16px; padding: 21px 52px; }
-
-  .cta-final .nota-boton { color: #8a91a5; }
-
-  .bosque-noche { display: block; width: 100%; margin-top: 80px; }
-
-  /* ---------- Footer ---------- */
-  footer {
-    padding: 38px 0;
-    background: var(--carbon-2);
-    text-align: center;
-  }
-
-  footer .marca { justify-content: center; color: var(--crema); font-size: 15px; }
-
-  footer p {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #7d8496;
-  }
-
-  /* ---------- Animación de aparición al hacer scroll ---------- */
-  .aparece {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 0.9, 0.3, 1);
-  }
-
-  .aparece.visible { opacity: 1; transform: translateY(0); }
-
-  /* cascada: los elementos hermanos entran escalonados */
-  .lista-dolor li:nth-child(2) { transition-delay: 0.08s; }
-  .lista-dolor li:nth-child(3) { transition-delay: 0.16s; }
-  .lista-dolor li:nth-child(4) { transition-delay: 0.24s; }
-  .lista-dolor li:nth-child(5) { transition-delay: 0.32s; }
-
-  .pilar:nth-child(2) { transition-delay: 0.14s; }
-  .pilar:nth-child(3) { transition-delay: 0.28s; }
-
-  .paso:nth-child(2) { transition-delay: 0.14s; }
-  .paso:nth-child(3) { transition-delay: 0.28s; }
-
-  .paso-semaforo:nth-child(2) { transition-delay: 0.12s; }
-  .paso-semaforo:nth-child(3) { transition-delay: 0.24s; }
-
-  /* ---------- Animaciones de entrada del hero ---------- */
-  @keyframes subir {
-    from { opacity: 0; transform: translateY(36px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero .hero-sello,
-  .hero h1,
-  .hero p,
-  .hero .cta-zona {
-    animation: subir 0.9s cubic-bezier(0.22, 0.9, 0.3, 1) both;
-  }
-
-  .hero .hero-sello { animation-delay: 0.1s; }
-  .hero h1 { animation-delay: 0.25s; }
-  .hero p { animation-delay: 0.45s; }
-  .hero .cta-zona { animation-delay: 0.65s; }
-
-  @keyframes aparecer-escena {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .escena { animation: aparecer-escena 1.2s ease-out 0.5s both; }
-
-  /* la estructura de madera se dibuja sola */
-  @keyframes dibujar {
-    from { stroke-dashoffset: 2400; }
-    to { stroke-dashoffset: 0; }
-  }
-
-  .estructura path,
-  .estructura line {
-    stroke-dasharray: 2400;
-    animation: dibujar 2.8s ease-out 0.9s both;
-  }
-
-  /* nubes a la deriva */
-  @keyframes derivar {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(28px); }
-  }
-
-  .nubes { animation: derivar 16s ease-in-out infinite; }
-
-  /* pinos que se mecen suavemente */
-  @keyframes mecer {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-
-  .pinos-fondo { animation: mecer 9s ease-in-out infinite; }
-
-  /* las luces del semáforo laten */
-  @keyframes latir {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.09); }
-  }
-
-  .luz { animation: latir 2.8s ease-in-out infinite; }
-  .luz-amarilla { animation-delay: 0.45s; }
-  .luz-verde { animation-delay: 0.9s; }
-
-  /* brillo que recorre los botones */
-  .boton { position: relative; overflow: hidden; }
+  .boton:hover { transform: translateY(3px); box-shadow: 0 2px 0 var(--sombra-madera); }
 
   .boton::after {
     content: "";
@@ -779,443 +120,603 @@
     top: 0; bottom: 0; left: -80%;
     width: 45%;
     transform: skewX(-20deg);
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
     animation: brillo 3.8s ease-in-out infinite;
   }
 
-  @keyframes brillo {
-    0%, 55% { left: -80%; }
-    100% { left: 170%; }
+  @keyframes brillo { 0%, 55% { left: -80%; } 100% { left: 170%; } }
+
+  /* ---------- Overlay de bienvenida ---------- */
+  #bienvenida {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    background: rgba(10, 24, 40, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.8s ease, visibility 0.8s;
   }
 
-  /* micro-interacciones en tarjetas */
-  .paso, .paso-semaforo, .lista-dolor li, .col-filtro {
-    transition-property: opacity, transform, box-shadow;
+  #bienvenida.oculta { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .bienvenida-caja { max-width: 640px; }
+
+  .sello {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--pino-claro);
+    margin-bottom: 22px;
+    display: block;
+    animation: subir 0.8s ease both 0.2s;
   }
 
-  .paso:hover, .paso-semaforo:hover { transform: translateY(-4px); }
+  #bienvenida h1 {
+    font-size: clamp(34px, 6.5vw, 58px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: subir 0.8s ease both 0.35s;
+  }
 
-  .retrato { transition: transform 0.25s ease; }
-  .retrato:hover { transform: rotate(-1.5deg) scale(1.02); }
+  #bienvenida h1 em { font-style: normal; color: var(--madera); }
 
-  /* accesibilidad: sin animaciones si el usuario lo pide */
+  #bienvenida p {
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: var(--texto-suave);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    animation: subir 0.8s ease both 0.5s;
+  }
+
+  #entrar {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--crema);
+    background: var(--pino);
+    border: none;
+    cursor: pointer;
+    padding: 18px 46px;
+    border-radius: 14px;
+    box-shadow: 0 6px 0 #235b4b;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: subir 0.8s ease both 0.65s;
+  }
+
+  #entrar:hover { transform: translateY(3px); box-shadow: 0 3px 0 #235b4b; }
+
+  #entrar:disabled { opacity: 0.6; cursor: wait; }
+
+  @keyframes subir {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- Pins sobre el globo ---------- */
+  .pin {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--madera);
+    border: 3px solid var(--carbon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    cursor: pointer;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+    animation: latido 2.6s ease-in-out infinite;
+  }
+
+  .pin:hover { transform: translate(-50%, -50%) scale(1.18); background: var(--madera-clara); }
+
+  @keyframes latido {
+    0%, 100% { box-shadow: 0 4px 0 rgba(0,0,0,0.35), 0 0 0 0 rgba(233, 212, 146, 0.5); }
+    50% { box-shadow: 0 4px 0 rgba(0,0,0,0.35), 0 0 0 14px rgba(233, 212, 146, 0); }
+  }
+
+  /* ---------- Tarjeta de país ---------- */
+  #tarjeta {
+    position: fixed;
+    top: 86px;
+    right: 22px;
+    z-index: 45;
+    width: 340px;
+    max-width: calc(100vw - 44px);
+    background: var(--crema);
+    color: var(--carbon);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.3), 0 24px 60px rgba(0,0,0,0.45);
+    opacity: 0;
+    transform: translateX(30px) scale(0.96);
+    visibility: hidden;
+    transition: opacity 0.45s cubic-bezier(0.22, 0.9, 0.3, 1), transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1), visibility 0.45s;
+  }
+
+  #tarjeta.abierta { opacity: 1; transform: translateX(0) scale(1); visibility: visible; }
+
+  .tarjeta-cabecera {
+    position: relative;
+    height: 120px;
+    background: var(--pino);
+  }
+
+  .tarjeta-cabecera img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tarjeta-cabecera .emoji {
+    position: absolute;
+    left: 18px;
+    bottom: -24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--madera);
+    border: 3px solid var(--crema);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+
+  #cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(14, 32, 51, 0.65);
+    color: var(--crema);
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  #cerrar:hover { background: rgba(14, 32, 51, 0.9); }
+
+  .tarjeta-cuerpo { padding: 34px 22px 22px; }
+
+  .tarjeta-cuerpo .pais {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--pino-oscuro);
+  }
+
+  .tarjeta-cuerpo h3 { font-size: 20px; margin: 6px 0 10px; }
+
+  .tarjeta-cuerpo p { font-size: 14.5px; color: #555f70; margin-bottom: 18px; }
+
+  .tarjeta-cuerpo .boton { display: inline-block; font-size: 13px; }
+
+  /* ---------- Menú inferior de destinos ---------- */
+  #menu {
+    position: fixed;
+    left: 0; right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .pista {
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pista svg { animation: arrastra 2.4s ease-in-out infinite; }
+
+  @keyframes arrastra {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+  }
+
+  .chips {
+    display: flex;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 6px 4px 10px;
+    pointer-events: auto;
+    scrollbar-width: none;
+  }
+
+  .chips::-webkit-scrollbar { display: none; }
+
+  .chip {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--crema);
+    background: rgba(20, 42, 64, 0.75);
+    border: 1.5px solid rgba(138, 199, 175, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .chip:hover { transform: translateY(-2px); border-color: var(--pino-claro); }
+
+  .chip.activo {
+    background: var(--madera);
+    border-color: var(--madera);
+    color: var(--carbon);
+  }
+
+  /* ---------- Carga / error ---------- */
+  #estado {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    background: var(--noche-2);
+    transition: opacity 0.6s ease, visibility 0.6s;
+    text-align: center;
+    padding: 24px;
+  }
+
+  #estado.oculto { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .girando {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 4px solid rgba(233, 212, 146, 0.2);
+    border-top-color: var(--madera);
+    animation: girar 0.9s linear infinite;
+  }
+
+  @keyframes girar { to { transform: rotate(360deg); } }
+
+  #estado p { color: var(--texto-suave); font-size: 14px; }
+
+  /* ---------- Móvil ---------- */
+  @media (max-width: 640px) {
+    #tarjeta {
+      top: auto;
+      right: 12px;
+      left: 12px;
+      bottom: 118px;
+      width: auto;
+      transform: translateY(30px) scale(0.97);
+    }
+
+    #tarjeta.abierta { transform: translateY(0) scale(1); }
+
+    .tarjeta-cabecera { height: 96px; }
+
+    .tarjeta-cuerpo { padding: 30px 18px 18px; }
+
+    .pin { width: 40px; height: 40px; font-size: 18px; }
+
+    header { padding: 12px 14px; }
+
+    .marca { font-size: 13px; }
+
+    .boton { padding: 9px 14px; font-size: 12px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation: none !important;
-      transition: none !important;
-    }
-    .aparece { opacity: 1; transform: none; }
-  }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 860px) {
-    section { padding: 76px 0; }
-
-    .giro { padding-bottom: 0; }
-    .cta-final { padding-bottom: 0; }
-
-    .pilares { grid-template-columns: 1fr; }
-
-    .columnas-filtro { grid-template-columns: 1fr; }
-
-    .pau .contenedor { grid-template-columns: 1fr; gap: 44px; }
-
-    .retrato { max-width: 300px; }
-
-    .pasos { grid-template-columns: 1fr; }
-
-    .hero { padding-top: 130px; }
-  }
-
-  @media (max-width: 480px) {
-    body { font-size: 16px; }
-
-    .boton { display: block; text-align: center; padding: 17px 28px; }
-
-    .nav-cta { padding: 8px 14px; font-size: 12px; }
-
-    .marca { font-size: 14px; }
-
-    .paso-semaforo {
-      grid-template-columns: 1fr;
-      gap: 14px;
-      text-align: left;
-    }
-
-    .luz { width: 48px; height: 48px; }
-
-    .col-filtro { padding: 36px 28px; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- Símbolos SVG reutilizables -->
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <path id="pino-forma" d="M0-96 L40-34 L22-34 L56 26 L32 26 L64 92 L-64 92 L-32 26 L-56 26 L-22-34 L-40-34 Z"/>
-    <linearGradient id="muro" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#c3c8d8"/>
-      <stop offset="1" stop-color="#8f96ad"/>
-    </linearGradient>
-  </defs>
-</svg>
+<div id="globo"></div>
 
-<!-- ============ NAV ============ -->
-<nav>
-  <div class="contenedor">
-    <a href="#" class="marca">
-      <svg width="26" height="26" viewBox="0 0 26 26"><path d="M3 23V11L13 3l10 8v12h-7v-7h-6v7z" fill="#e9d492" stroke="#2e3243" stroke-width="2" stroke-linejoin="round"/></svg>
-      Hotel <span>Leaders</span> Club
-    </a>
-    <a href="https://wa.me/34601108311" class="nav-cta">Solicitar plaza</a>
-  </div>
-</nav>
-
-<!-- ============ 1. HERO ============ -->
-<header class="hero">
-  <div class="contenedor">
-    <div class="hero-sello">Club privado · Solo por aplicación</div>
-    <h1>Dirigir un hotel no debería <em>costarte la vida.</em></h1>
-    <p>Un club privado de directores de hotel que usan la IA para trabajar menos horas, dejar de ser el cuello de botella de todo, y volver a tener tiempo.</p>
-    <div class="cta-zona">
-      <a href="https://wa.me/34601108311" class="boton boton-verde">Solicitar mi plaza</a>
-      <span class="nota-boton">No es para todos. Solo entran directores que quieren avanzar.</span>
-    </div>
-  </div>
-
-  <!-- Escena ilustrada: bosque + estructura de madera -->
-  <svg class="escena" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-    <!-- nubes -->
-    <g fill="#f5f3ec" class="nubes">
-      <circle cx="180" cy="360" r="90"/><circle cx="300" cy="390" r="70"/><circle cx="80" cy="400" r="75"/>
-      <circle cx="620" cy="340" r="80"/><circle cx="730" cy="370" r="65"/>
-      <circle cx="1120" cy="330" r="95"/><circle cx="1260" cy="370" r="75"/><circle cx="1390" cy="330" r="85"/>
-    </g>
-    <!-- pinos fondo -->
-    <g fill="#8ac7af" class="pinos-fondo">
-      <use href="#pino-forma" transform="translate(120,430) scale(1.3)"/>
-      <use href="#pino-forma" transform="translate(330,445) scale(1.1)"/>
-      <use href="#pino-forma" transform="translate(560,440) scale(1.2)"/>
-      <use href="#pino-forma" transform="translate(900,435) scale(1.15)"/>
-      <use href="#pino-forma" transform="translate(1200,420) scale(1.4)"/>
-    </g>
-    <!-- pinos medios -->
-    <g fill="#4ba184">
-      <use href="#pino-forma" transform="translate(40,500) scale(1.7)"/>
-      <use href="#pino-forma" transform="translate(250,510) scale(1.45)"/>
-      <use href="#pino-forma" transform="translate(1105,470) scale(2.1)"/>
-      <use href="#pino-forma" transform="translate(1400,500) scale(1.8)"/>
-    </g>
-    <!-- pinos delanteros oscuros -->
-    <g fill="#2f7361">
-      <use href="#pino-forma" transform="translate(160,545) scale(1.35)"/>
-      <use href="#pino-forma" transform="translate(1310,550) scale(1.5)"/>
-    </g>
-
-    <!-- tejado oscuro -->
-    <polygon points="720,206 1046,362 1150,326 824,170" fill="#2e3243"/>
-
-    <!-- interior de la estructura -->
-    <polygon points="430,560 430,360 720,215 1010,360 1010,560" fill="url(#muro)"/>
-
-    <!-- hoja (detalle) -->
-    <g transform="translate(650,305) scale(1.5)" fill="#3c8f77">
-      <path d="M0,18 C-14,4 -12,-14 0,-20 C12,-14 14,4 0,18 Z"/>
-      <path d="M0,18 L0,-14" stroke="#2f7361" stroke-width="2"/>
-    </g>
-
-    <!-- vigas horizontales interiores -->
-    <rect x="440" y="452" width="560" height="16" rx="4" fill="#d9bf7c"/>
-
-    <!-- estructura de madera -->
-    <g stroke="#e9d492" stroke-linejoin="round" stroke-linecap="round" fill="none" class="estructura">
-      <path d="M430,560 L430,360 L720,215 L1010,360 L1010,560" stroke-width="30"/>
-      <line x1="575" y1="560" x2="575" y2="288" stroke-width="24"/>
-      <line x1="720" y1="560" x2="720" y2="230" stroke-width="24"/>
-      <line x1="865" y1="560" x2="865" y2="288" stroke-width="24"/>
-    </g>
-
-    <!-- vetas en las vigas -->
-    <g stroke="#c9a95e" stroke-width="2" fill="none" opacity="0.65" stroke-linecap="round">
-      <path d="M424,420 q6,30 0,60"/>
-      <path d="M436,470 q-5,25 0,50"/>
-      <path d="M569,380 q6,28 0,56"/>
-      <path d="M581,450 q-5,26 0,52"/>
-      <path d="M714,320 q6,30 0,60"/>
-      <path d="M726,430 q-5,28 0,56"/>
-      <path d="M859,380 q6,28 0,56"/>
-      <path d="M1004,430 q6,28 0,56"/>
-      <path d="M520,330 q20,-6 40,2"/>
-      <path d="M880,300 q20,-6 40,2"/>
-    </g>
-
-    <!-- base / tablón inferior -->
-    <rect x="396" y="546" width="648" height="36" rx="8" fill="#e9d492"/>
-    <g stroke="#c9a95e" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round">
-      <path d="M430,558 q60,-6 120,0 t120,0 t120,0 t120,0"/>
-      <path d="M470,572 q50,5 100,0 t100,0 t100,0"/>
-      <ellipse cx="700" cy="564" rx="9" ry="3.5"/>
-    </g>
-
-    <!-- suelo -->
-    <rect x="0" y="578" width="1440" height="42" fill="#2e3243"/>
-  </svg>
+<!-- ============ CABECERA ============ -->
+<header>
+  <a href="#" class="marca">
+    <svg width="24" height="24" viewBox="0 0 26 26"><path d="M3 23V11L13 3l10 8v12h-7v-7h-6v7z" fill="#e9d492" stroke="#f6f1e4" stroke-width="2" stroke-linejoin="round"/></svg>
+    Hotel <span>Leaders</span> Club
+  </a>
+  <a href="https://wa.me/34601108311" class="boton">Solicitar mi plaza</a>
 </header>
 
-<!-- ============ 2. EL PROBLEMA ============ -->
-<section class="problema">
-  <div class="contenedor">
-    <div class="aparece">
-      <span class="etiqueta">La realidad</span>
-      <h2>Si eres director de hotel, esto te sonará.</h2>
-    </div>
-    <ul class="lista-dolor">
-      <li class="aparece plank">Los turnos los cuadras tú. Las reseñas las contestas tú. Las tarifas las revisas tú.</li>
-      <li class="aparece plank">Llevas años sin librar un domingo entero.</li>
-      <li class="aparece plank">Contratas a alguien nuevo y en un mes se va.</li>
-      <li class="aparece plank">Te dicen que la IA es el futuro, pero no tienes ni tiempo ni claridad para empezar.</li>
-      <li class="aparece plank">Si desaparecieras dos semanas, tu hotel se pararía.</li>
-    </ul>
-    <p class="cierre-problema aparece">No tienes un problema de personal. Tienes un problema de que todo pasa por ti.</p>
+<!-- ============ TARJETA DE PAÍS ============ -->
+<aside id="tarjeta" aria-live="polite">
+  <div class="tarjeta-cabecera">
+    <img id="bandera" src="" alt="">
+    <span class="emoji" id="emoji"></span>
+    <button id="cerrar" aria-label="Cerrar">✕</button>
   </div>
-</section>
-
-<!-- ============ 3. EL GIRO ============ -->
-<section class="giro">
-  <div class="contenedor">
-    <div class="aparece">
-      <span class="etiqueta">La nueva forma de dirigir</span>
-      <h2>Dirigir bien no es estar en todo. Es que casi nada <em>dependa de ti.</em></h2>
-    </div>
-    <p class="aparece">Las horas que echas a mano no son compromiso. Son un sistema roto con cara amable. La IA no le quita el alma a tu hotel — te devuelve el tiempo para lo único que ninguna máquina hace: <strong>tratar bien a la persona que tienes delante.</strong></p>
-    <p class="destacado aparece">La ventaja ya no es de quien trabaja más. Es de quien automatiza primero.</p>
+  <div class="tarjeta-cuerpo">
+    <span class="pais" id="pais"></span>
+    <h3 id="titulo"></h3>
+    <p id="texto"></p>
+    <a href="https://wa.me/34601108311" class="boton">Solicitar mi plaza</a>
   </div>
-  <!-- borde de bosque -->
-  <svg class="bosque-borde" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <g fill="#2f7361">
-      <use href="#pino-forma" transform="translate(60,115) scale(0.9)"/>
-      <use href="#pino-forma" transform="translate(230,120) scale(1.1)"/>
-      <use href="#pino-forma" transform="translate(400,118) scale(0.85)"/>
-      <use href="#pino-forma" transform="translate(560,122) scale(1.05)"/>
-      <use href="#pino-forma" transform="translate(730,116) scale(0.95)"/>
-      <use href="#pino-forma" transform="translate(900,121) scale(1.1)"/>
-      <use href="#pino-forma" transform="translate(1070,117) scale(0.9)"/>
-      <use href="#pino-forma" transform="translate(1240,122) scale(1.05)"/>
-      <use href="#pino-forma" transform="translate(1400,118) scale(0.95)"/>
-    </g>
-    <rect x="0" y="108" width="1440" height="12" fill="#2f7361"/>
-  </svg>
-</section>
+</aside>
 
-<!-- ============ 4. QUÉ ES EL CLUB ============ -->
-<section class="club" style="margin-top:-1px; background: #cbd0dc;">
-  <div class="contenedor">
-    <div class="aparece">
-      <span class="etiqueta">Hotel Leaders Club</span>
-      <h2>Un club, no un curso.</h2>
-      <p class="intro">Un círculo reducido de directores y dueños de hotel que han decidido dirigir de otra manera.</p>
-    </div>
-    <div class="pilares">
-      <div class="pilar aparece">
-        <div class="liston vetas"></div>
-        <div class="icono">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <circle cx="14" cy="14" r="6" fill="#3c8f77"/>
-            <circle cx="27" cy="16" r="5" fill="#4ba184"/>
-            <path d="M4 34c0-6 5-9 10-9s10 3 10 9" fill="#3c8f77"/>
-            <path d="M22 34c.5-5 4-8 8.5-7.5 3.5.4 5.5 3.5 5.5 7.5" fill="#4ba184"/>
-          </svg>
-        </div>
-        <h3>Networking real</h3>
-        <p>Directores de hotel de distintos países, compartiendo lo que de verdad les funciona. Sin teoría, sin gurús.</p>
-      </div>
-      <div class="pilar aparece">
-        <div class="liston vetas"></div>
-        <div class="icono">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path d="M20 4l3.2 8.8L32 16l-8.8 3.2L20 28l-3.2-8.8L8 16l8.8-3.2z" fill="#3c8f77"/>
-            <path d="M31 26l1.8 4.7L37 32l-4.2 1.6L31 38l-1.6-4.4L25 32l4.4-1.3z" fill="#4ba184"/>
-          </svg>
-        </div>
-        <h3>IA aplicada</h3>
-        <p>Aprende a quitarte de encima el trabajo repetitivo y a recuperar tus horas, paso a paso.</p>
-      </div>
-      <div class="pilar aparece">
-        <div class="liston vetas"></div>
-        <div class="icono">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <rect x="6" y="18" width="8" height="16" rx="2" fill="#4ba184"/>
-            <rect x="16" y="10" width="8" height="24" rx="2" fill="#3c8f77"/>
-            <rect x="26" y="4" width="8" height="30" rx="2" fill="#2f7361"/>
-          </svg>
-        </div>
-        <h3>Herramientas top</h3>
-        <p>Descubre antes que nadie las formas más avanzadas de mejorar tu hotel.</p>
-      </div>
-    </div>
+<!-- ============ MENÚ INFERIOR ============ -->
+<div id="menu">
+  <div class="pista">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9fb3c8" stroke-width="2" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+    Arrastra el mapa y descubre el club en cada país dorado
   </div>
-</section>
+  <div class="chips" id="chips"></div>
+</div>
 
-<!-- ============ 5. EL MÉTODO ============ -->
-<section class="metodo">
-  <div class="contenedor">
-    <div class="aparece">
-      <span class="etiqueta">El método</span>
-      <h2>El sistema Rojo · Amarillo · Verde</h2>
-      <p class="intro">Cada tarea de tu día cae en uno de estos tres colores. El problema es que llevas años tratándolas todas como rojas.</p>
-    </div>
-    <div class="semaforo">
-      <div class="paso-semaforo aparece">
-        <div class="luz luz-roja"></div>
-        <div>
-          <span class="nombre-luz rojo">Rojo</span>
-          <h3>Lo que solo puedes hacer tú.</h3>
-          <p>Decidir la estrategia. Cuidar a tu equipo. Mirar a los ojos a un cliente importante. Aquí es donde debería vivir tu jornada.</p>
-        </div>
-      </div>
-      <div class="paso-semaforo aparece">
-        <div class="luz luz-amarilla"></div>
-        <div>
-          <span class="nombre-luz amarillo">Amarillo</span>
-          <h3>Lo que puede hacer otra persona.</h3>
-          <p>Tareas que retienes por costumbre o por desconfianza. Se delegan con un sistema, no con fe.</p>
-        </div>
-      </div>
-      <div class="paso-semaforo aparece">
-        <div class="luz luz-verde"></div>
-        <div>
-          <span class="nombre-luz verde">Verde</span>
-          <h3>Lo que puede hacer una máquina.</h3>
-          <p>Reseñas, informes, correos, cuadrantes, tarifas. El trabajo repetitivo que te come las noches.</p>
-        </div>
-      </div>
-    </div>
-    <p class="cierre-metodo aparece plank">Casi todo lo que te roba la vida es verde. Y llevas años haciéndolo tú. Dentro del club lo automatizamos juntos.</p>
+<!-- ============ BIENVENIDA ============ -->
+<div id="bienvenida">
+  <div class="bienvenida-caja">
+    <span class="sello">Club privado · Solo por aplicación</span>
+    <h1>Dirigir un hotel no debería <em>costarte la vida.</em></h1>
+    <p>Un club de directores de hotel repartidos por el mundo que usan la IA para trabajar menos horas. Explora el mapa: en cada país te espera una pieza del club.</p>
+    <button id="entrar" disabled>Cargando el mundo…</button>
   </div>
-</section>
+</div>
 
-<!-- ============ 6. SÍ / NO ============ -->
-<section class="filtro">
-  <div class="contenedor">
-    <div class="aparece" style="text-align:center;">
-      <span class="etiqueta">Un club selecto</span>
-      <h2>Esto no es para todo el mundo.</h2>
-    </div>
-    <div class="columnas-filtro aparece">
-      <div class="col-filtro si plank">
-        <h3>Es para ti si</h3>
-        <ul>
-          <li>Diriges o eres dueño de un hotel u hostal.</li>
-          <li>Quieres avanzar, no perder el tiempo.</li>
-          <li>Estás abierto a hacer las cosas distinto.</li>
-        </ul>
-      </div>
-      <div class="col-filtro no">
-        <h3>No es para ti si</h3>
-        <ul>
-          <li>Buscas fórmulas mágicas.</li>
-          <li>Crees que todo tiempo pasado fue mejor.</li>
-          <li>Solo quieres mirar sin aportar nada al grupo.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ============ CARGA / ERROR ============ -->
+<div id="estado">
+  <div class="girando"></div>
+  <p>Dibujando el mapa…</p>
+</div>
 
-<!-- ============ 7. SOBRE PAU ============ -->
-<section class="pau">
-  <div class="contenedor">
-    <div class="retrato aparece">
-      <!-- Sustituir por: <img src="pau.jpg" alt="Pau Martí"> -->
-      <span class="monograma">PM</span>
-    </div>
-    <div class="aparece">
-      <span class="etiqueta">Quién está detrás</span>
-      <h2>Soy Pau Martí.</h2>
-      <p>Llevo años enseñando IA a miles de personas para que trabajen menos y vivan mejor.</p>
-      <p>Vivo viajando por el mundo, y he creado el Hotel Leaders Club para reunir a los directores de hotel que quieren dirigir sin quemarse — y conocerlos en persona allá donde voy.</p>
-      <p class="firma">— Pau Martí</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 8. CÓMO ENTRAR ============ -->
-<section class="proceso">
-  <div class="contenedor">
-    <div class="aparece" style="text-align:center;">
-      <span class="etiqueta">El proceso</span>
-      <h2>No te apuntas. Aplicas.</h2>
-      <p class="intro">Tres pasos. Sin formularios eternos, sin llamadas de venta.</p>
-    </div>
-    <div class="pasos">
-      <div class="paso aparece">
-        <div class="num vetas">1</div>
-        <h3>Solicita tu plaza</h3>
-        <p>Escríbeme por WhatsApp. Un mensaje basta.</p>
-      </div>
-      <div class="paso aparece">
-        <div class="num vetas">2</div>
-        <h3>Cuéntame tu caso</h3>
-        <p>Qué hotel diriges y qué quieres resolver.</p>
-      </div>
-      <div class="paso aparece">
-        <div class="num vetas">3</div>
-        <h3>Si encajas, entras</h3>
-        <p>El club funciona porque cuidamos quién está dentro.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 9. CTA FINAL ============ -->
-<section class="cta-final">
-  <div class="contenedor">
-    <div class="aparece">
-      <h2>Deja de sobrevivir a tu hotel. <em>Empieza a dirigirlo.</em></h2>
-      <p class="sub">Recupera tus horas. Recupera tu vida. Sigue siendo un gran hotelero — sin quemarte.</p>
-      <a href="https://wa.me/34601108311" class="boton boton-madera boton-grande">Solicitar mi plaza por WhatsApp</a>
-      <span class="nota-boton">Plazas limitadas. Solo directores de hotel.</span>
-    </div>
-  </div>
-  <!-- silueta de bosque nocturno -->
-  <svg class="bosque-noche" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-    <g fill="#252938">
-      <use href="#pino-forma" transform="translate(80,108) scale(0.85)"/>
-      <use href="#pino-forma" transform="translate(260,112) scale(1.05)"/>
-      <use href="#pino-forma" transform="translate(440,110) scale(0.8)"/>
-      <use href="#pino-forma" transform="translate(620,114) scale(1)"/>
-      <use href="#pino-forma" transform="translate(800,109) scale(0.9)"/>
-      <use href="#pino-forma" transform="translate(980,113) scale(1.05)"/>
-      <use href="#pino-forma" transform="translate(1160,110) scale(0.85)"/>
-      <use href="#pino-forma" transform="translate(1350,114) scale(1)"/>
-    </g>
-    <rect x="0" y="100" width="1440" height="10" fill="#252938"/>
-  </svg>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="contenedor">
-    <span class="marca">
-      <svg width="20" height="20" viewBox="0 0 26 26"><path d="M3 23V11L13 3l10 8v12h-7v-7h-6v7z" fill="#e9d492" stroke="#f6f1e4" stroke-width="2" stroke-linejoin="round"/></svg>
-      Hotel <span style="color:#4ba184">Leaders</span> Club
-    </span>
-    <p>© 2026 Hotel Leaders Club · Un club privado para directores de hotel</p>
-  </div>
-</footer>
-
+<script src="https://unpkg.com/globe.gl"></script>
 <script>
-  const observador = new IntersectionObserver((entradas) => {
-    entradas.forEach((entrada) => {
-      if (entrada.isIntersecting) {
-        entrada.target.classList.add('visible');
-        observador.unobserve(entrada.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+(function () {
+  var WHATSAPP = 'https://wa.me/34601108311';
 
-  document.querySelectorAll('.aparece').forEach((el) => observador.observe(el));
+  /* Cada país dorado guarda una pieza del club */
+  var DESTINOS = [
+    {
+      codigo: 'ESP', bandera: 'es', lat: 40.4, lng: -3.7, emoji: '🤝',
+      pais: 'España', chip: '🇪🇸 Networking',
+      titulo: 'Networking real entre iguales',
+      texto: 'Directores de hotel de distintos países compartiendo lo que de verdad les funciona. Sin teoría, sin gurús.'
+    },
+    {
+      codigo: 'MEX', bandera: 'mx', lat: 23.6, lng: -102.5, emoji: '⏰',
+      pais: 'México', chip: '🇲🇽 ¿Te suena?',
+      titulo: 'Si eres director, esto te sonará',
+      texto: 'Los turnos los cuadras tú. Las reseñas las contestas tú. Si desaparecieras dos semanas, tu hotel se pararía. No es un problema de personal: es que todo pasa por ti.'
+    },
+    {
+      codigo: 'BRA', bandera: 'br', lat: -10.8, lng: -52.9, emoji: '💡',
+      pais: 'Brasil', chip: '🇧🇷 El giro',
+      titulo: 'Que casi nada dependa de ti',
+      texto: 'Dirigir bien no es estar en todo. La ventaja ya no es de quien trabaja más: es de quien automatiza primero.'
+    },
+    {
+      codigo: 'USA', bandera: 'us', lat: 39.8, lng: -98.5, emoji: '🤖',
+      pais: 'Estados Unidos', chip: '🇺🇸 IA aplicada',
+      titulo: 'IA aplicada a tu hotel',
+      texto: 'Aprende a quitarte de encima el trabajo repetitivo y a recuperar tus horas, paso a paso. Sin humo.'
+    },
+    {
+      codigo: 'FRA', bandera: 'fr', lat: 46.6, lng: 2.2, emoji: '🚦',
+      pais: 'Francia', chip: '🇫🇷 El método',
+      titulo: 'Rojo · Amarillo · Verde',
+      texto: 'Rojo: lo que solo puedes hacer tú. Amarillo: lo que puede hacer otra persona. Verde: lo que puede hacer una máquina. Casi todo lo que te roba la vida es verde — y lo automatizamos juntos.'
+    },
+    {
+      codigo: 'ITA', bandera: 'it', lat: 42.8, lng: 12.5, emoji: '🏛️',
+      pais: 'Italia', chip: '🇮🇹 Un club',
+      titulo: 'Un club, no un curso',
+      texto: 'Un círculo reducido de directores y dueños de hotel que han decidido dirigir de otra manera. Cuidamos quién entra.'
+    },
+    {
+      codigo: 'JPN', bandera: 'jp', lat: 36.2, lng: 138.2, emoji: '🚀',
+      pais: 'Japón', chip: '🇯🇵 Herramientas',
+      titulo: 'Herramientas top, antes que nadie',
+      texto: 'Descubre las formas más avanzadas de mejorar tu hotel antes de que tu competencia sepa que existen.'
+    },
+    {
+      codigo: 'THA', bandera: 'th', lat: 15.8, lng: 101.0, emoji: '🌍',
+      pais: 'Tailandia', chip: '🇹🇭 Sobre Pau',
+      titulo: 'Soy Pau Martí',
+      texto: 'Llevo años enseñando IA a miles de personas. Vivo viajando por el mundo y he creado este club para conocer en persona, allá donde voy, a los directores que quieren dirigir sin quemarse.'
+    },
+    {
+      codigo: 'ARE', bandera: 'ae', lat: 24.0, lng: 54.0, emoji: '🔑',
+      pais: 'Emiratos Árabes', chip: '🇦🇪 Cómo entrar',
+      titulo: 'No te apuntas. Aplicas.',
+      texto: '1. Solicitas tu plaza por WhatsApp. 2. Me cuentas qué hotel diriges y qué quieres resolver. 3. Si encajas, entras. Plazas limitadas.'
+    }
+  ];
+
+  var porCodigo = {};
+  DESTINOS.forEach(function (d) { porCodigo[d.codigo] = d; });
+
+  var elEstado = document.getElementById('estado');
+  var elBienvenida = document.getElementById('bienvenida');
+  var elEntrar = document.getElementById('entrar');
+  var elTarjeta = document.getElementById('tarjeta');
+  var elChips = document.getElementById('chips');
+  var mundo = null;
+
+  function codigoDe(f) {
+    var p = f.properties || {};
+    return p.ADM0_A3 || p.ISO_A3 || '';
+  }
+
+  function esDestino(f) { return !!porCodigo[codigoDe(f)]; }
+
+  function abrirTarjeta(d) {
+    document.getElementById('bandera').src = 'https://flagcdn.com/w640/' + d.bandera + '.png';
+    document.getElementById('bandera').alt = 'Bandera de ' + d.pais;
+    document.getElementById('emoji').textContent = d.emoji;
+    document.getElementById('pais').textContent = d.pais;
+    document.getElementById('titulo').textContent = d.titulo;
+    document.getElementById('texto').textContent = d.texto;
+    elTarjeta.classList.add('abierta');
+    document.querySelectorAll('.chip').forEach(function (c) {
+      c.classList.toggle('activo', c.dataset.codigo === d.codigo);
+    });
+  }
+
+  function cerrarTarjeta() {
+    elTarjeta.classList.remove('abierta');
+    document.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('activo'); });
+  }
+
+  document.getElementById('cerrar').addEventListener('click', cerrarTarjeta);
+
+  function volarA(d) {
+    if (!mundo) return;
+    mundo.controls().autoRotate = false;
+    mundo.pointOfView({ lat: d.lat, lng: d.lng, altitude: 1.6 }, 1400);
+    setTimeout(function () { abrirTarjeta(d); }, 900);
+    setTimeout(function () { if (mundo) mundo.controls().autoRotate = true; }, 2600);
+  }
+
+  /* Chips inferiores */
+  DESTINOS.forEach(function (d) {
+    var b = document.createElement('button');
+    b.className = 'chip';
+    b.dataset.codigo = d.codigo;
+    b.textContent = d.chip;
+    b.addEventListener('click', function () { volarA(d); });
+    elChips.appendChild(b);
+  });
+
+  /* Colores del mapa */
+  var VERDES = ['#2f7361', '#38826d', '#3c8f77'];
+
+  function colorPais(f, hover) {
+    if (esDestino(f)) return hover ? '#f5e6b0' : '#e9d492';
+    var i = (codigoDe(f).charCodeAt(0) || 0) % VERDES.length;
+    return VERDES[i];
+  }
+
+  fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
+    .then(function (r) {
+      if (!r.ok) throw new Error('geojson');
+      return r.json();
+    })
+    .then(function (geo) {
+      var paises = geo.features.filter(function (f) { return codigoDe(f) !== 'ATA'; });
+      var hoverActual = null;
+
+      mundo = Globe()(document.getElementById('globo'))
+        .backgroundColor('rgba(0,0,0,0)')
+        .showAtmosphere(true)
+        .atmosphereColor('#4ba184')
+        .atmosphereAltitude(0.18)
+        .polygonsData(paises)
+        .polygonCapColor(function (f) { return colorPais(f, f === hoverActual); })
+        .polygonSideColor(function () { return 'rgba(10, 24, 40, 0.85)'; })
+        .polygonStrokeColor(function () { return '#0a1828'; })
+        .polygonAltitude(function (f) {
+          if (f === hoverActual && esDestino(f)) return 0.09;
+          return esDestino(f) ? 0.028 : 0.012;
+        })
+        .polygonsTransitionDuration(350)
+        .polygonLabel(function (f) {
+          var d = porCodigo[codigoDe(f)];
+          if (!d) return '';
+          return '<div style="font-family:Poppins,sans-serif;font-size:12px;font-weight:600;background:#f6f1e4;color:#2e3243;padding:6px 12px;border-radius:8px;box-shadow:0 3px 0 rgba(0,0,0,.3)">' + d.emoji + ' ' + d.pais + ' · toca para descubrir</div>';
+        })
+        .onPolygonHover(function (f) {
+          hoverActual = f;
+          mundo.polygonAltitude(mundo.polygonAltitude())
+               .polygonCapColor(mundo.polygonCapColor());
+          if (mundo.controls()) mundo.controls().autoRotate = !f;
+          if (f && esDestino(f)) abrirTarjeta(porCodigo[codigoDe(f)]);
+          document.getElementById('globo').style.cursor = f && esDestino(f) ? 'pointer' : 'grab';
+        })
+        .onPolygonClick(function (f) {
+          var d = porCodigo[codigoDe(f)];
+          if (d) volarA(d);
+        })
+        .ringsData(DESTINOS)
+        .ringLat('lat').ringLng('lng')
+        .ringColor(function () { return function (t) { return 'rgba(233, 212, 146, ' + (1 - t) + ')'; }; })
+        .ringAltitude(0.03)
+        .ringMaxRadius(4.5)
+        .ringPropagationSpeed(1.4)
+        .ringRepeatPeriod(1600);
+
+      /* Pins con emoji encima de cada país dorado */
+      if (typeof mundo.htmlElementsData === 'function') {
+        mundo.htmlElementsData(DESTINOS)
+          .htmlLat('lat').htmlLng('lng')
+          .htmlAltitude(0.032)
+          .htmlElement(function (d) {
+            var el = document.createElement('div');
+            el.className = 'pin';
+            el.textContent = d.emoji;
+            el.title = d.pais;
+            el.addEventListener('click', function (e) {
+              e.stopPropagation();
+              volarA(d);
+            });
+            return el;
+          });
+      }
+
+      /* Océano y ambiente */
+      mundo.globeMaterial().color.set('#12314e');
+      mundo.globeMaterial().emissive.set('#0a1f33');
+      mundo.globeMaterial().emissiveIntensity = 0.35;
+
+      mundo.pointOfView({ lat: 28, lng: -5, altitude: 2.3 }, 0);
+
+      var controles = mundo.controls();
+      controles.autoRotate = true;
+      controles.autoRotateSpeed = 0.55;
+      controles.enableDamping = true;
+      controles.dampingFactor = 0.08;
+
+      function redimensionar() {
+        mundo.width(window.innerWidth).height(window.innerHeight);
+      }
+      window.addEventListener('resize', redimensionar);
+      redimensionar();
+
+      elEstado.classList.add('oculto');
+      elEntrar.disabled = false;
+      elEntrar.textContent = 'Explorar el mundo del club';
+    })
+    .catch(function () {
+      elEstado.innerHTML = '<p style="max-width:420px">No se ha podido cargar el mapa (¿sin conexión?).<br><br><a href="' + WHATSAPP + '" style="color:#e9d492;font-weight:700">Escríbeme por WhatsApp para solicitar tu plaza →</a></p>';
+    });
+
+  elEntrar.addEventListener('click', function () {
+    elBienvenida.classList.add('oculta');
+    /* pequeño tour de arranque: vuela a España */
+    setTimeout(function () { if (mundo) volarA(DESTINOS[0]); }, 400);
+  });
+})();
 </script>
 
 </body>
