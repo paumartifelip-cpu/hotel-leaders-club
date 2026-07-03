@@ -80,51 +80,50 @@
 
   .marca {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
     color: var(--crema);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
     pointer-events: auto;
     text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
 
-  .marca span { color: var(--pino-claro); }
-
   .boton {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     text-decoration: none;
-    color: var(--carbon);
-    background-color: var(--madera);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='%23c9a95e' stroke-width='1.6' opacity='0.5'%3E%3Cpath d='M0 18q32-9 64 0t64 0 64 0 64 0'/%3E%3Cpath d='M0 48q40 10 80 0t80 0 100 0'/%3E%3C/g%3E%3C/svg%3E");
-    padding: 11px 22px;
-    border-radius: 12px;
-    box-shadow: 0 5px 0 var(--sombra-madera);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: inline-block;
+    color: var(--crema);
+    background: transparent;
+    border: 1.5px solid rgba(246, 241, 228, 0.55);
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     pointer-events: auto;
-    position: relative;
-    overflow: hidden;
     white-space: nowrap;
   }
 
-  .boton:hover { transform: translateY(3px); box-shadow: 0 2px 0 var(--sombra-madera); }
-
-  .boton::after {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0; left: -80%;
-    width: 45%;
-    transform: skewX(-20deg);
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-    animation: brillo 3.8s ease-in-out infinite;
+  .boton:hover {
+    background: var(--crema);
+    color: var(--noche-2);
+    border-color: var(--crema);
   }
 
-  @keyframes brillo { 0%, 55% { left: -80%; } 100% { left: 170%; } }
+  /* variante del botón sobre fondo claro (tarjeta) */
+  .tarjeta-cuerpo .boton {
+    color: var(--carbon);
+    border-color: rgba(46, 50, 67, 0.45);
+  }
+
+  .tarjeta-cuerpo .boton:hover {
+    background: var(--carbon);
+    color: var(--crema);
+    border-color: var(--carbon);
+  }
 
   /* ---------- Overlay de bienvenida ---------- */
   #bienvenida {
@@ -538,7 +537,7 @@
 
     header { padding: 12px 14px; }
 
-    .marca { font-size: 13px; }
+    .marca { font-size: 11px; letter-spacing: 0.16em; }
 
     .boton { padding: 9px 14px; font-size: 12px; }
   }
@@ -554,10 +553,7 @@
 
 <!-- ============ CABECERA ============ -->
 <header>
-  <a href="#" class="marca">
-    <svg width="24" height="24" viewBox="0 0 26 26"><path d="M3 23V11L13 3l10 8v12h-7v-7h-6v7z" fill="#e9d492" stroke="#f6f1e4" stroke-width="2" stroke-linejoin="round"/></svg>
-    Hotel <span>Leaders</span> Club
-  </a>
+  <a href="#" class="marca">Hotel Leaders Club</a>
   <a href="https://wa.me/34601108311" class="boton">Solicitar mi plaza</a>
 </header>
 
