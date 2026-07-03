@@ -159,7 +159,7 @@
   }
 
   #bienvenida h1 {
-    font-size: clamp(34px, 6.5vw, 58px);
+    font-size: clamp(30px, 5.5vw, 52px);
     font-weight: 700;
     margin-bottom: 20px;
     animation: subir 0.8s ease both 0.35s;
@@ -177,22 +177,26 @@
 
   #entrar {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     color: var(--crema);
-    background: var(--pino);
-    border: none;
+    background: transparent;
+    border: 1.5px solid rgba(246, 241, 228, 0.55);
     cursor: pointer;
-    padding: 18px 46px;
-    border-radius: 14px;
-    box-shadow: 0 6px 0 #235b4b;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    padding: 15px 42px;
+    border-radius: 8px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     animation: subir 0.8s ease both 0.65s;
   }
 
-  #entrar:hover { transform: translateY(3px); box-shadow: 0 3px 0 #235b4b; }
+  #entrar:hover {
+    background: var(--crema);
+    color: var(--noche-2);
+    border-color: var(--crema);
+  }
 
-  #entrar:disabled { opacity: 0.6; cursor: wait; }
+  #entrar:disabled { opacity: 0.5; cursor: wait; }
 
   @keyframes subir {
     from { opacity: 0; transform: translateY(30px); }
@@ -591,8 +595,8 @@
 <div id="bienvenida">
   <div class="bienvenida-caja">
     <span class="sello">Club privado · Solo por aplicación</span>
-    <h1>Dirigir un hotel no debería <em>costarte la vida.</em></h1>
-    <p>Un club de directores de hotel repartidos por el mundo que usan la IA para trabajar menos horas. Explora el mapa: en cada país te espera una pieza del club.</p>
+    <h1>El club de directores de hotel que <em>trabajan menos</em> y <em>ganan más</em></h1>
+    <p>Networking entre iguales, IA aplicada y las herramientas más avanzadas del sector. Explora el mapa: en cada país te espera una pieza del club.</p>
     <button id="entrar" disabled>Cargando el mundo…</button>
   </div>
 </div>
