@@ -310,27 +310,20 @@
 
   .tarjeta-cuerpo .boton { display: inline-block; font-size: 13px; }
 
-  /* ---------- Menú inferior de destinos ---------- */
-  #menu {
+  /* ---------- Pista inferior ---------- */
+  .pista {
     position: fixed;
     left: 0; right: 0;
-    bottom: 0;
-    z-index: 40;
-    padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
+    bottom: 14px;
+    z-index: 35;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
     align-items: center;
-    pointer-events: none;
-  }
-
-  .pista {
+    gap: 8px;
     font-size: 12.5px;
     color: var(--texto-suave);
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    pointer-events: none;
   }
 
   .pista svg { animation: arrastra 2.4s ease-in-out infinite; }
@@ -340,44 +333,140 @@
     50% { transform: translateX(8px); }
   }
 
-  .chips {
+  /* ---------- Recorrido lateral ---------- */
+  #recorrido {
+    position: fixed;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 7px;
-    max-width: 980px;
-    padding: 6px 4px 4px;
-    pointer-events: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .chip {
+  #recorrido-toggle {
     font-family: 'Poppins', sans-serif;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
-    white-space: nowrap;
     color: var(--crema);
-    background: rgba(20, 42, 64, 0.78);
+    background: rgba(20, 42, 64, 0.8);
     border: 1.5px solid rgba(138, 199, 175, 0.35);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    padding: 8px 14px;
     border-radius: 999px;
+    padding: 10px 16px;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 7px;
-    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    gap: 8px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
   }
 
-  .chip .chip-bandera { font-size: 15px; line-height: 1; }
+  #recorrido-toggle:hover { border-color: var(--pino-claro); transform: translateY(-1px); }
 
-  .chip:hover { transform: translateY(-2px); border-color: var(--pino-claro); }
-
-  .chip.activo {
-    background: var(--madera);
-    border-color: var(--madera);
-    color: var(--carbon);
+  .recorrido-panel {
+    width: 236px;
+    background: rgba(16, 34, 52, 0.88);
+    border: 1.5px solid rgba(138, 199, 175, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-14px);
+    visibility: hidden;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 0.9, 0.3, 1), visibility 0.35s;
   }
+
+  #recorrido.abierto .recorrido-panel {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .recorrido-cabecera {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pino-claro);
+    padding: 14px 16px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .recorrido-cabecera small {
+    color: var(--texto-suave);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: none;
+  }
+
+  #lista-recorrido {
+    list-style: none;
+    margin: 0;
+    padding: 0 8px 10px;
+    max-height: 54vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(138, 199, 175, 0.4) transparent;
+  }
+
+  #lista-recorrido::-webkit-scrollbar { width: 5px; }
+  #lista-recorrido::-webkit-scrollbar-thumb { background: rgba(138, 199, 175, 0.35); border-radius: 3px; }
+
+  .parada {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--crema);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 7px 9px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+  }
+
+  .parada:hover { background: rgba(138, 199, 175, 0.14); }
+
+  .parada .n {
+    font-size: 10px;
+    color: var(--texto-suave);
+    min-width: 16px;
+    text-align: right;
+  }
+
+  .parada .b { font-size: 15px; line-height: 1; }
+
+  .parada.activo { background: var(--madera); color: var(--carbon); }
+
+  .parada.activo .n { color: rgba(46, 50, 67, 0.6); }
+
+  /* botón "siguiente parada" dentro de la tarjeta */
+  #siguiente {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pino-oscuro);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 8px 0;
+  }
+
+  #siguiente:hover { text-decoration: underline; }
 
   /* ---------- Carga / error ---------- */
   #estado {
@@ -412,22 +501,25 @@
 
   /* ---------- Móvil ---------- */
   @media (max-width: 640px) {
-    /* chips compactos: solo bandera, todos visibles sin arrastrar */
-    .chip { padding: 8px 10px; }
-
-    .chip .chip-texto { display: none; }
-
-    .chip .chip-bandera { font-size: 19px; }
-
-    .chip.activo { transform: scale(1.15); }
-
     .pista { display: none; }
+
+    /* el recorrido pasa a botón flotante abajo a la izquierda */
+    #recorrido {
+      top: auto;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      transform: none;
+      flex-direction: column-reverse;
+    }
+
+    .recorrido-panel { width: min(76vw, 264px); }
+
+    #lista-recorrido { max-height: 44vh; }
 
     #tarjeta {
       top: auto;
       right: 12px;
       left: 12px;
-      bottom: 128px;
+      bottom: calc(72px + env(safe-area-inset-bottom));
       width: auto;
       transform: translateY(30px) scale(0.97);
     }
@@ -476,17 +568,23 @@
     <span class="pais" id="pais"></span>
     <h3 id="titulo"></h3>
     <p id="texto"></p>
-    <a href="https://wa.me/34601108311" class="boton">Solicitar mi plaza</a>
+    <a href="https://wa.me/34601108311" class="boton">Solicitar mi plaza</a><button id="siguiente">Siguiente parada →</button>
   </div>
 </aside>
 
-<!-- ============ MENÚ INFERIOR ============ -->
-<div id="menu">
-  <div class="pista">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9fb3c8" stroke-width="2" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-    Arrastra el mapa y descubre el club en cada país dorado
+<!-- ============ RECORRIDO LATERAL ============ -->
+<aside id="recorrido" class="abierto">
+  <div class="recorrido-panel">
+    <div class="recorrido-cabecera">El recorrido <small id="recorrido-total"></small></div>
+    <ol id="lista-recorrido"></ol>
   </div>
-  <div class="chips" id="chips"></div>
+  <button id="recorrido-toggle" aria-expanded="true">🌍 <span>Recorrido</span></button>
+</aside>
+
+<!-- pista inferior -->
+<div class="pista">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9fb3c8" stroke-width="2" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+  Arrastra el mapa y descubre el club en cada país dorado
 </div>
 
 <!-- ============ BIENVENIDA ============ -->
@@ -707,8 +805,8 @@
   var elBienvenida = document.getElementById('bienvenida');
   var elEntrar = document.getElementById('entrar');
   var elTarjeta = document.getElementById('tarjeta');
-  var elChips = document.getElementById('chips');
   var mundo = null;
+  var actualIdx = -1;
 
   function codigoDe(f) {
     var p = f.properties || {};
@@ -718,6 +816,7 @@
   function esDestino(f) { return !!porCodigo[codigoDe(f)]; }
 
   function abrirTarjeta(d) {
+    actualIdx = DESTINOS.indexOf(d);
     document.getElementById('bandera').src = 'https://flagcdn.com/w640/' + d.bandera + '.png';
     document.getElementById('bandera').alt = 'Bandera de ' + d.pais;
     document.getElementById('emoji').textContent = d.emoji;
@@ -725,14 +824,16 @@
     document.getElementById('titulo').textContent = d.titulo;
     document.getElementById('texto').textContent = d.texto;
     elTarjeta.classList.add('abierta');
-    document.querySelectorAll('.chip').forEach(function (c) {
-      c.classList.toggle('activo', c.dataset.codigo === d.codigo);
+    document.querySelectorAll('.parada').forEach(function (c) {
+      var activo = c.dataset.codigo === d.codigo;
+      c.classList.toggle('activo', activo);
+      if (activo) c.scrollIntoView({ block: 'nearest' });
     });
   }
 
   function cerrarTarjeta() {
     elTarjeta.classList.remove('abierta');
-    document.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('activo'); });
+    document.querySelectorAll('.parada').forEach(function (c) { c.classList.remove('activo'); });
   }
 
   document.getElementById('cerrar').addEventListener('click', cerrarTarjeta);
@@ -745,17 +846,38 @@
     setTimeout(function () { if (mundo) mundo.controls().autoRotate = true; }, 2600);
   }
 
-  /* Chips inferiores: bandera + texto (en móvil solo bandera) */
-  DESTINOS.forEach(function (d) {
+  /* Lista lateral del recorrido, numerada y plegable */
+  var elRecorrido = document.getElementById('recorrido');
+  var elLista = document.getElementById('lista-recorrido');
+  document.getElementById('recorrido-total').textContent = DESTINOS.length + ' paradas';
+
+  DESTINOS.forEach(function (d, i) {
     var partes = d.chip.split(' ');
     var bandera = partes.shift();
+    var li = document.createElement('li');
     var b = document.createElement('button');
-    b.className = 'chip';
+    b.className = 'parada';
     b.dataset.codigo = d.codigo;
     b.title = d.pais + ' · ' + d.titulo;
-    b.innerHTML = '<span class="chip-bandera">' + bandera + '</span><span class="chip-texto">' + partes.join(' ') + '</span>';
-    b.addEventListener('click', function () { volarA(d); });
-    elChips.appendChild(b);
+    b.innerHTML = '<span class="n">' + (i + 1) + '</span><span class="b">' + bandera + '</span><span>' + partes.join(' ') + '</span>';
+    b.addEventListener('click', function () {
+      volarA(d);
+      if (window.innerWidth <= 640) elRecorrido.classList.remove('abierto');
+    });
+    li.appendChild(b);
+    elLista.appendChild(li);
+  });
+
+  document.getElementById('recorrido-toggle').addEventListener('click', function () {
+    var abierto = elRecorrido.classList.toggle('abierto');
+    this.setAttribute('aria-expanded', abierto);
+  });
+
+  /* en móvil arranca plegado para no tapar el globo */
+  if (window.innerWidth <= 640) elRecorrido.classList.remove('abierto');
+
+  document.getElementById('siguiente').addEventListener('click', function () {
+    volarA(DESTINOS[(actualIdx + 1) % DESTINOS.length]);
   });
 
   /* Colores del mapa */
