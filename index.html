@@ -209,23 +209,19 @@
     box-shadow: 0 10px 26px -4px rgba(255, 106, 136, 0.55);
   }
 
-  /* ============ VISTA ESCUELA SUPERIOR DE IA (SOFT UI COMPACTA) ============ */
+  /* ============ VISTA ESCUELA SUPERIOR DE IA (ESTÉTICA YOUTUBE OFICIAL) ============ */
   #vista-escuela {
     position: fixed;
     inset: 0;
     z-index: 45;
-    background-color: var(--bg-canvas);
-    background-image: 
-      radial-gradient(circle at 15% 10%, rgba(255, 154, 139, 0.18) 0%, transparent 45%),
-      radial-gradient(circle at 85% 15%, rgba(166, 193, 238, 0.25) 0%, transparent 45%),
-      radial-gradient(circle at 50% 90%, rgba(132, 250, 176, 0.16) 0%, transparent 50%);
+    background-color: #ffffff;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: 104px;
-    padding-bottom: 80px;
+    padding-top: 86px;
+    padding-bottom: 70px;
     display: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
   }
 
   #vista-escuela.activa {
@@ -233,518 +229,773 @@
     opacity: 1;
   }
 
-  .escuela-contenedor {
-    max-width: 1140px;
+  .yt-container {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
-  /* Hero Banner compacto Soft UI */
-  .escuela-hero-card {
-    background: var(--surface-card);
-    border-radius: 30px;
-    padding: 32px 38px;
-    box-shadow: var(--shadow-card);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    margin-bottom: 24px;
+  /* Barra superior estilo YouTube */
+  .yt-header-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 6px 0 14px;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  .hero-card-info {
-    flex: 1;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #f5576c;
-    background: rgba(245, 87, 108, 0.08);
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-    width: fit-content;
-  }
-
-  .escuela-hero-card h1 {
-    font-size: clamp(24px, 2.8vw, 34px);
-    font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 10px;
-    color: var(--text-main);
-  }
-
-  .escuela-hero-card h1 span.gradiente {
-    background: var(--grad-vibrant);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .escuela-hero-card p {
-    font-size: 14.5px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0;
-    max-width: 640px;
-  }
-
-  .stat-capsula {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--text-main);
-    border-radius: 18px;
-    padding: 9px 14px;
+  .yt-brand-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12.5px;
-    font-weight: 600;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
   }
 
-  .stat-capsula strong {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #ff6a88;
+  .yt-logo-icon {
+    width: 38px;
+    height: 26px;
+    background: #ff0000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.25);
   }
 
-  /* Barra de herramientas compacta: Buscador y Espacios */
-  .toolbar-compacta {
-    background: var(--surface-card);
-    border-radius: 24px;
-    padding: 14px 18px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-soft);
+  .yt-logo-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+    margin-left: 2px;
+  }
+
+  .yt-brand-text {
     display: flex;
     flex-direction: column;
-    gap: 14px;
   }
 
-  .toolbar-top-row {
+  .yt-brand-text .yt-main-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: #0f0f0f;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .yt-brand-text .yt-sub-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ff0000;
+  }
+
+  /* Centro: Buscador y micrófono estilo YouTube */
+  .yt-search-center {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .buscador-input-box {
-    position: relative;
+    gap: 12px;
     flex: 1;
-    min-width: 250px;
+    max-width: 620px;
+    margin: 0 auto;
   }
 
-  .buscador-input-box input {
+  .yt-search-box {
+    display: flex;
+    align-items: center;
     width: 100%;
-    background: #f1f4f9;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    padding: 10px 18px 10px 40px;
-    color: var(--text-main);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13.5px;
-    outline: none;
-    transition: all 0.2s ease;
-  }
-
-  .buscador-input-box input:focus {
+    height: 40px;
+    border: 1px solid #d3d3d3;
+    border-radius: 40px;
     background: #ffffff;
-    border-color: #ffd1ff;
-    box-shadow: 0 0 0 4px rgba(255, 106, 136, 0.12);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .buscador-input-box .icono {
+  .yt-search-box:focus-within {
+    border-color: #1a73e8;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 0 1px #1a73e8;
+  }
+
+  .yt-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #0f0f0f;
+    background: transparent;
+  }
+
+  .yt-search-btn {
+    width: 64px;
+    height: 100%;
+    background: #f8f8f8;
+    border: none;
+    border-left: 1px solid #d3d3d3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f0f0f;
+    transition: background 0.15s ease;
+  }
+
+  .yt-search-btn:hover {
+    background: #f0f0f0;
+  }
+
+  .yt-mic-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #f2f2f2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f0f0f;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .yt-mic-btn:hover {
+    background: #e5e5e5;
+  }
+
+  /* Derecha: Acciones estilo YouTube (+ Crear, Notificaciones, Avatar) */
+  .yt-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .yt-btn-crear {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 18px;
+    background: #f2f2f2;
+    border: 1px solid transparent;
+    color: #0f0f0f;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+
+  .yt-btn-crear:hover {
+    background: #e5e5e5;
+  }
+
+  .yt-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f0f0f;
+    font-size: 18px;
+    transition: background 0.15s;
+  }
+
+  .yt-icon-btn:hover {
+    background: #f2f2f2;
+  }
+
+  .yt-avatar-profile {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8533 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Barra de Chips estilo YouTube */
+  .yt-chips-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    overflow-x: auto;
+    padding: 2px 0 6px;
+    scrollbar-width: none;
+  }
+
+  .yt-chips-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .yt-chip {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+    background: #f2f2f2;
+    color: #0f0f0f;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .yt-chip:hover {
+    background: #e5e5e5;
+  }
+
+  .yt-chip.activo {
+    background: #0f0f0f;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .yt-chip-count {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  /* Cuadrícula de vídeos estilo YouTube */
+  .yt-feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 32px 18px;
+  }
+
+  /* Tarjeta de vídeo estilo YouTube */
+  .yt-video-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  .yt-video-card:hover .yt-thumb-img {
+    transform: scale(1.02);
+  }
+
+  .yt-thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0f0f0f;
+    margin-bottom: 12px;
+  }
+
+  .yt-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .yt-time-badge {
     position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: var(--text-soft);
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.82);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 3px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
     pointer-events: none;
   }
 
-  .btn-crear-post {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
+  .yt-type-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     color: #ffffff;
-    background: var(--grad-vibrant);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 999px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    box-shadow: 0 6px 18px -2px rgba(245, 87, 108, 0.4);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .btn-crear-post:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px -3px rgba(245, 87, 108, 0.5);
-  }
-
-  /* Píldoras de Espacios temáticos */
-  .espacios-scroll {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-  .espacios-scroll::-webkit-scrollbar { display: none; }
-
-  .espacio-pill {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    color: var(--text-muted);
-    background: #f1f4f9;
-    border: 1px solid transparent;
-    padding: 7px 15px;
-    border-radius: 999px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    white-space: nowrap;
-    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
   }
 
-  .espacio-pill:hover {
-    background: #e9eef5;
-    color: var(--text-main);
+  .yt-card-info-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
   }
 
-  .espacio-pill.activo {
-    background: var(--text-main);
+  .yt-channel-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8533 100%);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
-  }
-
-  .espacio-pill .conteo {
-    font-size: 10px;
-    opacity: 0.8;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 1px 6px;
-    border-radius: 999px;
-  }
-  .espacio-pill:not(.activo) .conteo {
-    background: rgba(15, 23, 42, 0.08);
-  }
-
-  /* Cuadrícula de publicaciones: TODOS LOS BLOQUES DEL MISMO TAMAÑO Y ALINEADOS */
-  .publicaciones-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  /* Tarjeta de Publicación Soft UI uniforme */
-  .publicacion-card {
-    background: var(--surface-card);
-    border-radius: 26px;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .publicacion-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .pub-meta-row {
-    padding: 16px 18px 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    min-height: 50px;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
     flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
-  .badge-espacio-soft {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #ff6a88;
-    background: rgba(255, 106, 136, 0.09);
-    padding: 4px 11px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap;
+  .yt-card-text {
+    flex: 1;
+    min-width: 0;
   }
 
-  .badge-tipo-soft {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
+  .yt-card-title {
+    font-size: 15px;
     font-weight: 600;
-    color: var(--text-soft);
-    white-space: nowrap;
-  }
-
-  /* Título de altura uniforme idéntica (2 líneas) */
-  .pub-titulo {
-    padding: 0 18px 12px;
-    font-size: 16px;
-    font-weight: 700;
+    color: #0f0f0f;
     line-height: 1.35;
-    color: var(--text-main);
-    height: 52px;
+    margin: 0 0 5px 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    flex-shrink: 0;
   }
 
-  /* Media: Video de YouTube y Carrusel con exactamente la misma proporción 16:9 */
-  .media-video-box,
-  .media-carrusel-box {
+  .yt-card-channel {
+    font-size: 13px;
+    color: #606060;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 0 2px 0;
+  }
+
+  .yt-verified-badge {
+    display: inline-flex;
+    color: #606060;
+  }
+
+  .yt-card-stats {
+    font-size: 12.5px;
+    color: #606060;
+    margin: 0;
+  }
+
+  .yt-card-more-btn {
+    background: transparent;
+    border: none;
+    color: #606060;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 50%;
+    align-self: flex-start;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+  }
+
+  .yt-video-card:hover .yt-card-more-btn {
+    opacity: 1;
+  }
+
+  .yt-card-more-btn:hover {
+    background: #f2f2f2;
+  }
+
+  /* ============ VISTA APARTADO DEL VÍDEO (WATCH PAGE ESTILO YOUTUBE) ============ */
+  #yt-watch-view {
+    display: none;
+  }
+
+  #yt-watch-view.activa {
+    display: block;
+  }
+
+  .yt-back-nav {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .yt-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #f2f2f2;
+    border: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0f0f0f;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
+  }
+
+  .yt-back-btn:hover {
+    background: #e5e5e5;
+    transform: translateX(-2px);
+  }
+
+  .yt-watch-layout {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Columna principal del vídeo */
+  .yt-watch-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .yt-watch-player-box {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #000000;
+    border-radius: 16px;
     overflow: hidden;
-    flex-shrink: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   }
 
-  .carrusel-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  .carrusel-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    background: #edf2f7;
-  }
-
-  .carrusel-slide img {
+  .yt-watch-player-box iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: none;
     display: block;
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
   }
 
-  .carrusel-slide:hover img {
-    transform: scale(1.02);
+  .yt-watch-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0f0f0f;
+    line-height: 1.3;
+    margin: 16px 0 12px;
   }
 
-  .carrusel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 14px 8px;
-    background: linear-gradient(0deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.3) 70%, transparent 100%);
-    color: #ffffff;
-    font-size: 12px;
-    line-height: 1.35;
-    pointer-events: none;
-  }
-
-  /* Botones del carrusel estilo cápsula flotante blanca */
-  .carrusel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    color: var(--text-main);
+  .yt-watch-channel-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 700;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    transition: all 0.2s ease;
-    z-index: 5;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  .carrusel-btn:hover {
-    background: #ffffff;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
-  }
-
-  .carrusel-btn.prev { left: 10px; }
-  .carrusel-btn.next { right: 10px; }
-
-  .carrusel-contador-pill {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--text-main);
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 999px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-    z-index: 5;
-    pointer-events: none;
-  }
-
-  .carrusel-dots {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
+  .yt-watch-channel-left {
     display: flex;
-    gap: 5px;
-    z-index: 6;
+    align-items: center;
+    gap: 12px;
   }
 
-  .carrusel-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.55);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: all 0.25s ease;
-  }
-
-  .carrusel-dot.activo {
-    background: #ffffff;
-    width: 16px;
-    border-radius: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-  }
-
-  /* Cuerpo de la Publicación con distribución simétrica */
-  .pub-cuerpo {
-    padding: 16px 18px 18px;
+  .yt-watch-channel-info {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    flex: 1;
-    justify-content: space-between;
   }
 
-  .pub-descripcion {
-    font-size: 13.5px;
-    color: var(--text-muted);
-    line-height: 1.55;
-    height: 64px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0;
-  }
-
-  .pub-tags {
+  .yt-watch-channel-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #0f0f0f;
     display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .yt-watch-channel-sub {
+    font-size: 12px;
+    color: #606060;
+  }
+
+  .yt-btn-solicitar-plaza {
+    background: #0f0f0f;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background 0.15s, transform 0.15s;
+    margin-left: 6px;
+  }
+
+  .yt-btn-solicitar-plaza:hover {
+    background: #272727;
+    transform: translateY(-1px);
+  }
+
+  .yt-watch-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-wrap: wrap;
+  }
+
+  .yt-pill-action {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    height: 28px;
-    overflow: hidden;
-    margin-top: auto;
-  }
-
-  .tag-item-soft {
-    font-family: 'Poppins', sans-serif;
-    font-size: 10.5px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #f2f2f2;
+    border: none;
+    color: #0f0f0f;
+    font-size: 13px;
     font-weight: 600;
-    color: #475569;
-    background: #f1f5f9;
-    padding: 3px 9px;
-    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
     white-space: nowrap;
   }
 
-  .pub-footer {
-    padding-top: 12px;
-    border-top: 1px solid #f1f5f9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: var(--text-soft);
-    min-height: 38px;
-    margin-top: auto;
+  .yt-pill-action:hover {
+    background: #e5e5e5;
   }
 
-  .pub-autor {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-weight: 500;
-  }
-
-  .autor-avatar-soft {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--grad-aurora);
+  .yt-pill-action.resaltado {
+    background: #25D366;
     color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 10px;
+  }
+  .yt-pill-action.resaltado:hover {
+    background: #20bd5a;
   }
 
-  .btn-link-action {
-    color: #ff6a88;
-    text-decoration: none;
+  /* Caja de descripción enriquecida estilo YouTube */
+  .yt-watch-description-box {
+    background: #f2f2f2;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #0f0f0f;
+  }
+
+  .yt-desc-header {
+    font-size: 13px;
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
+    color: #0f0f0f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .yt-desc-tag {
+    color: #065fd4;
+    font-weight: 600;
+    margin-right: 6px;
+    cursor: pointer;
+  }
+
+  .yt-desc-text {
+    margin: 8px 0 14px;
+    white-space: pre-line;
+  }
+
+  /* Bloque de Aplicación directa en el hotel */
+  .yt-hotel-insight-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    border-left: 4px solid #ff0000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .yt-hotel-insight-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .yt-hotel-insight-card p {
+    font-size: 13.5px;
+    color: #333333;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .yt-desc-links-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .yt-desc-link-item {
+    font-size: 13px;
+    color: #065fd4;
+    text-decoration: none;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    transition: color 0.2s ease;
+    gap: 6px;
   }
-  .btn-link-action:hover {
-    color: #f5576c;
+
+  .yt-desc-link-item:hover {
     text-decoration: underline;
   }
 
-  .publicaciones-vacio {
+  /* Columna lateral: Vídeos recomendados de la escuela */
+  .yt-watch-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .yt-sidebar-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+  }
+
+  .yt-side-video-card {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 6px;
+    transition: background 0.15s ease;
+  }
+
+  .yt-side-video-card:hover {
+    background: #f2f2f2;
+  }
+
+  .yt-side-video-card.activo {
+    background: #e8e8e8;
+  }
+
+  .yt-side-thumb {
+    position: relative;
+    width: 160px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000000;
+    flex-shrink: 0;
+  }
+
+  .yt-side-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .yt-side-thumb .yt-time-badge {
+    bottom: 4px;
+    right: 4px;
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+
+  .yt-side-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .yt-side-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0f0f0f;
+    line-height: 1.3;
+    margin: 0 0 4px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .yt-side-channel {
+    font-size: 12px;
+    color: #606060;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin: 0 0 2px 0;
+  }
+
+  .yt-side-stats {
+    font-size: 11.5px;
+    color: #606060;
+    margin: 0;
+  }
+
+  /* Estado vacío de búsqueda */
+  .yt-empty-state {
+    grid-column: 1 / -1;
     text-align: center;
     padding: 60px 20px;
-    color: var(--text-muted);
-    grid-column: 1 / -1;
+    color: #606060;
+  }
+
+  .yt-empty-state h3 {
+    font-size: 18px;
+    color: #0f0f0f;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 980px) {
+    .yt-watch-layout {
+      grid-template-columns: 1fr;
+    }
+    .yt-side-thumb {
+      width: 130px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .yt-header-bar {
+      flex-wrap: wrap;
+    }
+    .yt-search-center {
+      order: 3;
+      max-width: 100%;
+      width: 100%;
+    }
+    .yt-feed-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ============ VISTA DEL GLOBO (EL CLUB) ADAPTADA A SOFT UI ============ */
@@ -1422,47 +1673,146 @@
   <p style="color:var(--text-muted);font-weight:600">Preparando el entorno...</p>
 </div>
 
-<!-- ============ VISTA: ESCUELA SUPERIOR DE IA PARA HOTELES ============ -->
+<!-- ============ VISTA: ESCUELA SUPERIOR DE IA PARA HOTELES (ESTÉTICA YOUTUBE) ============ -->
 <main id="vista-escuela" aria-label="Escuela Superior de IA para Hoteles">
-  <div class="escuela-contenedor">
+  <div class="yt-container">
 
-    <!-- Hero Banner compacto -->
-    <section class="escuela-hero-card">
-      <div class="hero-card-info">
-        <span class="hero-tag">🎓 Escuela Superior de IA para Hoteles</span>
-        <h1>Aprende a Dirigir tu Hotel con <span class="gradiente">Inteligencia Artificial</span></h1>
-        <p>Masterclasses en vídeo y recursos de automatización para recepción, revenue, reseñas y turnos de equipo sin teoría ni humo.</p>
-      </div>
-      <div>
-        <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20la%20Escuela%20de%20IA%20para%20Hoteles" class="boton boton-aurora" target="_blank" rel="noopener">
-          <span>Consultar con Pau Martí →</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Barra de herramientas compacta -->
-    <section class="toolbar-compacta" aria-label="Filtros y buscador">
-      <div class="toolbar-top-row">
-        <div class="buscador-input-box">
-          <span class="icono">🔍</span>
-          <input type="search" id="input-buscador" placeholder="Buscar por tema, prompt, herramienta (ej. WhatsApp, Revenue, PMS)..." aria-label="Buscar en la escuela">
+    <!-- Barra de navegación y búsqueda estilo YouTube -->
+    <header class="yt-header-bar">
+      <!-- Marca / Logo Escuela IA -->
+      <div class="yt-brand-logo" id="btn-yt-home" title="Ir al inicio de la Escuela">
+        <div class="yt-logo-icon">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"></polygon></svg>
         </div>
+        <div class="yt-brand-text">
+          <span class="yt-main-title">Escuela IA</span>
+          <span class="yt-sub-badge">Hotel Leaders Club</span>
+        </div>
+      </div>
 
-        <button class="btn-crear-post" id="btn-abrir-crear" type="button">
-          <span>➕</span>
-          <span>Nueva Publicación</span>
+      <!-- Buscador central con píldora y botón de micrófono -->
+      <div class="yt-search-center">
+        <form class="yt-search-box" id="form-buscador-yt" onsubmit="event.preventDefault();">
+          <input type="search" class="yt-search-input" id="input-buscador" placeholder="Buscar por tema, prompt, herramienta (ej. Gemini, Vídeo, Google)..." aria-label="Buscar en la escuela">
+          <button type="submit" class="yt-search-btn" id="btn-buscar-yt" title="Buscar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+          </button>
+        </form>
+        <button class="yt-mic-btn" type="button" title="Búsqueda por voz (simulado)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"></path></svg>
         </button>
       </div>
 
-      <!-- Selector de espacios temáticos -->
-      <div class="espacios-scroll" id="lista-espacios" role="tablist" aria-label="Filtrar por espacio temático">
-        <!-- Renderizado dinámico de píldoras de espacios -->
+      <!-- Acciones a la derecha estilo YouTube (+ Crear, Campana, Avatar Pau Martí) -->
+      <div class="yt-actions-right">
+        <button class="yt-btn-crear" id="btn-abrir-crear" type="button" title="Lanzar nueva publicación">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+          <span>Crear</span>
+        </button>
+        <button class="yt-icon-btn" type="button" title="Notificaciones de nuevas lecciones">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path></svg>
+        </button>
+        <div class="yt-avatar-profile" title="Pau Martí Felip">PM</div>
+      </div>
+    </header>
+
+    <!-- Barra de Chips temáticos estilo YouTube -->
+    <nav class="yt-chips-container" id="lista-espacios" aria-label="Categorías de formación">
+      <!-- Píldoras generadas dinámicamente -->
+    </nav>
+
+    <!-- ============ VISTA 1: FEED DE VÍDEOS (GRID ESTILO YOUTUBE) ============ -->
+    <section id="yt-feed-view">
+      <div class="yt-feed-grid" id="contenedor-publicaciones" aria-live="polite">
+        <!-- Tarjetas de vídeos inyectadas por JavaScript -->
       </div>
     </section>
 
-    <!-- Cuadrícula de Publicaciones (Vídeos de YouTube y Carruseles de Fotos) -->
-    <section class="publicaciones-grid" id="contenedor-publicaciones" aria-live="polite">
-      <!-- Se inyectan las publicaciones desde JavaScript -->
+    <!-- ============ VISTA 2: APARTADO DEL VÍDEO (WATCH PAGE ESTILO YOUTUBE) ============ -->
+    <section id="yt-watch-view" aria-label="Detalle y reproducción de la lección">
+      <div class="yt-back-nav">
+        <button type="button" class="yt-back-btn" id="btn-volver-feed">
+          <span>←</span>
+          <span>Volver a todos los vídeos</span>
+        </button>
+      </div>
+
+      <div class="yt-watch-layout">
+        <!-- Columna Principal: Reproductor, título, canal, descripción ampliada -->
+        <article class="yt-watch-main">
+          <div class="yt-watch-player-box" id="yt-watch-player">
+            <!-- Iframe de YouTube o carrusel se inyecta aquí -->
+          </div>
+
+          <h1 class="yt-watch-title" id="yt-watch-title">Cargando lección...</h1>
+
+          <!-- Fila del canal con botón de suscripción/WhatsApp y píldoras -->
+          <div class="yt-watch-channel-bar">
+            <div class="yt-watch-channel-left">
+              <div class="yt-channel-avatar" style="width:42px;height:42px;font-size:15px">PM</div>
+              <div class="yt-watch-channel-info">
+                <span class="yt-watch-channel-title">
+                  Pau Martí Felip
+                  <span class="yt-verified-badge" title="Canal Verificado">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                  </span>
+                </span>
+                <span class="yt-watch-channel-sub">Escuela Superior de IA • Hotel Leaders Club</span>
+              </div>
+              <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20quiero%20solicitar%20mi%20plaza%20en%20la%20Escuela%20de%20IA" class="yt-btn-solicitar-plaza" id="btn-watch-solicitar" target="_blank" rel="noopener">
+                <span>Solicitar plaza</span>
+              </a>
+            </div>
+
+            <div class="yt-watch-actions-right">
+              <a href="https://wa.me/34601108311" class="yt-pill-action resaltado" id="btn-watch-wa" target="_blank" rel="noopener">
+                <span>📱 WhatsApp con Pau</span>
+              </a>
+              <button type="button" class="yt-pill-action" id="btn-watch-share">
+                <span>🔗 Compartir</span>
+              </button>
+              <a href="#" class="yt-pill-action" id="btn-watch-yt-orig" target="_blank" rel="noopener">
+                <span>↗ Abrir en YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Caja de Descripción Detallada (Apartado enriquecido) -->
+          <div class="yt-watch-description-box" id="yt-watch-desc-box">
+            <div class="yt-desc-header">
+              <span id="yt-desc-fecha" style="font-weight:700">Hotel Leaders Club • 2026</span>
+              <span id="yt-desc-tags"></span>
+            </div>
+            <div class="yt-desc-text" id="yt-desc-texto">
+              Descripción completa del contenido del vídeo.
+            </div>
+
+            <!-- Recuadro específico de aplicación hotelera -->
+            <div class="yt-hotel-insight-card" id="yt-desc-hotel-box">
+              <h4>🏨 Aplicación práctica para tu hotel:</h4>
+              <p id="yt-desc-hotel-texto">Detalles de cómo directores y equipos hoteleros pueden aplicar esta herramienta o técnica.</p>
+            </div>
+
+            <!-- Enlaces directos y recursos -->
+            <div class="yt-desc-links-row">
+              <a href="#" class="yt-desc-link-item" id="yt-desc-enlace-oficial" target="_blank" rel="noopener">
+                <span>▶ Ver vídeo original en el canal oficial de Pau Martí en YouTube</span>
+              </a>
+              <a href="https://wa.me/34601108311" class="yt-desc-link-item" id="yt-desc-enlace-wa" target="_blank" rel="noopener">
+                <span>💬 Consultar a Pau Martí cómo implantar esto en tu hotel por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Columna Lateral: Otras lecciones recomendadas -->
+        <aside class="yt-watch-sidebar">
+          <div class="yt-sidebar-title">Más lecciones de la Escuela</div>
+          <div id="yt-watch-sidebar-list">
+            <!-- Miniaturas compactas estilo YouTube inyectadas dinámicamente -->
+          </div>
+        </aside>
+      </div>
     </section>
 
   </div>
@@ -1924,15 +2274,15 @@
     });
 
   /* ========================================================
-     ESCUELA SUPERIOR DE IA PARA HOTELES (DATOS Y LÓGICA)
+     ESCUELA SUPERIOR DE IA PARA HOTELES (ESTÉTICA YOUTUBE OFICIAL)
      ======================================================== */
   var ESPACIOS_ESCUELA = [
-    { id: 'todos', nombre: 'Todos los Espacios', icono: '🌟' },
-    { id: 'recepcion', nombre: 'Recepción & Agentes 24/7', icono: '🤖' },
-    { id: 'revenue', nombre: 'Revenue & Precios', icono: '📈' },
-    { id: 'reputacion', nombre: 'Reputación & Reseñas', icono: '⭐' },
-    { id: 'operaciones', nombre: 'Turnos & Equipos', icono: '👥' },
-    { id: 'venta_directa', nombre: 'Venta Directa', icono: '🎯' }
+    { id: 'todos', nombre: 'Todo' },
+    { id: 'venta_directa', nombre: 'Google & Visibilidad' },
+    { id: 'recepcion', nombre: 'Recepción & Agentes' },
+    { id: 'operaciones', nombre: 'Vídeo con IA & Contenidos' },
+    { id: 'revenue', nombre: 'Modelos Flash & Razonamiento' },
+    { id: 'reputacion', nombre: 'Diseño & Retoque' }
   ];
 
   var PUBLICACIONES_ESCUELA = [
@@ -1941,12 +2291,14 @@
       espacio: 'venta_directa',
       tipo: 'video',
       titulo: 'Cómo aparecer en el nuevo Google con IA (2026)',
-      descripcion: 'Pau Martí explica cómo funciona el nuevo algoritmo de Google impulsado por Inteligencia Artificial y qué estrategias aplicar para posicionar tu negocio y marca en los resultados de búsqueda generativa.',
+      descripcion: 'Pau Martí explica en detalle cómo funciona el nuevo algoritmo de Google impulsado por Inteligencia Artificial y qué estrategias técnicas aplicar para posicionar tu hotel en los primeros puestos de las respuestas generativas de búsqueda.',
+      aplicacionHotel: 'Aplica datos estructurados Schema.org para habitaciones, tarifas y servicios directos. Permite que el nuevo motor de IA de Google cite a tu hotel directamente por encima de las comisiones de Booking y agencias intermediarias.',
       youtubeUrl: 'https://www.youtube.com/watch?v=HFnGVXsoNe0',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Google IA', 'Posicionamiento', 'Visibilidad'],
+      fecha: 'hace 2 semanas',
+      vistas: '4.8 K visualizaciones',
+      duracion: '14:28',
+      etiquetas: ['GoogleIA', 'VisibilidadHotelera', 'VentaDirecta', 'SEO2026'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=HFnGVXsoNe0'
     },
@@ -1955,12 +2307,14 @@
       espacio: 'operaciones',
       tipo: 'video',
       titulo: 'Cómo hacer el VÍDEO de tu producto con IA (sin grabar) · Nuevo Higgsfield',
-      descripcion: 'Tutorial paso a paso de Pau Martí enseñando a crear vídeos promocionales cinematográficos de productos y espacios utilizando herramientas de generación de vídeo con IA sin cámara ni plató.',
+      descripcion: 'Masterclass paso a paso de Pau Martí donde enseña a generar clips cinematográficos y vídeos comerciales de alta definición a partir de fotografías existentes, sin tener que coordinar rodajes ni contratar productoras caras.',
+      aplicacionHotel: 'Crea vídeos atractivos para Instagram, TikTok y la web oficial mostrando las suites, zonas de spa, gastronomía o terrazas de tu hotel a partir de fotos de catálogo. Aumenta la conversión de reservas directas con contenido audiovisual inmersivo.',
       youtubeUrl: 'https://www.youtube.com/watch?v=3Vegf524ibs',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Vídeo IA', 'Higgsfield', 'Generación Visual'],
+      fecha: 'hace 1 mes',
+      vistas: '6.2 K visualizaciones',
+      duracion: '09:42',
+      etiquetas: ['Higgsfield', 'VideoIA', 'MarketingHotelero', 'Creatividad'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=3Vegf524ibs'
     },
@@ -1969,12 +2323,14 @@
       espacio: 'recepcion',
       tipo: 'video',
       titulo: 'Nuevo Google Gemini Notebook: TODO LO NUEVO',
-      descripcion: 'Descubre todas las novedades y funciones de Google Gemini Notebook para organizar datos, documentos de trabajo, procedimientos y respuestas con IA de manera rápida y centralizada.',
+      descripcion: 'Pau Martí analiza en profundidad todas las funciones de Google Gemini Notebook para organizar conocimiento empresarial, procesar documentos complejos y crear asistentes con fuentes verificadas.',
+      aplicacionHotel: 'Crea la "base de conocimiento privada" de tu hotel: sube manuales de recepción, procedimientos ante quejas, cartas de restaurante y normativas internas. Cualquier recepcionista nuevo puede hacer preguntas en lenguaje natural y obtener respuestas exactas en 2 segundos.',
       youtubeUrl: 'https://www.youtube.com/watch?v=UGXuPonOrTQ',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Gemini Notebook', 'Productividad', 'Automatización'],
+      fecha: 'hace 3 semanas',
+      vistas: '5.1 K visualizaciones',
+      duracion: '11:15',
+      etiquetas: ['GeminiNotebook', 'Procedimientos', 'Recepcion247', 'Operaciones'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=UGXuPonOrTQ'
     },
@@ -1983,12 +2339,14 @@
       espacio: 'recepcion',
       tipo: 'video',
       titulo: 'Google Gemini 3.8 Flash: ¿Cómo usarlo?',
-      descripcion: 'Pau Martí analiza y enseña cómo utilizar el modelo Gemini Flash, sus ventajas en velocidad de respuesta, costes y aplicaciones directas para automatizaciones inteligentes.',
+      descripcion: 'Análisis práctico del nuevo modelo Gemini Flash, sus tiempos de respuesta en milisegundos y por qué es la alternativa más eficiente para conectar agentes inteligentes y automatizaciones conversacionales.',
+      aplicacionHotel: 'Integra este modelo en tu canal de WhatsApp corporativo para responder preguntas de huéspedes (horarios de check-in, parking, transfer o suplementos de desayuno) con latencia mínima y coste prácticamente nulo.',
       youtubeUrl: 'https://www.youtube.com/watch?v=HBkZ8hIilE4',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Gemini Flash', 'Agentes Rápidos', 'Google AI'],
+      fecha: 'hace 1 mes',
+      vistas: '8.4 K visualizaciones',
+      duracion: '08:50',
+      etiquetas: ['GeminiFlash', 'WhatsAppHoteles', 'AtencionAlCliente', 'Automatizacion'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=HBkZ8hIilE4'
     },
@@ -1997,12 +2355,14 @@
       espacio: 'reputacion',
       tipo: 'video',
       titulo: 'Google Pics: 5 cosas que hace y ni Canva puede',
-      descripcion: 'Las herramientas de diseño y edición de imagen con IA de Google explicadas por Pau Martí, demostrando capacidades que superan a programas tradicionales de diseño.',
+      descripcion: 'Pau Martí demuestra 5 funciones avanzadas de edición y generación visual de Google con IA que superan ampliamente a herramientas convencionales como Canva o Photoshop básico.',
+      aplicacionHotel: 'Retoca fotos de habitaciones eliminando detalles molestos, corrige la iluminación de salones oscuros, amplía fondos de encuadres y genera banners de promociones de temporada sin depender de diseñadores externos.',
       youtubeUrl: 'https://www.youtube.com/watch?v=xC7ZL1qYMic',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Google Pics', 'Edición IA', 'Diseño'],
+      fecha: 'hace 2 meses',
+      vistas: '12 K visualizaciones',
+      duracion: '07:35',
+      etiquetas: ['GooglePics', 'EdicionIA', 'DisenoHotelero', 'Branding'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=xC7ZL1qYMic'
     },
@@ -2011,12 +2371,14 @@
       espacio: 'revenue',
       tipo: 'video',
       titulo: 'Google Gemini 3.7 Flash: 5 cosas que antes no podías hacer',
-      descripcion: 'Guía práctica de Pau Martí sobre las capacidades avanzadas de razonamiento rápido y procesamiento de datos para optimizar tareas complejas de negocio.',
+      descripcion: 'Guía práctica sobre razonamiento rápido y análisis masivo de datos para directores y gestores de empresas que necesitan tomar decisiones con velocidad.',
+      aplicacionHotel: 'Vuelca informes de ocupación, tarifas de la competencia y previsiones de demanda para recibir recomendaciones estratégicas sobre precios y restricciones de estancia mínima sin tablas de Excel interminables.',
       youtubeUrl: 'https://www.youtube.com/watch?v=QNunxjfGcrE',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Razonamiento IA', 'Gemini', 'Productividad'],
+      fecha: 'hace 2 meses',
+      vistas: '9.7 K visualizaciones',
+      duracion: '10:18',
+      etiquetas: ['RevenueManagement', 'AnalisisDeDatos', 'GeminiFlash', 'Estrategia'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=QNunxjfGcrE'
     },
@@ -2025,12 +2387,14 @@
       espacio: 'operaciones',
       tipo: 'video',
       titulo: 'Google Gemini 4: TODO lo que se sabe y cuándo sale',
-      descripcion: 'Pau Martí repasa las próximas tecnologías de modelos de lenguaje multimodal, agentes autónomos y el salto evolutivo de la inteligencia artificial.',
+      descripcion: 'Pau Martí repasa los próximos avances de la Inteligencia Artificial multimodal de Google y cómo transformará los sistemas operativos y la gestión de negocios en los próximos meses.',
+      aplicacionHotel: 'Prepárate para la próxima ola de agentes hoteleros con comprensión visual y auditiva total, capaces de gestionar reservas por llamada de voz y coordinar el mantenimiento técnico de las habitaciones de forma autónoma.',
       youtubeUrl: 'https://www.youtube.com/watch?v=XJCnPgo0qmg',
       autor: 'Pau Martí Felip',
-      fecha: '2026',
-      duracion: 'Vídeo Oficial',
-      etiquetas: ['Futuro IA', 'Modelos Multimodales', 'Tecnología'],
+      fecha: 'hace 3 meses',
+      vistas: '15 K visualizaciones',
+      duracion: '12:05',
+      etiquetas: ['Gemini4', 'FuturoIA', 'HotelesInteligentes', 'Tendencias'],
       recursoTexto: 'Ver en canal de Pau Martí →',
       recursoUrl: 'https://www.youtube.com/watch?v=XJCnPgo0qmg'
     }
@@ -2039,6 +2403,7 @@
   var estadoEscuela = {
     espacioSeleccionado: 'todos',
     busqueda: '',
+    videoActivoId: null,
     indicesCarrusel: {}
   };
 
@@ -2060,28 +2425,18 @@
     contenedor.innerHTML = '';
 
     ESPACIOS_ESCUELA.forEach(function (esp) {
-      var conteo = (esp.id === 'todos') ? PUBLICACIONES_ESCUELA.length : PUBLICACIONES_ESCUELA.filter(function (p) { return p.espacio === esp.id; }).length;
       var boton = document.createElement('button');
       boton.type = 'button';
-      boton.className = 'espacio-pill' + (estadoEscuela.espacioSeleccionado === esp.id ? ' activo' : '');
-      boton.innerHTML = '<span>' + esp.icono + ' ' + esp.nombre + '</span><span class="conteo">' + conteo + '</span>';
+      boton.className = 'yt-chip' + (estadoEscuela.espacioSeleccionado === esp.id ? ' activo' : '');
+      boton.textContent = esp.nombre;
       boton.addEventListener('click', function () {
         estadoEscuela.espacioSeleccionado = esp.id;
+        cerrarApartadoVideo();
         renderizarEspacios();
         renderizarPublicaciones();
       });
       contenedor.appendChild(boton);
     });
-
-    var totalVideos = PUBLICACIONES_ESCUELA.filter(function (p) { return p.tipo === 'video'; }).length;
-    var totalCarruseles = PUBLICACIONES_ESCUELA.filter(function (p) { return p.tipo === 'carrusel'; }).length;
-    var elStatVideos = document.getElementById('stat-videos');
-    var elStatCarruseles = document.getElementById('stat-carruseles');
-    var elStatEspacios = document.getElementById('stat-espacios');
-
-    if (elStatVideos) elStatVideos.textContent = totalVideos;
-    if (elStatCarruseles) elStatCarruseles.textContent = totalCarruseles;
-    if (elStatEspacios) elStatEspacios.textContent = (ESPACIOS_ESCUELA.length - 1);
   }
 
   function renderizarPublicaciones() {
@@ -2099,13 +2454,13 @@
     });
 
     if (filtradas.length === 0) {
-      contenedor.innerHTML = '<div class="publicaciones-vacio">' +
-        '<h3 style="color:var(--text-main);margin-bottom:6px">No hay publicaciones</h3>' +
-        '<p>Prueba con otros términos de búsqueda o selecciona otro espacio.</p>' +
-        '<button type="button" class="boton" id="btn-limpiar-filtros" style="margin-top:14px">Restablecer filtros</button>' +
+      contenedor.innerHTML = '<div class="yt-empty-state">' +
+        '<h3>No se encontraron vídeos</h3>' +
+        '<p>Prueba con otros términos de búsqueda como "Gemini", "Google", "Vídeo" o selecciona otra categoría.</p>' +
+        '<button type="button" class="yt-back-btn" id="btn-limpiar-busqueda" style="margin-top:14px">Ver todos los vídeos</button>' +
         '</div>';
 
-      var btnLimpiar = document.getElementById('btn-limpiar-filtros');
+      var btnLimpiar = document.getElementById('btn-limpiar-busqueda');
       if (btnLimpiar) {
         btnLimpiar.addEventListener('click', function () {
           estadoEscuela.espacioSeleccionado = 'todos';
@@ -2122,160 +2477,240 @@
     contenedor.innerHTML = '';
 
     filtradas.forEach(function (pub) {
-      var espObj = ESPACIOS_ESCUELA.find(function (e) { return e.id === pub.espacio; }) || { icono: '📌', nombre: pub.espacio };
       var card = document.createElement('article');
-      card.className = 'publicacion-card';
-      card.id = 'card-' + pub.id;
+      card.className = 'yt-video-card';
+      card.id = 'yt-card-' + pub.id;
 
-      var metaHtml = '<div class="pub-meta-row">' +
-        '<span class="badge-espacio-soft">' + espObj.icono + ' ' + espObj.nombre + '</span>' +
-        '<span class="badge-tipo-soft">' +
-          (pub.tipo === 'video' ? '📹 Vídeo' : '📸 Carrusel (' + (pub.imagenes ? pub.imagenes.length : 0) + ')') +
-        '</span>' +
-        '</div>';
+      var ytId = obtenerIdYouTube(pub.youtubeUrl || pub.youtubeId);
+      var thumbUrl = (pub.tipo === 'video' && ytId) 
+        ? ('https://i.ytimg.com/vi/' + ytId + '/hqdefault.jpg')
+        : ((pub.imagenes && pub.imagenes[0]) ? pub.imagenes[0].url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80');
 
-      var tituloHtml = '<h3 class="pub-titulo">' + pub.titulo + '</h3>';
+      var duracionBadge = pub.duracion || (pub.tipo === 'carrusel' ? (pub.imagenes ? pub.imagenes.length + ' fotos' : 'Carrusel') : 'Oficial');
+      var vistasInfo = pub.vistas || 'Hotel Leaders Club';
+      var fechaInfo = pub.fecha || '2026';
 
-      var mediaHtml = '';
-      if (pub.tipo === 'video') {
-        var ytId = obtenerIdYouTube(pub.youtubeUrl || pub.youtubeId);
-        mediaHtml = '<div class="media-video-box">' +
-          '<iframe src="https://www.youtube-nocookie.com/embed/' + ytId + '?rel=0&modestbranding=1" ' +
-          'title="' + pub.titulo.replace(/"/g, '&quot;') + '" ' +
-          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
-          'allowfullscreen loading="lazy"></iframe>' +
-          '</div>';
-      } else if (pub.tipo === 'carrusel' && pub.imagenes && pub.imagenes.length > 0) {
-        var fotos = pub.imagenes;
-        var totalFotos = fotos.length;
-        var idxActivo = estadoEscuela.indicesCarrusel[pub.id] || 0;
-
-        var slidesHtml = '';
-        fotos.forEach(function (foto, fIdx) {
-          var captionText = foto.titulo || ('Diapositiva ' + (fIdx + 1) + ' de ' + totalFotos);
-          slidesHtml += '<div class="carrusel-slide">' +
-            '<img src="' + foto.url + '" alt="' + captionText.replace(/"/g, '&quot;') + '" loading="lazy" data-pubid="' + pub.id + '" data-idx="' + fIdx + '">' +
-            '<div class="carrusel-caption">' + captionText + '</div>' +
-            '</div>';
-        });
-
-        var dotsHtml = '';
-        for (var d = 0; d < totalFotos; d++) {
-          dotsHtml += '<button type="button" class="carrusel-dot' + (d === idxActivo ? ' activo' : '') + '" data-pubid="' + pub.id + '" data-slide="' + d + '" aria-label="Ir a foto ' + (d + 1) + '"></button>';
-        }
-
-        mediaHtml = '<div class="media-carrusel-box" id="carrusel-box-' + pub.id + '">' +
-          '<div class="carrusel-contador-pill" id="contador-' + pub.id + '">' + (idxActivo + 1) + ' / ' + totalFotos + '</div>' +
-          '<button type="button" class="carrusel-btn prev" data-pubid="' + pub.id + '" aria-label="Anterior">‹</button>' +
-          '<button type="button" class="carrusel-btn next" data-pubid="' + pub.id + '" aria-label="Siguiente">›</button>' +
-          '<div class="carrusel-track" id="track-' + pub.id + '" style="transform: translateX(-' + (idxActivo * 100) + '%);">' +
-            slidesHtml +
-          '</div>' +
-          '<div class="carrusel-dots" id="dots-' + pub.id + '">' + dotsHtml + '</div>' +
-          '</div>';
-      }
-
-      var tagsHtml = '';
-      if (pub.etiquetas && pub.etiquetas.length > 0) {
-        tagsHtml = '<div class="pub-tags">';
-        pub.etiquetas.forEach(function (t) {
-          tagsHtml += '<span class="tag-item-soft">#' + t + '</span>';
-        });
-        tagsHtml += '</div>';
-      }
-
-      var recursoLink = pub.recursoUrl || WHATSAPP;
-      var cuerpoHtml = '<div class="pub-cuerpo">' +
-        '<p class="pub-descripcion">' + pub.descripcion + '</p>' +
-        tagsHtml +
-        '<div class="pub-footer">' +
-          '<div class="pub-autor">' +
-            '<div class="autor-avatar-soft">PM</div>' +
-            '<span>' + (pub.autor || 'Pau Martí') + '</span>' +
-          '</div>' +
-          '<a href="' + recursoLink + '" class="btn-link-action" target="_blank" rel="noopener">' +
-            (pub.recursoTexto || 'Ver recursos →') +
-          '</a>' +
+      card.innerHTML = 
+        '<div class="yt-thumbnail-wrapper">' +
+          '<img class="yt-thumb-img" src="' + thumbUrl + '" alt="' + pub.titulo.replace(/"/g, '&quot;') + '" loading="lazy">' +
+          '<span class="yt-time-badge">' + duracionBadge + '</span>' +
+          (pub.tipo === 'carrusel' ? '<span class="yt-type-badge">📸 Carrusel</span>' : '') +
         '</div>' +
+        '<div class="yt-card-info-row">' +
+          '<div class="yt-channel-avatar">PM</div>' +
+          '<div class="yt-card-text">' +
+            '<h3 class="yt-card-title">' + pub.titulo + '</h3>' +
+            '<div class="yt-card-channel">' +
+              '<span>' + (pub.autor || 'Pau Martí Felip') + '</span>' +
+              '<span class="yt-verified-badge" title="Canal Verificado">' +
+                '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>' +
+              '</span>' +
+            '</div>' +
+            '<p class="yt-card-stats">' + vistasInfo + ' • ' + fechaInfo + '</p>' +
+          '</div>' +
+          '<button type="button" class="yt-card-more-btn" title="Opciones" onclick="event.stopPropagation();">⋮</button>' +
         '</div>';
 
-      card.innerHTML = metaHtml + tituloHtml + mediaHtml + cuerpoHtml;
+      card.addEventListener('click', function () {
+        abrirApartadoVideo(pub.id);
+      });
+
       contenedor.appendChild(card);
     });
-
-    activarEventosCarruseles();
   }
 
-  function moverCarrusel(pubId, nuevoIdx) {
+  /* ============ APARTADO DEL VÍDEO (WATCH PAGE ESTILO YOUTUBE) ============ */
+  function abrirApartadoVideo(pubId) {
     var pub = PUBLICACIONES_ESCUELA.find(function (p) { return p.id === pubId; });
-    if (!pub || !pub.imagenes || pub.imagenes.length === 0) return;
+    if (!pub) return;
 
-    var total = pub.imagenes.length;
-    if (nuevoIdx < 0) nuevoIdx = total - 1;
-    if (nuevoIdx >= total) nuevoIdx = 0;
+    estadoEscuela.videoActivoId = pubId;
 
-    estadoEscuela.indicesCarrusel[pubId] = nuevoIdx;
+    var feedView = document.getElementById('yt-feed-view');
+    var watchView = document.getElementById('yt-watch-view');
+    var playerBox = document.getElementById('yt-watch-player');
+    var titleEl = document.getElementById('yt-watch-title');
+    var descTexto = document.getElementById('yt-desc-texto');
+    var descHotelTexto = document.getElementById('yt-desc-hotel-texto');
+    var descTags = document.getElementById('yt-desc-tags');
+    var descFecha = document.getElementById('yt-desc-fecha');
+    var btnYtOrig = document.getElementById('btn-watch-yt-orig');
+    var btnSolicitar = document.getElementById('btn-watch-solicitar');
+    var btnWa = document.getElementById('btn-watch-wa');
+    var linkYtOficial = document.getElementById('yt-desc-enlace-oficial');
+    var linkWaOficial = document.getElementById('yt-desc-enlace-wa');
 
-    var track = document.getElementById('track-' + pubId);
-    if (track) track.style.transform = 'translateX(-' + (nuevoIdx * 100) + '%)';
-
-    var contador = document.getElementById('contador-' + pubId);
-    if (contador) contador.textContent = (nuevoIdx + 1) + ' / ' + total;
-
-    var dotsCont = document.getElementById('dots-' + pubId);
-    if (dotsCont) {
-      dotsCont.querySelectorAll('.carrusel-dot').forEach(function (d, i) {
-        d.classList.toggle('activo', i === nuevoIdx);
+    // Inyectar reproductor según el tipo
+    if (pub.tipo === 'video') {
+      var ytId = obtenerIdYouTube(pub.youtubeUrl || pub.youtubeId);
+      playerBox.innerHTML = 
+        '<iframe src="https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1" ' +
+        'title="' + pub.titulo.replace(/"/g, '&quot;') + '" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>';
+    } else if (pub.tipo === 'carrusel' && pub.imagenes && pub.imagenes.length > 0) {
+      var fotos = pub.imagenes;
+      var totalFotos = fotos.length;
+      var idxActivo = estadoEscuela.indicesCarrusel[pub.id] || 0;
+      var slidesHtml = '';
+      fotos.forEach(function (foto, fIdx) {
+        slidesHtml += '<div class="carrusel-slide">' +
+          '<img src="' + foto.url + '" alt="' + (foto.titulo || '').replace(/"/g, '&quot;') + '" data-pubid="' + pub.id + '" data-idx="' + fIdx + '">' +
+          '<div class="carrusel-caption">' + (foto.titulo || ('Diapositiva ' + (fIdx + 1))) + '</div>' +
+          '</div>';
       });
+
+      playerBox.innerHTML = 
+        '<div class="media-carrusel-box" id="carrusel-box-watch" style="height:100%;aspect-ratio:auto;">' +
+          '<div class="carrusel-contador-pill" id="contador-watch">' + (idxActivo + 1) + ' / ' + totalFotos + '</div>' +
+          '<button type="button" class="carrusel-btn prev" id="btn-carrusel-watch-prev" aria-label="Anterior">‹</button>' +
+          '<button type="button" class="carrusel-btn next" id="btn-carrusel-watch-next" aria-label="Siguiente">›</button>' +
+          '<div class="carrusel-track" id="track-watch" style="transform: translateX(-' + (idxActivo * 100) + '%);">' +
+            slidesHtml +
+          '</div>' +
+        '</div>';
+
+      var btnPrev = document.getElementById('btn-carrusel-watch-prev');
+      var btnNext = document.getElementById('btn-carrusel-watch-next');
+      if (btnPrev) {
+        btnPrev.addEventListener('click', function () {
+          var act = estadoEscuela.indicesCarrusel[pub.id] || 0;
+          var sig = (act - 1 + totalFotos) % totalFotos;
+          estadoEscuela.indicesCarrusel[pub.id] = sig;
+          document.getElementById('track-watch').style.transform = 'translateX(-' + (sig * 100) + '%)';
+          document.getElementById('contador-watch').textContent = (sig + 1) + ' / ' + totalFotos;
+        });
+      }
+      if (btnNext) {
+        btnNext.addEventListener('click', function () {
+          var act = estadoEscuela.indicesCarrusel[pub.id] || 0;
+          var sig = (act + 1) % totalFotos;
+          estadoEscuela.indicesCarrusel[pub.id] = sig;
+          document.getElementById('track-watch').style.transform = 'translateX(-' + (sig * 100) + '%)';
+          document.getElementById('contador-watch').textContent = (sig + 1) + ' / ' + totalFotos;
+        });
+      }
     }
+
+    // Datos del vídeo y canal
+    if (titleEl) titleEl.textContent = pub.titulo;
+    if (descTexto) descTexto.textContent = pub.descripcion;
+    if (descHotelTexto) descHotelTexto.textContent = pub.aplicacionHotel || 'Aplica los conceptos de esta lección para optimizar las operaciones diarias y mejorar la rentabilidad de tu hotel.';
+
+    if (descFecha) {
+      descFecha.textContent = (pub.vistas || 'Hotel Leaders Club') + ' • ' + (pub.fecha || '2026') + ' • Pau Martí Felip';
+    }
+
+    if (descTags) {
+      var tagsHtml = (pub.etiquetas || []).map(function (t) {
+        return '<span class="yt-desc-tag">#' + t + '</span>';
+      }).join(' ');
+      descTags.innerHTML = tagsHtml;
+    }
+
+    // Mensaje personalizado de WhatsApp para Pau Martí
+    var textoWa = encodeURIComponent('Hola Pau, he estado viendo tu lección sobre "' + pub.titulo + '" en la Escuela Superior de IA y me interesa implementarlo en mi hotel.');
+    var waUrl = 'https://wa.me/34601108311?text=' + textoWa;
+
+    if (btnSolicitar) btnSolicitar.href = waUrl;
+    if (btnWa) btnWa.href = waUrl;
+    if (linkWaOficial) linkWaOficial.href = waUrl;
+
+    if (btnYtOrig) btnYtOrig.href = pub.youtubeUrl || pub.recursoUrl || '#';
+    if (linkYtOficial) linkYtOficial.href = pub.youtubeUrl || pub.recursoUrl || '#';
+
+    // Renderizar barra lateral con los otros vídeos
+    renderizarBarraLateralVideos(pub.id);
+
+    // Cambiar vista activa
+    if (feedView) feedView.style.display = 'none';
+    if (watchView) watchView.classList.add('activa');
+
+    var vistaEscuela = document.getElementById('vista-escuela');
+    if (vistaEscuela) vistaEscuela.scrollTop = 0;
   }
 
-  function activarEventosCarruseles() {
-    document.querySelectorAll('.carrusel-btn.prev').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var pId = this.dataset.pubid;
-        moverCarrusel(pId, (estadoEscuela.indicesCarrusel[pId] || 0) - 1);
+  function cerrarApartadoVideo() {
+    var feedView = document.getElementById('yt-feed-view');
+    var watchView = document.getElementById('yt-watch-view');
+    var playerBox = document.getElementById('yt-watch-player');
+
+    // Detener la reproducción
+    if (playerBox) playerBox.innerHTML = '';
+    estadoEscuela.videoActivoId = null;
+
+    if (watchView) watchView.classList.remove('activa');
+    if (feedView) feedView.style.display = 'block';
+  }
+
+  function renderizarBarraLateralVideos(videoActualId) {
+    var listaCont = document.getElementById('yt-watch-sidebar-list');
+    if (!listaCont) return;
+    listaCont.innerHTML = '';
+
+    PUBLICACIONES_ESCUELA.forEach(function (pub) {
+      var card = document.createElement('div');
+      card.className = 'yt-side-video-card' + (pub.id === videoActualId ? ' activo' : '');
+
+      var ytId = obtenerIdYouTube(pub.youtubeUrl || pub.youtubeId);
+      var thumbUrl = (pub.tipo === 'video' && ytId)
+        ? ('https://i.ytimg.com/vi/' + ytId + '/hqdefault.jpg')
+        : ((pub.imagenes && pub.imagenes[0]) ? pub.imagenes[0].url : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80');
+
+      card.innerHTML = 
+        '<div class="yt-side-thumb">' +
+          '<img src="' + thumbUrl + '" alt="' + pub.titulo.replace(/"/g, '&quot;') + '" loading="lazy">' +
+          '<span class="yt-time-badge">' + (pub.duracion || '10:00') + '</span>' +
+        '</div>' +
+        '<div class="yt-side-info">' +
+          '<h4 class="yt-side-title">' + pub.titulo + '</h4>' +
+          '<div class="yt-side-channel">' +
+            '<span>Pau Martí Felip</span>' +
+            '<span class="yt-verified-badge">' +
+              '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>' +
+            '</span>' +
+          '</div>' +
+          '<p class="yt-side-stats">' + (pub.vistas || 'Hotel Leaders') + ' • ' + (pub.fecha || '2026') + '</p>' +
+        '</div>';
+
+      card.addEventListener('click', function () {
+        abrirApartadoVideo(pub.id);
       });
+
+      listaCont.appendChild(card);
     });
+  }
 
-    document.querySelectorAll('.carrusel-btn.next').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var pId = this.dataset.pubid;
-        moverCarrusel(pId, (estadoEscuela.indicesCarrusel[pId] || 0) + 1);
-      });
+  // Evento botón volver al feed y botón de compartir
+  var btnVolverFeed = document.getElementById('btn-volver-feed');
+  if (btnVolverFeed) {
+    btnVolverFeed.addEventListener('click', cerrarApartadoVideo);
+  }
+
+  var btnYtHome = document.getElementById('btn-yt-home');
+  if (btnYtHome) {
+    btnYtHome.addEventListener('click', function () {
+      estadoEscuela.espacioSeleccionado = 'todos';
+      estadoEscuela.busqueda = '';
+      var inputBusq = document.getElementById('input-buscador');
+      if (inputBusq) inputBusq.value = '';
+      cerrarApartadoVideo();
+      renderizarEspacios();
+      renderizarPublicaciones();
     });
+  }
 
-    document.querySelectorAll('.carrusel-dot').forEach(function (dot) {
-      dot.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var pId = this.dataset.pubid;
-        moverCarrusel(pId, parseInt(this.dataset.slide, 10));
-      });
-    });
-
-    document.querySelectorAll('.carrusel-slide img').forEach(function (img) {
-      img.addEventListener('click', function () {
-        abrirLightbox(this.src, this.alt);
-      });
-    });
-
-    document.querySelectorAll('.media-carrusel-box').forEach(function (box) {
-      var startX = 0;
-      var pId = box.id.replace('carrusel-box-', '');
-
-      box.addEventListener('touchstart', function (e) {
-        startX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      box.addEventListener('touchend', function (e) {
-        var diff = startX - e.changedTouches[0].screenX;
-        if (Math.abs(diff) > 40) {
-          var act = estadoEscuela.indicesCarrusel[pId] || 0;
-          moverCarrusel(pId, diff > 0 ? act + 1 : act - 1);
-        }
-      }, { passive: true });
+  var btnWatchShare = document.getElementById('btn-watch-share');
+  if (btnWatchShare) {
+    btnWatchShare.addEventListener('click', function () {
+      var urlActual = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(urlActual).then(function () {
+          alert('¡Enlace de la lección copiado al portapapeles!');
+        });
+      } else {
+        prompt('Copia el enlace de esta lección:', urlActual);
+      }
     });
   }
 
