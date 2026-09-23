@@ -6,7 +6,7 @@
 <title>Hotel Leaders Club — El club de directores de hotel que trabajan menos y ganan más</title>
 <meta name="description" content="Club privado de directores de hotel: networking entre iguales, IA aplicada y las herramientas más avanzadas del sector. Solo por aplicación.">
 
-<!-- Open Graph (vista previa en WhatsApp, Instagram, LinkedIn...) -->
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hotel Leaders Club">
 <meta property="og:locale" content="es_ES">
@@ -14,35 +14,37 @@
 <meta property="og:title" content="El club de directores de hotel que trabajan menos y ganan más">
 <meta property="og:description" content="Networking entre iguales, IA aplicada y las herramientas más avanzadas del sector. Club privado, solo por aplicación.">
 <meta property="og:image" content="https://hotelleadersclub.com/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/jpeg">
 
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="El club de directores de hotel que trabajan menos y ganan más">
-<meta name="twitter:description" content="Networking entre iguales, IA aplicada y las herramientas más avanzadas del sector. Club privado, solo por aplicación.">
-<meta name="twitter:image" content="https://hotelleadersclub.com/og-image.jpg">
-
-<link rel="canonical" href="https://hotelleadersclub.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8C%8D%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
-    --noche: #0e2033;
-    --noche-2: #0a1828;
-    --crema: #f6f1e4;
-    --madera: #e9d492;
-    --madera-clara: #f5e6b0;
-    --sombra-madera: #bd9c55;
-    --pino: #3c8f77;
-    --pino-oscuro: #2f7361;
-    --pino-claro: #8ac7af;
-    --carbon: #2e3243;
-    --texto-suave: #9fb3c8;
+    --bg-canvas: #f4f6fa;
+    --surface-card: #ffffff;
+    --surface-subtle: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-soft: #94a3b8;
+    
+    /* Gradientes inspirados en la referencia visual */
+    --grad-aurora: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 45%, #ff99ac 70%, #fbc2eb 100%);
+    --grad-peach: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    --grad-vibrant: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --grad-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --grad-ocean: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --grad-gold: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    --grad-mint: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    --grad-soft-pill: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+
+    /* Sombras neumórficas suaves y difusas */
+    --shadow-soft: 0 16px 40px -8px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.02);
+    --shadow-card: 0 20px 45px -10px rgba(15, 23, 42, 0.09), 0 4px 12px rgba(15, 23, 42, 0.03);
+    --shadow-hover: 0 28px 60px -12px rgba(15, 23, 42, 0.14), 0 6px 18px rgba(15, 23, 42, 0.04);
+    --shadow-pill: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,30 +56,26 @@
   }
 
   body {
-    font-family: 'Nunito Sans', -apple-system, sans-serif;
-    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    font-size: 15px;
     line-height: 1.6;
-    color: var(--crema);
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 45%, rgba(60, 143, 119, 0.16), transparent 65%),
-      radial-gradient(ellipse 90% 80% at 50% 110%, rgba(20, 45, 70, 0.8), transparent 70%),
-      linear-gradient(#0a1828, #0e2033 45%, #122b42);
+    color: var(--text-main);
+    background-color: var(--bg-canvas);
+    background-image: 
+      radial-gradient(circle at 10% 15%, rgba(255, 154, 139, 0.16) 0%, transparent 45%),
+      radial-gradient(circle at 90% 20%, rgba(166, 193, 238, 0.22) 0%, transparent 50%),
+      radial-gradient(circle at 50% 85%, rgba(132, 250, 176, 0.14) 0%, transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(251, 194, 235, 0.18) 0%, transparent 45%);
     -webkit-font-smoothing: antialiased;
     touch-action: none;
   }
 
-  /* Grano de toda la página */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-main);
   }
-
-  h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.25; }
 
   #globo {
     position: fixed;
@@ -85,69 +83,703 @@
     z-index: 1;
     cursor: grab;
   }
-
   #globo:active { cursor: grabbing; }
 
-  /* ---------- Barra superior ---------- */
+  /* ============ CABECERA FLOTANTE SOFT UI ============ */
   header {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 40;
+    top: 18px;
+    left: 20px;
+    right: 20px;
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 22px;
-    pointer-events: none;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.08);
+    pointer-events: auto;
+    transition: all 0.3s ease;
   }
 
   .marca {
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--crema);
+    color: var(--text-main);
     text-decoration: none;
-    pointer-events: auto;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .marca-punto {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--grad-aurora);
+    display: inline-block;
+  }
+
+  /* Selector central de pestañas */
+  .nav-pestanas {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f4f9;
+    padding: 4px;
+    border-radius: 999px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .pestana-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 18px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .pestana-btn:hover {
+    color: var(--text-main);
+  }
+
+  .pestana-btn.activo {
+    background: #ffffff;
+    color: var(--text-main);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  }
+
+  .pestana-badge {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--grad-aurora);
+    color: #ffffff;
+    padding: 2px 7px;
+    border-radius: 999px;
   }
 
   .boton {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-decoration: none;
-    display: inline-block;
-    color: var(--crema);
-    background: transparent;
-    border: 1.5px solid rgba(246, 241, 228, 0.55);
-    padding: 10px 22px;
-    border-radius: 8px;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    background: var(--grad-ocean);
+    border: none;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px -3px rgba(79, 172, 254, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .boton:hover {
-    background: var(--crema);
-    color: var(--noche-2);
-    border-color: var(--crema);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -4px rgba(79, 172, 254, 0.55);
   }
 
-  /* variante del botón sobre fondo claro (tarjeta) */
-  .tarjeta-cuerpo .boton {
-    color: var(--carbon);
-    border-color: rgba(46, 50, 67, 0.45);
+  .boton-aurora {
+    background: var(--grad-aurora);
+    box-shadow: 0 6px 20px -3px rgba(255, 106, 136, 0.45);
+  }
+  .boton-aurora:hover {
+    box-shadow: 0 10px 26px -4px rgba(255, 106, 136, 0.55);
   }
 
-  .tarjeta-cuerpo .boton:hover {
-    background: var(--carbon);
-    color: var(--crema);
-    border-color: var(--carbon);
+  /* ============ VISTA ESCUELA SUPERIOR DE IA (SOFT UI COMPACTA) ============ */
+  #vista-escuela {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background-color: var(--bg-canvas);
+    background-image: 
+      radial-gradient(circle at 15% 10%, rgba(255, 154, 139, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(166, 193, 238, 0.25) 0%, transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(132, 250, 176, 0.16) 0%, transparent 50%);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 86px;
+    padding-bottom: 70px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  /* ---------- Overlay de bienvenida ---------- */
+  #vista-escuela.activa {
+    display: block;
+    opacity: 1;
+  }
+
+  .escuela-contenedor {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Hero Banner estilo referencia (Soft layout con tarjeta aurora) */
+  .escuela-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 22px;
+    align-items: stretch;
+    margin-bottom: 26px;
+  }
+
+  .hero-card-left {
+    background: var(--surface-card);
+    border-radius: 30px;
+    padding: 34px 36px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f5576c;
+    background: rgba(245, 87, 108, 0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+
+  .hero-card-left h1 {
+    font-size: clamp(26px, 3.2vw, 38px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--text-main);
+  }
+
+  .hero-card-left h1 span.gradiente {
+    background: var(--grad-vibrant);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-card-left p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .hero-card-right {
+    background: var(--grad-aurora);
+    border-radius: 30px;
+    padding: 34px 30px;
+    color: #ffffff;
+    box-shadow: 0 20px 45px -10px rgba(255, 106, 136, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card-right::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-card-right h2 {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .hero-card-right p {
+    font-size: 13.5px;
+    opacity: 0.95;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .stats-capsulas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .stat-capsula {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-main);
+    border-radius: 18px;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .stat-capsula strong {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #ff6a88;
+  }
+
+  /* Barra de herramientas compacta: Buscador y Espacios */
+  .toolbar-compacta {
+    background: var(--surface-card);
+    border-radius: 24px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .toolbar-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .buscador-input-box {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .buscador-input-box input {
+    width: 100%;
+    background: #f1f4f9;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 10px 18px 10px 40px;
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .buscador-input-box input:focus {
+    background: #ffffff;
+    border-color: #ffd1ff;
+    box-shadow: 0 0 0 4px rgba(255, 106, 136, 0.12);
+  }
+
+  .buscador-input-box .icono {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-soft);
+    pointer-events: none;
+  }
+
+  .btn-crear-post {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--grad-vibrant);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 6px 18px -2px rgba(245, 87, 108, 0.4);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-crear-post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -3px rgba(245, 87, 108, 0.5);
+  }
+
+  /* Píldoras de Espacios temáticos */
+  .espacios-scroll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .espacios-scroll::-webkit-scrollbar { display: none; }
+
+  .espacio-pill {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: #f1f4f9;
+    border: 1px solid transparent;
+    padding: 7px 15px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .espacio-pill:hover {
+    background: #e9eef5;
+    color: var(--text-main);
+  }
+
+  .espacio-pill.activo {
+    background: var(--text-main);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+  }
+
+  .espacio-pill .conteo {
+    font-size: 10px;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1px 6px;
+    border-radius: 999px;
+  }
+  .espacio-pill:not(.activo) .conteo {
+    background: rgba(15, 23, 42, 0.08);
+  }
+
+  /* Cuadrícula de publicaciones: ESCALA COMPACTA Y MODULAR */
+  .publicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 22px;
+    align-items: start;
+  }
+
+  /* Tarjeta de Publicación Soft UI */
+  .publicacion-card {
+    background: var(--surface-card);
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .publicacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .pub-meta-row {
+    padding: 14px 18px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .badge-espacio-soft {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ff6a88;
+    background: rgba(255, 106, 136, 0.09);
+    padding: 4px 11px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .badge-tipo-soft {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-soft);
+  }
+
+  .pub-titulo {
+    padding: 0 18px 12px;
+    font-size: 16.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text-main);
+  }
+
+  /* Media: Video de YouTube */
+  .media-video-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    overflow: hidden;
+  }
+
+  .media-video-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* Media: Carrusel de Fotos */
+  .media-carrusel-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #e2e8f0;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .carrusel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .carrusel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    background: #edf2f7;
+  }
+
+  .carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
+
+  .carrusel-slide:hover img {
+    transform: scale(1.02);
+  }
+
+  .carrusel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 14px 8px;
+    background: linear-gradient(0deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.3) 70%, transparent 100%);
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.35;
+    pointer-events: none;
+  }
+
+  /* Botones del carrusel estilo cápsula flotante blanca */
+  .carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    z-index: 5;
+  }
+
+  .carrusel-btn:hover {
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  }
+
+  .carrusel-btn.prev { left: 10px; }
+  .carrusel-btn.next { right: 10px; }
+
+  .carrusel-contador-pill {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .carrusel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 6;
+  }
+
+  .carrusel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+  }
+
+  .carrusel-dot.activo {
+    background: #ffffff;
+    width: 16px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Cuerpo de la Publicación */
+  .pub-cuerpo {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .pub-descripcion {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  .tag-item-soft {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  .pub-footer {
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .pub-autor {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 500;
+  }
+
+  .autor-avatar-soft {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--grad-aurora);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  .btn-link-action {
+    color: #ff6a88;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    transition: color 0.2s ease;
+  }
+  .btn-link-action:hover {
+    color: #f5576c;
+    text-decoration: underline;
+  }
+
+  .publicaciones-vacio {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    grid-column: 1 / -1;
+  }
+
+  /* ============ VISTA DEL GLOBO (EL CLUB) ADAPTADA A SOFT UI ============ */
+  /* Overlay de bienvenida */
   #bienvenida {
     position: fixed;
     inset: 0;
@@ -157,124 +789,132 @@
     justify-content: center;
     text-align: center;
     padding: 24px;
-    background: rgba(10, 24, 40, 0.72);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: opacity 0.8s ease, visibility 0.8s;
+    background: rgba(244, 246, 250, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: opacity 0.6s ease, visibility 0.6s;
   }
 
   #bienvenida.oculta { opacity: 0; visibility: hidden; pointer-events: none; }
 
-  .bienvenida-caja { max-width: 640px; }
+  .bienvenida-caja {
+    max-width: 620px;
+    background: #ffffff;
+    border-radius: 36px;
+    padding: 44px 38px;
+    box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+  }
 
   .sello {
     font-family: 'Poppins', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.28em;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--pino-claro);
-    margin-bottom: 22px;
-    display: block;
-    animation: subir 0.8s ease both 0.2s;
+    color: #ff6a88;
+    background: rgba(255, 106, 136, 0.1);
+    padding: 5px 14px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 20px;
   }
 
   #bienvenida h1 {
-    font-size: clamp(30px, 5.5vw, 52px);
-    font-weight: 700;
-    margin-bottom: 20px;
-    animation: subir 0.8s ease both 0.35s;
+    font-size: clamp(26px, 4.5vw, 42px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text-main);
   }
 
-  #bienvenida h1 em { font-style: normal; color: var(--madera); }
+  #bienvenida h1 em {
+    font-style: normal;
+    background: var(--grad-vibrant);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   #bienvenida p {
-    font-size: clamp(16px, 2.2vw, 19px);
-    color: var(--texto-suave);
-    max-width: 480px;
-    margin: 0 auto 36px;
-    animation: subir 0.8s ease both 0.5s;
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 460px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
   }
 
   #entrar {
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--crema);
-    background: transparent;
-    border: 1.5px solid rgba(246, 241, 228, 0.55);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--grad-aurora);
+    border: none;
     cursor: pointer;
-    padding: 15px 42px;
-    border-radius: 8px;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-    animation: subir 0.8s ease both 0.65s;
+    padding: 14px 36px;
+    border-radius: 999px;
+    box-shadow: 0 10px 28px -4px rgba(255, 106, 136, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   #entrar:hover {
-    background: var(--crema);
-    color: var(--noche-2);
-    border-color: var(--crema);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px -4px rgba(255, 106, 136, 0.6);
   }
-
   #entrar:disabled { opacity: 0.5; cursor: wait; }
 
-  @keyframes subir {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ---------- Pins sobre el globo ---------- */
+  /* Pins sobre el globo estilo cápsula circular blanca */
   .pin {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--madera);
-    border: 3px solid var(--carbon);
+    background: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 21px;
+    font-size: 20px;
     cursor: pointer;
     pointer-events: auto;
     transform: translate(-50%, -50%);
-    box-shadow: 0 4px 0 rgba(0,0,0,0.35);
-    transition: transform 0.2s ease, background 0.2s ease;
-    animation: latido 2.6s ease-in-out infinite;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18), 0 0 0 4px rgba(255, 154, 139, 0.35);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
   }
 
-  .pin:hover { transform: translate(-50%, -50%) scale(1.18); background: var(--madera-clara); }
-
-  @keyframes latido {
-    0%, 100% { box-shadow: 0 4px 0 rgba(0,0,0,0.35), 0 0 0 0 rgba(233, 212, 146, 0.5); }
-    50% { box-shadow: 0 4px 0 rgba(0,0,0,0.35), 0 0 0 14px rgba(233, 212, 146, 0); }
+  .pin:hover {
+    transform: translate(-50%, -50%) scale(1.22);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25), 0 0 0 8px rgba(255, 154, 139, 0.45);
   }
 
-  /* ---------- Tarjeta de país ---------- */
+  /* Tarjeta de país flotante */
   #tarjeta {
     position: fixed;
-    top: 86px;
-    right: 22px;
+    top: 96px;
+    right: 24px;
     z-index: 45;
     width: 340px;
-    max-width: calc(100vw - 44px);
-    background: var(--crema);
-    color: var(--carbon);
-    border-radius: 18px;
+    max-width: calc(100vw - 48px);
+    background: #ffffff;
+    color: var(--text-main);
+    border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 8px 0 rgba(0,0,0,0.3), 0 24px 60px rgba(0,0,0,0.45);
+    box-shadow: 0 24px 60px -10px rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     opacity: 0;
     transform: translateX(30px) scale(0.96);
     visibility: hidden;
-    transition: opacity 0.45s cubic-bezier(0.22, 0.9, 0.3, 1), transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1), visibility 0.45s;
+    transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.4s;
   }
 
-  #tarjeta.abierta { opacity: 1; transform: translateX(0) scale(1); visibility: visible; }
+  #tarjeta.abierta {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    visibility: visible;
+  }
 
   .tarjeta-cabecera {
     position: relative;
     height: 120px;
-    background: var(--pino);
+    background: #e2e8f0;
   }
 
   .tarjeta-cabecera img {
@@ -287,17 +927,17 @@
   .tarjeta-cabecera .emoji {
     position: absolute;
     left: 18px;
-    bottom: -24px;
-    width: 56px;
-    height: 56px;
+    bottom: -22px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: var(--madera);
-    border: 3px solid var(--crema);
+    background: #ffffff;
+    border: 3px solid #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    font-size: 24px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
   }
 
   #cerrar {
@@ -308,60 +948,46 @@
     height: 32px;
     border-radius: 50%;
     border: none;
-    background: rgba(14, 32, 51, 0.65);
-    color: var(--crema);
-    font-size: 17px;
-    line-height: 1;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
   }
+  #cerrar:hover { transform: scale(1.1); }
 
-  #cerrar:hover { background: rgba(14, 32, 51, 0.9); }
-
-  .tarjeta-cuerpo { padding: 34px 22px 22px; }
+  .tarjeta-cuerpo { padding: 32px 22px 22px; }
 
   .tarjeta-cuerpo .pais {
     font-family: 'Poppins', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--pino-oscuro);
+    color: #ff6a88;
   }
 
-  .tarjeta-cuerpo h3 { font-size: 20px; margin: 6px 0 10px; }
+  .tarjeta-cuerpo h3 { font-size: 19px; margin: 4px 0 8px; color: var(--text-main); }
+  .tarjeta-cuerpo p { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5; }
 
-  .tarjeta-cuerpo p { font-size: 14.5px; color: #555f70; margin-bottom: 18px; }
-
-  .tarjeta-cuerpo .boton { display: inline-block; font-size: 13px; }
-
-  /* ---------- Pista inferior ---------- */
-  .pista {
-    position: fixed;
-    left: 0; right: 0;
-    bottom: 14px;
-    z-index: 35;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+  #siguiente {
+    font-family: 'Poppins', sans-serif;
     font-size: 12.5px;
-    color: var(--texto-suave);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    pointer-events: none;
+    font-weight: 700;
+    color: #ff6a88;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 8px 0;
   }
+  #siguiente:hover { text-decoration: underline; }
 
-  .pista svg { animation: arrastra 2.4s ease-in-out infinite; }
-
-  @keyframes arrastra {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(8px); }
-  }
-
-  /* ---------- Recorrido lateral ---------- */
+  /* Recorrido lateral en cápsula blanca flotante */
   #recorrido {
     position: fixed;
-    left: 14px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 40;
@@ -375,34 +1001,36 @@
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 600;
-    color: var(--crema);
-    background: rgba(20, 42, 64, 0.8);
-    border: 1.5px solid rgba(138, 199, 175, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 999px;
-    padding: 10px 16px;
+    padding: 9px 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: border-color 0.25s ease, transform 0.25s ease;
+    box-shadow: var(--shadow-pill);
+    transition: transform 0.2s ease;
   }
 
-  #recorrido-toggle:hover { border-color: var(--pino-claro); transform: translateY(-1px); }
+  #recorrido-toggle:hover { transform: translateY(-2px); }
 
   .recorrido-panel {
-    width: 236px;
-    background: rgba(16, 34, 52, 0.88);
-    border: 1.5px solid rgba(138, 199, 175, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
+    width: 245px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
     overflow: hidden;
+    box-shadow: var(--shadow-card);
     opacity: 0;
     transform: translateX(-14px);
     visibility: hidden;
-    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 0.9, 0.3, 1), visibility 0.35s;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.35s;
   }
 
   #recorrido.abierto .recorrido-panel {
@@ -414,21 +1042,19 @@
   .recorrido-cabecera {
     font-family: 'Poppins', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--pino-claro);
+    color: var(--text-main);
     padding: 14px 16px 8px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 10px;
   }
 
   .recorrido-cabecera small {
-    color: var(--texto-suave);
-    font-size: 10px;
-    letter-spacing: 0.05em;
+    color: var(--text-soft);
+    font-size: 10.5px;
     text-transform: none;
   }
 
@@ -436,14 +1062,9 @@
     list-style: none;
     margin: 0;
     padding: 0 8px 10px;
-    max-height: 54vh;
+    max-height: 50vh;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(138, 199, 175, 0.4) transparent;
   }
-
-  #lista-recorrido::-webkit-scrollbar { width: 5px; }
-  #lista-recorrido::-webkit-scrollbar-thumb { background: rgba(138, 199, 175, 0.35); border-radius: 3px; }
 
   .parada {
     width: 100%;
@@ -451,117 +1072,307 @@
     align-items: center;
     gap: 9px;
     font-family: 'Poppins', sans-serif;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 600;
     text-align: left;
-    color: var(--crema);
+    color: var(--text-main);
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 7px 9px;
-    border-radius: 10px;
+    padding: 7px 10px;
+    border-radius: 12px;
     transition: background 0.2s ease;
   }
 
-  .parada:hover { background: rgba(138, 199, 175, 0.14); }
+  .parada:hover { background: #f1f4f9; }
 
   .parada .n {
     font-size: 10px;
-    color: var(--texto-suave);
+    color: var(--text-soft);
     min-width: 16px;
     text-align: right;
   }
 
-  .parada .b { font-size: 15px; line-height: 1; }
+  .parada.activo {
+    background: var(--grad-aurora);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 106, 136, 0.3);
+  }
+  .parada.activo .n { color: rgba(255, 255, 255, 0.8); }
 
-  .parada.activo { background: var(--madera); color: var(--carbon); }
-
-  .parada.activo .n { color: rgba(46, 50, 67, 0.6); }
-
-  /* botón "siguiente parada" dentro de la tarjeta */
-  #siguiente {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+  /* Pista inferior */
+  .pista {
+    position: fixed;
+    left: 0; right: 0;
+    bottom: 16px;
+    z-index: 35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
     font-weight: 600;
-    color: var(--pino-oscuro);
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 12px;
-    padding: 8px 0;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 6px 18px;
+    border-radius: 999px;
+    width: fit-content;
+    margin: 0 auto;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    pointer-events: none;
   }
 
-  #siguiente:hover { text-decoration: underline; }
-
-  /* ---------- Carga / error ---------- */
+  /* Estado de carga */
   #estado {
     position: fixed;
     inset: 0;
-    z-index: 55;
+    z-index: 60;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     align-items: center;
     justify-content: center;
-    background: var(--noche-2);
-    transition: opacity 0.6s ease, visibility 0.6s;
+    background: var(--bg-canvas);
+    transition: opacity 0.5s ease, visibility 0.5s;
     text-align: center;
     padding: 24px;
   }
-
   #estado.oculto { opacity: 0; visibility: hidden; pointer-events: none; }
 
   .girando {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    border: 4px solid rgba(233, 212, 146, 0.2);
-    border-top-color: var(--madera);
-    animation: girar 0.9s linear infinite;
+    border: 4px solid rgba(255, 106, 136, 0.2);
+    border-top-color: #ff6a88;
+    animation: girar 0.85s linear infinite;
   }
-
   @keyframes girar { to { transform: rotate(360deg); } }
 
-  #estado p { color: var(--texto-suave); font-size: 14px; }
+  /* ============ MODAL NUEVA PUBLICACIÓN SOFT UI ============ */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .modal-overlay.abierto { opacity: 1; visibility: visible; }
 
-  /* ---------- Móvil ---------- */
-  @media (max-width: 640px) {
-    .pista { display: none; }
+  .modal-caja {
+    background: #ffffff;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.25);
+  }
 
-    /* el recorrido pasa a botón flotante abajo a la izquierda */
+  .modal-cerrar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: none;
+    color: var(--text-main);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .modal-cerrar:hover { background: #e2e8f0; }
+
+  .form-grupo { margin-bottom: 16px; }
+
+  .form-grupo label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+
+  .form-grupo input,
+  .form-grupo select,
+  .form-grupo textarea {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 14px;
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-grupo input:focus,
+  .form-grupo select:focus,
+  .form-grupo textarea:focus {
+    border-color: #ff99ac;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 106, 136, 0.12);
+  }
+
+  .form-grupo textarea { min-height: 75px; resize: vertical; }
+
+  .form-tipo-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .tipo-opcion-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px;
+    background: #f1f4f9;
+    border: 1.5px solid transparent;
+    border-radius: 16px;
+    color: var(--text-muted);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tipo-opcion-btn.activo {
+    background: #ffffff;
+    color: var(--text-main);
+    border-color: #ff99ac;
+    box-shadow: 0 4px 14px rgba(255, 106, 136, 0.15);
+  }
+
+  /* Lightbox */
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 20px;
+  }
+  .lightbox-overlay.abierto { opacity: 1; visibility: visible; }
+
+  .lightbox-imagen {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .lightbox-cerrar:hover { background: rgba(255, 255, 255, 0.35); }
+
+  .lightbox-caption {
+    position: absolute;
+    bottom: 22px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+
+  /* ============ MÓVIL ============ */
+  @media (max-width: 768px) {
+    header {
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 8px 12px;
+    }
+    .marca { display: none; }
+    .nav-pestanas { padding: 3px; }
+    .pestana-btn { padding: 6px 12px; font-size: 11.5px; }
+    .pestana-badge { display: none; }
+    .boton { padding: 7px 14px; font-size: 11.5px; }
+
+    #vista-escuela { padding-top: 68px; padding-bottom: 40px; }
+    .escuela-contenedor { padding: 0 12px; }
+
+    .escuela-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .hero-card-left, .hero-card-right {
+      padding: 24px 20px;
+      border-radius: 24px;
+    }
+
+    .publicaciones-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
     #recorrido {
       top: auto;
       bottom: calc(14px + env(safe-area-inset-bottom));
       transform: none;
       flex-direction: column-reverse;
     }
-
-    .recorrido-panel { width: min(76vw, 264px); }
-
-    #lista-recorrido { max-height: 44vh; }
+    .recorrido-panel { width: min(76vw, 250px); }
 
     #tarjeta {
       top: auto;
       right: 12px;
       left: 12px;
-      bottom: calc(72px + env(safe-area-inset-bottom));
+      bottom: calc(68px + env(safe-area-inset-bottom));
       width: auto;
-      transform: translateY(30px) scale(0.97);
     }
 
-    #tarjeta.abierta { transform: translateY(0) scale(1); }
-
-    .tarjeta-cabecera { height: 96px; }
-
-    .tarjeta-cuerpo { padding: 30px 18px 18px; }
-
-    .pin { width: 40px; height: 40px; font-size: 18px; }
-
-    header { padding: 12px 14px; }
-
-    .marca { font-size: 11px; letter-spacing: 0.16em; }
-
-    .boton { padding: 9px 14px; font-size: 12px; }
+    .pista { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -573,10 +1384,28 @@
 
 <div id="globo"></div>
 
-<!-- ============ CABECERA ============ -->
+<!-- ============ CABECERA FLOTANTE ============ -->
 <header>
-  <a href="#" class="marca">Hotel Leaders Club</a>
-  <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20dirijo%20el%20hotel%20___%20y%20quiero%20solicitar%20mi%20plaza%20en%20el%20Hotel%20Leaders%20Club" class="boton">Solicitar mi plaza</a>
+  <a href="#" class="marca">
+    <span class="marca-punto"></span>
+    <span>Hotel Leaders</span>
+  </a>
+
+  <nav class="nav-pestanas" aria-label="Pestañas principales">
+    <button class="pestana-btn activo" id="tab-club" type="button" aria-pressed="true">
+      <span>🌍</span>
+      <span>El Club</span>
+    </button>
+    <button class="pestana-btn" id="tab-escuela" type="button" aria-pressed="false">
+      <span>🎓</span>
+      <span>Escuela de IA</span>
+      <span class="pestana-badge">Nuevo</span>
+    </button>
+  </nav>
+
+  <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20dirijo%20el%20hotel%20___%20y%20quiero%20solicitar%20mi%20plaza%20en%20el%20Hotel%20Leaders%20Club" class="boton boton-aurora">
+    <span>Solicitar plaza</span>
+  </a>
 </header>
 
 <!-- ============ TARJETA DE PAÍS ============ -->
@@ -590,39 +1419,177 @@
     <span class="pais" id="pais"></span>
     <h3 id="titulo"></h3>
     <p id="texto"></p>
-    <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20dirijo%20el%20hotel%20___%20y%20quiero%20solicitar%20mi%20plaza%20en%20el%20Hotel%20Leaders%20Club" class="boton">Solicitar mi plaza</a><button id="siguiente">Siguiente parada →</button>
+    <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20dirijo%20el%20hotel%20___%20y%20quiero%20solicitar%20mi%20plaza%20en%20el%20Hotel%20Leaders%20Club" class="boton">Solicitar plaza</a>
+    <button id="siguiente">Siguiente →</button>
   </div>
 </aside>
 
 <!-- ============ RECORRIDO LATERAL ============ -->
 <aside id="recorrido" class="abierto">
   <div class="recorrido-panel">
-    <div class="recorrido-cabecera">El recorrido <small id="recorrido-total"></small></div>
+    <div class="recorrido-cabecera">Recorrido <small id="recorrido-total"></small></div>
     <ol id="lista-recorrido"></ol>
   </div>
-  <button id="recorrido-toggle" aria-expanded="true">🌍 <span>Recorrido</span></button>
+  <button id="recorrido-toggle" aria-expanded="true">🌍 <span>Destinos</span></button>
 </aside>
 
-<!-- pista inferior -->
+<!-- Pista inferior -->
 <div class="pista">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9fb3c8" stroke-width="2" stroke-linecap="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-  Arrastra el mapa y descubre el club en cada país dorado
+  <span>✨</span> Arrastra el globo y explora cada país del club
 </div>
 
 <!-- ============ BIENVENIDA ============ -->
 <div id="bienvenida">
   <div class="bienvenida-caja">
-    <span class="sello">Club privado · Solo por aplicación</span>
+    <span class="sello">Club Privado · Solo por aplicación</span>
     <h1>El club de directores de hotel que <em>trabajan menos</em> y <em>ganan más</em></h1>
-    <p>Networking entre iguales, IA aplicada y las herramientas más avanzadas del sector. Explora el mapa: en cada país te espera una pieza del club.</p>
-    <button id="entrar" disabled>Cargando el mundo…</button>
+    <p>Networking entre iguales, IA aplicada y sistemas reales para dirigir sin quemarte. Explora el mapa internacional o ingresa a la Escuela de IA.</p>
+    <button id="entrar" disabled>Cargando el club…</button>
   </div>
 </div>
 
 <!-- ============ CARGA / ERROR ============ -->
 <div id="estado">
   <div class="girando"></div>
-  <p>Dibujando el mapa…</p>
+  <p style="color:var(--text-muted);font-weight:600">Preparando el entorno...</p>
+</div>
+
+<!-- ============ VISTA: ESCUELA SUPERIOR DE IA PARA HOTELES ============ -->
+<main id="vista-escuela" aria-label="Escuela Superior de IA para Hoteles">
+  <div class="escuela-contenedor">
+
+    <!-- Hero Banner compacto al estilo de la referencia visual -->
+    <section class="escuela-hero-grid">
+      <div class="hero-card-left">
+        <span class="hero-tag">🎓 Escuela Superior de IA para Hoteles</span>
+        <h1>Aprende a Dirigir tu Hotel con <span class="gradiente">Inteligencia Artificial</span></h1>
+        <p>Masterclasses en vídeo y carruseles prácticos de automatización para recepción, revenue, reseñas y turnos de equipo sin teoría ni humo.</p>
+        <div>
+          <a href="https://wa.me/34601108311?text=Hola%20Pau%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20la%20Escuela%20de%20IA%20para%20Hoteles" class="boton boton-aurora" target="_blank" rel="noopener">
+            <span>Consultar con Pau Martí →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card-right">
+        <div>
+          <h2>Formato Audiovisual & Carruseles</h2>
+          <p>Publicaciones compactas diseñadas para el día a día de un director hotelero. Desliza diapositivas o reproduce clases paso a paso.</p>
+        </div>
+        <div class="stats-capsulas">
+          <div class="stat-capsula">📁 Espacios: <strong id="stat-espacios">5</strong></div>
+          <div class="stat-capsula">📹 Vídeos: <strong id="stat-videos">0</strong></div>
+          <div class="stat-capsula">📸 Carruseles: <strong id="stat-carruseles">0</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de herramientas compacta -->
+    <section class="toolbar-compacta" aria-label="Filtros y buscador">
+      <div class="toolbar-top-row">
+        <div class="buscador-input-box">
+          <span class="icono">🔍</span>
+          <input type="search" id="input-buscador" placeholder="Buscar por tema, prompt, herramienta (ej. WhatsApp, Revenue, PMS)..." aria-label="Buscar en la escuela">
+        </div>
+
+        <button class="btn-crear-post" id="btn-abrir-crear" type="button">
+          <span>➕</span>
+          <span>Nueva Publicación</span>
+        </button>
+      </div>
+
+      <!-- Selector de espacios temáticos -->
+      <div class="espacios-scroll" id="lista-espacios" role="tablist" aria-label="Filtrar por espacio temático">
+        <!-- Renderizado dinámico de píldoras de espacios -->
+      </div>
+    </section>
+
+    <!-- Cuadrícula de Publicaciones (Vídeos de YouTube y Carruseles de Fotos) -->
+    <section class="publicaciones-grid" id="contenedor-publicaciones" aria-live="polite">
+      <!-- Se inyectan las publicaciones desde JavaScript -->
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ MODAL: AGREGAR NUEVA PUBLICACIÓN ============ -->
+<div class="modal-overlay" id="modal-publicacion" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <div class="modal-caja">
+    <button class="modal-cerrar" id="btn-cerrar-modal" aria-label="Cerrar ventana">✕</button>
+    <h2 id="modal-titulo" style="font-size:20px;margin-bottom:4px">Lanzar Nueva Publicación</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px">Publica un vídeo de YouTube o un carrusel de fotografías en la Escuela.</p>
+
+    <form id="form-publicacion">
+      <div class="form-grupo">
+        <label>Formato de la Publicación</label>
+        <div class="form-tipo-selector">
+          <button type="button" class="tipo-opcion-btn activo" data-tipo="video" id="btn-tipo-video">
+            <span>📹</span> Vídeo YouTube
+          </button>
+          <button type="button" class="tipo-opcion-btn" data-tipo="carrusel" id="btn-tipo-carrusel">
+            <span>📸</span> Carrusel Fotos
+          </button>
+        </div>
+      </div>
+
+      <div class="form-grupo">
+        <label for="form-espacio">Espacio Temático</label>
+        <select id="form-espacio" required>
+          <option value="recepcion">🤖 Recepción & Agentes 24/7</option>
+          <option value="revenue">📈 Revenue Management & Precios</option>
+          <option value="reputacion">⭐ Reputación & Reseñas Automáticas</option>
+          <option value="operaciones">👥 Gestión de Turnos & Equipos</option>
+          <option value="venta_directa">🎯 Venta Directa & Desintermediación</option>
+        </select>
+      </div>
+
+      <div class="form-grupo">
+        <label for="form-titulo">Título de la Publicación</label>
+        <input type="text" id="form-titulo" placeholder="Ej: Agente IA para reservas directas en WhatsApp" required>
+      </div>
+
+      <div class="form-grupo" id="campo-video">
+        <label for="form-youtube">Enlace o ID de YouTube</label>
+        <input type="text" id="form-youtube" placeholder="https://www.youtube.com/watch?v=... o https://youtu.be/...">
+      </div>
+
+      <div class="form-grupo" id="campo-carrusel" style="display: none;">
+        <label for="form-imagenes">Fotografías del Carrusel (URLs, una por línea)</label>
+        <textarea id="form-imagenes" placeholder="https://ejemplo.com/foto1.jpg&#10;https://ejemplo.com/foto2.jpg"></textarea>
+        <div style="margin-top:6px">
+          <button type="button" class="btn-link-action" id="btn-cargar-fotos-ejemplo">
+            ⚡ Rellenar con fotos hoteleras de prueba
+          </button>
+        </div>
+      </div>
+
+      <div class="form-grupo">
+        <label for="form-descripcion">Descripción / Notas</label>
+        <textarea id="form-descripcion" placeholder="Puntos clave, pasos a seguir o instrucciones..." required></textarea>
+      </div>
+
+      <div class="form-grupo">
+        <label for="form-etiquetas">Etiquetas (separadas por coma)</label>
+        <input type="text" id="form-etiquetas" placeholder="WhatsApp, Prompt, Revenue, PMS">
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button type="submit" class="boton boton-aurora" style="flex:1;justify-content:center">
+          🚀 Publicar en la Escuela
+        </button>
+        <button type="button" class="boton" id="btn-copiar-codigo" style="background:#f1f4f9;color:var(--text-main);box-shadow:none">
+          📋 Copiar Código JS
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ MODAL: LIGHTBOX PARA FOTOS ============ -->
+<div class="lightbox-overlay" id="modal-lightbox" role="dialog" aria-modal="true" aria-label="Visualizador">
+  <button class="lightbox-cerrar" id="btn-cerrar-lightbox" aria-label="Cerrar">✕</button>
+  <img class="lightbox-imagen" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
 <script src="https://unpkg.com/globe.gl"></script>
@@ -630,7 +1597,7 @@
 (function () {
   var WHATSAPP = 'https://wa.me/34601108311?text=Hola%20Pau%2C%20dirijo%20el%20hotel%20___%20y%20quiero%20solicitar%20mi%20plaza%20en%20el%20Hotel%20Leaders%20Club';
 
-  /* Cada país dorado guarda una pieza del club */
+  /* Destinos del globo */
   var DESTINOS = [
     {
       codigo: 'ESP', bandera: 'es', lat: 40.4, lng: -3.7, emoji: '🤝',
@@ -642,7 +1609,7 @@
       codigo: 'MEX', bandera: 'mx', lat: 23.6, lng: -102.5, emoji: '⏰',
       pais: 'México', chip: '🇲🇽 ¿Te suena?',
       titulo: 'Si eres director, esto te sonará',
-      texto: 'Los turnos los cuadras tú. Las reseñas las contestas tú. Si desaparecieras dos semanas, tu hotel se pararía. No es un problema de personal: es que todo pasa por ti.'
+      texto: 'Los turnos los cuadras tú. Las reseñas las contestas tú. Si desaparecieras dos semanas, tu hotel se pararía.'
     },
     {
       codigo: 'BRA', bandera: 'br', lat: -10.8, lng: -52.9, emoji: '💡',
@@ -660,13 +1627,13 @@
       codigo: 'FRA', bandera: 'fr', lat: 46.6, lng: 2.2, emoji: '🚦',
       pais: 'Francia', chip: '🇫🇷 El método',
       titulo: 'Rojo · Amarillo · Verde',
-      texto: 'Rojo: lo que solo puedes hacer tú. Amarillo: lo que puede hacer otra persona. Verde: lo que puede hacer una máquina. Casi todo lo que te roba la vida es verde — y lo automatizamos juntos.'
+      texto: 'Rojo: lo que solo puedes hacer tú. Amarillo: tu equipo. Verde: una máquina. Casi todo lo que roba tiempo es verde.'
     },
     {
       codigo: 'ITA', bandera: 'it', lat: 42.8, lng: 12.5, emoji: '🏛️',
       pais: 'Italia', chip: '🇮🇹 Un club',
       titulo: 'Un club, no un curso',
-      texto: 'Un círculo reducido de directores y dueños de hotel que han decidido dirigir de otra manera. Cuidamos quién entra.'
+      texto: 'Un círculo reducido de directores y dueños de hotel que han decidido dirigir de otra manera.'
     },
     {
       codigo: 'JPN', bandera: 'jp', lat: 36.2, lng: 138.2, emoji: '🚀',
@@ -678,7 +1645,7 @@
       codigo: 'THA', bandera: 'th', lat: 15.8, lng: 101.0, emoji: '🌍',
       pais: 'Tailandia', chip: '🇹🇭 Sobre Pau',
       titulo: 'Soy Pau Martí',
-      texto: 'Llevo años enseñando IA a miles de personas. Vivo viajando por el mundo y he creado este club para conocer en persona, allá donde voy, a los directores que quieren dirigir sin quemarse.'
+      texto: 'Llevo años enseñando IA a miles de personas. He creado este club para conocer en persona a los directores que quieren dirigir sin quemarse.'
     },
     {
       codigo: 'DEU', bandera: 'de', lat: 51.1, lng: 10.4, emoji: '🛠️',
@@ -687,136 +1654,16 @@
       texto: 'Un hotel bien dirigido funciona como un reloj: procesos claros que no dependen de tu memoria ni de tus madrugadas.'
     },
     {
-      codigo: 'GBR', bandera: 'gb', lat: 53.5, lng: -2.0, emoji: '📊',
-      pais: 'Reino Unido', chip: '🇬🇧 Datos',
-      titulo: 'Decisiones con datos, no a ojo',
-      texto: 'Tarifas, ocupación, reseñas: la IA te pone los números delante sin que te pases el domingo con el Excel.'
-    },
-    {
-      codigo: 'PRT', bandera: 'pt', lat: 39.6, lng: -8.0, emoji: '🍷',
-      pais: 'Portugal', chip: '🇵🇹 En persona',
-      titulo: 'El club también se ve las caras',
-      texto: 'Cenas y encuentros de directores allá donde coincidimos. Las mejores ideas salen de una sobremesa, no de un webinar.'
-    },
-    {
-      codigo: 'ARG', bandera: 'ar', lat: -35.0, lng: -65.0, emoji: '🗣️',
-      pais: 'Argentina', chip: '🇦🇷 En tu idioma',
-      titulo: 'Comunidad en tu idioma',
-      texto: 'Directores hispanohablantes a ambos lados del charco. Lo que funciona en Buenos Aires te sirve en Barcelona.'
-    },
-    {
-      codigo: 'GRC', bandera: 'gr', lat: 39.0, lng: 22.0, emoji: '🏖️',
-      pais: 'Grecia', chip: '🇬🇷 Temporada alta',
-      titulo: 'Sobrevivir a la temporada alta',
-      texto: 'Que agosto deje de ser una guerra: automatiza lo repetitivo antes de que llegue la ola, no cuando ya te está ahogando.'
-    },
-    {
-      codigo: 'IDN', bandera: 'id', lat: -2.2, lng: 117.0, emoji: '🧘',
-      pais: 'Indonesia', chip: '🇮🇩 Libertad',
-      titulo: 'Dirige desde donde quieras',
-      texto: 'Cuando casi nada depende de ti, puedes dirigir tu hotel desde una playa de Bali. O simplemente librar un domingo entero.'
-    },
-    {
-      codigo: 'CRI', bandera: 'cr', lat: 9.7, lng: -83.9, emoji: '🦥',
-      pais: 'Costa Rica', chip: '🇨🇷 Sin estrés',
-      titulo: 'Pura vida, también para el director',
-      texto: 'El hotel a pleno rendimiento sin que tú vivas acelerado. Dirigir no tendría que sentirse como apagar fuegos.'
-    },
-    {
-      codigo: 'PAN', bandera: 'pa', lat: 8.5, lng: -80.1, emoji: '🌉',
-      pais: 'Panamá', chip: '🇵🇦 Escalar',
-      titulo: 'Escala sin multiplicar tus horas',
-      texto: 'Segundo hotel, más habitaciones o nueva línea de negocio: crecer no debería significar dormir menos.'
-    },
-    {
-      codigo: 'GTM', bandera: 'gt', lat: 15.5, lng: -90.3, emoji: '🌋',
-      pais: 'Guatemala', chip: '🇬🇹 Pequeños',
-      titulo: 'También para hoteles pequeños',
-      texto: 'No hace falta ser una cadena: estos sistemas funcionan igual en un hostal de 12 habitaciones que en un resort.'
-    },
-    {
-      codigo: 'DOM', bandera: 'do', lat: 18.9, lng: -70.5, emoji: '🌴',
-      pais: 'Rep. Dominicana', chip: '🇩🇴 Sin caos',
-      titulo: 'Ocupación alta sin caos',
-      texto: 'Check-ins, peticiones y grupos fluyendo solos incluso en semanas de lleno total.'
-    },
-    {
-      codigo: 'ECU', bandera: 'ec', lat: -1.5, lng: -78.3, emoji: '🐢',
-      pais: 'Ecuador', chip: '🇪🇨 Variedad',
-      titulo: 'Del lodge al hotel urbano',
-      texto: 'En el club hay de todo: del lodge en la selva al boutique de ciudad. Todos comparten lo que les funciona.'
-    },
-    {
-      codigo: 'URY', bandera: 'uy', lat: -32.8, lng: -56.0, emoji: '🧉',
-      pais: 'Uruguay', chip: '🇺🇾 Calma',
-      titulo: 'Dirigir con calma',
-      texto: 'Todo bajo control, nada urgente. La sensación de un mate tranquilo — pero todos los días del año.'
-    },
-    {
-      codigo: 'CAN', bandera: 'ca', lat: 56.1, lng: -106.3, emoji: '❄️',
-      pais: 'Canadá', chip: '🇨🇦 Equipo',
-      titulo: 'Equipos que no dependen de ti',
-      texto: '¿Personal que va y viene? Sistemas que forman solos al que llega, para que cada baja no sea un incendio.'
-    },
-    {
       codigo: 'COL', bandera: 'co', lat: 3.9, lng: -73.0, emoji: '☕',
       pais: 'Colombia', chip: '🇨🇴 El trato',
       titulo: 'El tiempo liberado se nota en el trato',
       texto: 'Menos horas de despacho, más presencia en el lobby. Esa calidez ningún competidor la puede copiar.'
     },
     {
-      codigo: 'PER', bandera: 'pe', lat: -9.2, lng: -75.0, emoji: '🏔️',
-      pais: 'Perú', chip: '🇵🇪 Paso a paso',
-      titulo: 'Paso a paso, sin vértigo',
-      texto: 'No necesitas transformar tu hotel en un mes. Una automatización por semana y en un año no lo reconoces.'
-    },
-    {
-      codigo: 'CHL', bandera: 'cl', lat: -35.7, lng: -71.5, emoji: '🍇',
-      pais: 'Chile', chip: '🇨🇱 Sin humo',
-      titulo: 'Resultados, no promesas',
-      texto: 'Sin fórmulas mágicas: cambios pequeños que se miden en horas dormidas y domingos libres.'
-    },
-    {
-      codigo: 'MAR', bandera: 'ma', lat: 31.8, lng: -7.1, emoji: '🏺',
-      pais: 'Marruecos', chip: '🇲🇦 El alma',
-      titulo: 'El alma no se automatiza',
-      texto: 'Automatizamos lo repetitivo para proteger lo artesanal: el recibimiento, el detalle, la casa.'
-    },
-    {
-      codigo: 'EGY', bandera: 'eg', lat: 26.8, lng: 30.0, emoji: '⭐',
-      pais: 'Egipto', chip: '🇪🇬 Reseñas',
-      titulo: 'Cada reseña, respondida',
-      texto: 'Responde todas las reseñas, en cualquier idioma, en minutos — y sin sonar a robot.'
-    },
-    {
-      codigo: 'IND', bandera: 'in', lat: 21.0, lng: 78.0, emoji: '🛎️',
-      pais: 'India', chip: '🇮🇳 24/7',
-      titulo: 'Recepción despierta 24/7',
-      texto: 'Huéspedes atendidos al momento a cualquier hora, aunque tú estés durmiendo. La IA no libra ni en Nochevieja.'
-    },
-    {
-      codigo: 'KOR', bandera: 'kr', lat: 36.5, lng: 127.8, emoji: '⚡',
-      pais: 'Corea del Sur', chip: '🇰🇷 Al día',
-      titulo: 'La tecnología, filtrada',
-      texto: 'Cada mes sale algo nuevo. Dentro del club te llega filtrado: solo lo que de verdad sirve para un hotel.'
-    },
-    {
-      codigo: 'AUS', bandera: 'au', lat: -25.3, lng: 133.8, emoji: '🏄',
-      pais: 'Australia', chip: '🇦🇺 Desconectar',
-      titulo: 'Desconectar de verdad',
-      texto: 'Vacaciones sin mirar el móvil cada diez minutos. El hotel sigue funcionando; tú también.'
-    },
-    {
-      codigo: 'TUR', bandera: 'tr', lat: 39.0, lng: 35.2, emoji: '🫖',
-      pais: 'Turquía', chip: '🇹🇷 Reserva directa',
-      titulo: 'Menos OTAs, más reserva directa',
-      texto: 'Respuestas instantáneas y una web que convierte: menos comisiones, más control de tu negocio.'
-    },
-    {
       codigo: 'ARE', bandera: 'ae', lat: 24.0, lng: 54.0, emoji: '🔑',
       pais: 'Emiratos Árabes', chip: '🇦🇪 Cómo entrar',
       titulo: 'No te apuntas. Aplicas.',
-      texto: '1. Solicitas tu plaza por WhatsApp. 2. Me cuentas qué hotel diriges y qué quieres resolver. 3. Si encajas, entras. Plazas limitadas.'
+      texto: '1. Solicitas tu plaza por WhatsApp. 2. Me cuentas qué hotel diriges y qué quieres resolver. 3. Si encajas, entras.'
     }
   ];
 
@@ -868,7 +1715,7 @@
     setTimeout(function () { if (mundo) mundo.controls().autoRotate = true; }, 2600);
   }
 
-  /* Lista lateral del recorrido, numerada y plegable */
+  /* Lista lateral del recorrido */
   var elRecorrido = document.getElementById('recorrido');
   var elLista = document.getElementById('lista-recorrido');
   document.getElementById('recorrido-total').textContent = DESTINOS.length + ' paradas';
@@ -881,10 +1728,10 @@
     b.className = 'parada';
     b.dataset.codigo = d.codigo;
     b.title = d.pais + ' · ' + d.titulo;
-    b.innerHTML = '<span class="n">' + (i + 1) + '</span><span class="b">' + bandera + '</span><span>' + partes.join(' ') + '</span>';
+    b.innerHTML = '<span class="n">' + (i + 1) + '</span><span>' + bandera + '</span><span>' + partes.join(' ') + '</span>';
     b.addEventListener('click', function () {
       volarA(d);
-      if (window.innerWidth <= 640) elRecorrido.classList.remove('abierto');
+      if (window.innerWidth <= 768) elRecorrido.classList.remove('abierto');
     });
     li.appendChild(b);
     elLista.appendChild(li);
@@ -895,20 +1742,16 @@
     this.setAttribute('aria-expanded', abierto);
   });
 
-  /* en móvil arranca plegado para no tapar el globo */
-  if (window.innerWidth <= 640) elRecorrido.classList.remove('abierto');
+  if (window.innerWidth <= 768) elRecorrido.classList.remove('abierto');
 
   document.getElementById('siguiente').addEventListener('click', function () {
     volarA(DESTINOS[(actualIdx + 1) % DESTINOS.length]);
   });
 
-  /* Colores del mapa */
-  var VERDES = ['#2f7361', '#38826d', '#3c8f77'];
-
+  /* Paleta clara para el globo */
   function colorPais(f, hover) {
-    if (esDestino(f)) return hover ? '#f5e6b0' : '#e9d492';
-    var i = (codigoDe(f).charCodeAt(0) || 0) % VERDES.length;
-    return VERDES[i];
+    if (esDestino(f)) return hover ? '#ff6a88' : '#ff9a8b';
+    return hover ? '#cbd5e1' : '#e2e8f0';
   }
 
   fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
@@ -923,21 +1766,21 @@
       mundo = Globe()(document.getElementById('globo'))
         .backgroundColor('rgba(0,0,0,0)')
         .showAtmosphere(true)
-        .atmosphereColor('#4ba184')
-        .atmosphereAltitude(0.18)
+        .atmosphereColor('#93c5fd')
+        .atmosphereAltitude(0.2)
         .polygonsData(paises)
         .polygonCapColor(function (f) { return colorPais(f, f === hoverActual); })
-        .polygonSideColor(function () { return 'rgba(10, 24, 40, 0.85)'; })
-        .polygonStrokeColor(function () { return '#0a1828'; })
+        .polygonSideColor(function () { return '#cbd5e1'; })
+        .polygonStrokeColor(function () { return '#ffffff'; })
         .polygonAltitude(function (f) {
-          if (f === hoverActual && esDestino(f)) return 0.09;
-          return esDestino(f) ? 0.028 : 0.012;
+          if (f === hoverActual && esDestino(f)) return 0.08;
+          return esDestino(f) ? 0.025 : 0.01;
         })
-        .polygonsTransitionDuration(350)
+        .polygonsTransitionDuration(300)
         .polygonLabel(function (f) {
           var d = porCodigo[codigoDe(f)];
           if (!d) return '';
-          return '<div style="font-family:Poppins,sans-serif;font-size:12px;font-weight:600;background:#f6f1e4;color:#2e3243;padding:6px 12px;border-radius:8px;box-shadow:0 3px 0 rgba(0,0,0,.3)">' + d.emoji + ' ' + d.pais + ' · toca para descubrir</div>';
+          return '<div style="font-family:Poppins,sans-serif;font-size:12px;font-weight:700;background:#ffffff;color:#0f172a;padding:6px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.15);border:1px solid #f1f5f9">' + d.emoji + ' ' + d.pais + ' · Ver pieza del club</div>';
         })
         .onPolygonHover(function (f) {
           hoverActual = f;
@@ -953,17 +1796,17 @@
         })
         .ringsData(DESTINOS)
         .ringLat('lat').ringLng('lng')
-        .ringColor(function () { return function (t) { return 'rgba(233, 212, 146, ' + (1 - t) + ')'; }; })
-        .ringAltitude(0.03)
-        .ringMaxRadius(4.5)
+        .ringColor(function () { return function (t) { return 'rgba(255, 106, 136, ' + (1 - t) + ')'; }; })
+        .ringAltitude(0.025)
+        .ringMaxRadius(4.2)
         .ringPropagationSpeed(1.4)
-        .ringRepeatPeriod(1600);
+        .ringRepeatPeriod(1500);
 
-      /* Pins con emoji encima de cada país dorado */
+      /* Pins con emoji */
       if (typeof mundo.htmlElementsData === 'function') {
         mundo.htmlElementsData(DESTINOS)
           .htmlLat('lat').htmlLng('lng')
-          .htmlAltitude(0.032)
+          .htmlAltitude(0.03)
           .htmlElement(function (d) {
             var el = document.createElement('div');
             el.className = 'pin';
@@ -977,16 +1820,16 @@
           });
       }
 
-      /* Océano y ambiente */
-      mundo.globeMaterial().color.set('#12314e');
-      mundo.globeMaterial().emissive.set('#0a1f33');
-      mundo.globeMaterial().emissiveIntensity = 0.35;
+      /* Océano claro etéreo */
+      mundo.globeMaterial().color.set('#dbeafe');
+      mundo.globeMaterial().emissive.set('#eff6ff');
+      mundo.globeMaterial().emissiveIntensity = 0.55;
 
       mundo.pointOfView({ lat: 28, lng: -5, altitude: 2.3 }, 0);
 
       var controles = mundo.controls();
       controles.autoRotate = true;
-      controles.autoRotateSpeed = 0.55;
+      controles.autoRotateSpeed = 0.5;
       controles.enableDamping = true;
       controles.dampingFactor = 0.08;
 
@@ -998,15 +1841,624 @@
 
       elEstado.classList.add('oculto');
       elEntrar.disabled = false;
-      elEntrar.textContent = 'Explorar el mundo del club';
+      elEntrar.textContent = 'Explorar el Club de Hoteles';
     })
     .catch(function () {
-      elEstado.innerHTML = '<p style="max-width:420px">No se ha podido cargar el mapa (¿sin conexión?).<br><br><a href="' + WHATSAPP + '" style="color:#e9d492;font-weight:700">Escríbeme por WhatsApp para solicitar tu plaza →</a></p>';
+      elEstado.innerHTML = '<p style="max-width:420px;color:var(--text-main)">No se ha podido cargar el mapa.<br><br><a href="' + WHATSAPP + '" style="color:#ff6a88;font-weight:700">Escríbeme por WhatsApp para solicitar tu plaza →</a></p>';
     });
+
+  /* ========================================================
+     ESCUELA SUPERIOR DE IA PARA HOTELES (DATOS Y LÓGICA)
+     ======================================================== */
+  var ESPACIOS_ESCUELA = [
+    { id: 'todos', nombre: 'Todos los Espacios', icono: '🌟' },
+    { id: 'recepcion', nombre: 'Recepción & Agentes 24/7', icono: '🤖' },
+    { id: 'revenue', nombre: 'Revenue & Precios', icono: '📈' },
+    { id: 'reputacion', nombre: 'Reputación & Reseñas', icono: '⭐' },
+    { id: 'operaciones', nombre: 'Turnos & Equipos', icono: '👥' },
+    { id: 'venta_directa', nombre: 'Venta Directa', icono: '🎯' }
+  ];
+
+  var PUBLICACIONES_ESCUELA = [
+    {
+      id: 'pub-pau-1',
+      espacio: 'venta_directa',
+      tipo: 'video',
+      titulo: 'Cómo aparecer en el nuevo Google con IA (2026)',
+      descripcion: 'Pau Martí explica cómo funciona el nuevo algoritmo de Google impulsado por Inteligencia Artificial y qué estrategias aplicar para posicionar tu negocio y marca en los resultados de búsqueda generativa.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=HFnGVXsoNe0',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Google IA', 'Posicionamiento', 'Visibilidad'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=HFnGVXsoNe0'
+    },
+    {
+      id: 'pub-pau-2',
+      espacio: 'operaciones',
+      tipo: 'video',
+      titulo: 'Cómo hacer el VÍDEO de tu producto con IA (sin grabar) · Nuevo Higgsfield',
+      descripcion: 'Tutorial paso a paso de Pau Martí enseñando a crear vídeos promocionales cinematográficos de productos y espacios utilizando herramientas de generación de vídeo con IA sin cámara ni plató.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=3Vegf524ibs',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Vídeo IA', 'Higgsfield', 'Generación Visual'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=3Vegf524ibs'
+    },
+    {
+      id: 'pub-pau-3',
+      espacio: 'recepcion',
+      tipo: 'video',
+      titulo: 'Nuevo Google Gemini Notebook: TODO LO NUEVO',
+      descripcion: 'Descubre todas las novedades y funciones de Google Gemini Notebook para organizar datos, documentos de trabajo, procedimientos y respuestas con IA de manera rápida y centralizada.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=UGXuPonOrTQ',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Gemini Notebook', 'Productividad', 'Automatización'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=UGXuPonOrTQ'
+    },
+    {
+      id: 'pub-pau-4',
+      espacio: 'recepcion',
+      tipo: 'video',
+      titulo: 'Google Gemini 3.8 Flash: ¿Cómo usarlo?',
+      descripcion: 'Pau Martí analiza y enseña cómo utilizar el modelo Gemini Flash, sus ventajas en velocidad de respuesta, costes y aplicaciones directas para automatizaciones inteligentes.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=HBkZ8hIilE4',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Gemini Flash', 'Agentes Rápidos', 'Google AI'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=HBkZ8hIilE4'
+    },
+    {
+      id: 'pub-pau-5',
+      espacio: 'reputacion',
+      tipo: 'video',
+      titulo: 'Google Pics: 5 cosas que hace y ni Canva puede',
+      descripcion: 'Las herramientas de diseño y edición de imagen con IA de Google explicadas por Pau Martí, demostrando capacidades que superan a programas tradicionales de diseño.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=xC7ZL1qYMic',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Google Pics', 'Edición IA', 'Diseño'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=xC7ZL1qYMic'
+    },
+    {
+      id: 'pub-pau-6',
+      espacio: 'revenue',
+      tipo: 'video',
+      titulo: 'Google Gemini 3.7 Flash: 5 cosas que antes no podías hacer',
+      descripcion: 'Guía práctica de Pau Martí sobre las capacidades avanzadas de razonamiento rápido y procesamiento de datos para optimizar tareas complejas de negocio.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=QNunxjfGcrE',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Razonamiento IA', 'Gemini', 'Productividad'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=QNunxjfGcrE'
+    },
+    {
+      id: 'pub-pau-7',
+      espacio: 'operaciones',
+      tipo: 'video',
+      titulo: 'Google Gemini 4: TODO lo que se sabe y cuándo sale',
+      descripcion: 'Pau Martí repasa las próximas tecnologías de modelos de lenguaje multimodal, agentes autónomos y el salto evolutivo de la inteligencia artificial.',
+      youtubeUrl: 'https://www.youtube.com/watch?v=XJCnPgo0qmg',
+      autor: 'Pau Martí Felip',
+      fecha: '2026',
+      duracion: 'Vídeo Oficial',
+      etiquetas: ['Futuro IA', 'Modelos Multimodales', 'Tecnología'],
+      recursoTexto: 'Ver en canal de Pau Martí →',
+      recursoUrl: 'https://www.youtube.com/watch?v=XJCnPgo0qmg'
+    }
+  ];
+
+  var estadoEscuela = {
+    espacioSeleccionado: 'todos',
+    busqueda: '',
+    indicesCarrusel: {}
+  };
+
+  PUBLICACIONES_ESCUELA.forEach(function (pub) {
+    if (pub.tipo === 'carrusel') estadoEscuela.indicesCarrusel[pub.id] = 0;
+  });
+
+  function obtenerIdYouTube(url) {
+    if (!url) return '';
+    url = url.trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
+    var match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? match[1] : '';
+  }
+
+  function renderizarEspacios() {
+    var contenedor = document.getElementById('lista-espacios');
+    if (!contenedor) return;
+    contenedor.innerHTML = '';
+
+    ESPACIOS_ESCUELA.forEach(function (esp) {
+      var conteo = (esp.id === 'todos') ? PUBLICACIONES_ESCUELA.length : PUBLICACIONES_ESCUELA.filter(function (p) { return p.espacio === esp.id; }).length;
+      var boton = document.createElement('button');
+      boton.type = 'button';
+      boton.className = 'espacio-pill' + (estadoEscuela.espacioSeleccionado === esp.id ? ' activo' : '');
+      boton.innerHTML = '<span>' + esp.icono + ' ' + esp.nombre + '</span><span class="conteo">' + conteo + '</span>';
+      boton.addEventListener('click', function () {
+        estadoEscuela.espacioSeleccionado = esp.id;
+        renderizarEspacios();
+        renderizarPublicaciones();
+      });
+      contenedor.appendChild(boton);
+    });
+
+    var totalVideos = PUBLICACIONES_ESCUELA.filter(function (p) { return p.tipo === 'video'; }).length;
+    var totalCarruseles = PUBLICACIONES_ESCUELA.filter(function (p) { return p.tipo === 'carrusel'; }).length;
+    var elStatVideos = document.getElementById('stat-videos');
+    var elStatCarruseles = document.getElementById('stat-carruseles');
+    var elStatEspacios = document.getElementById('stat-espacios');
+
+    if (elStatVideos) elStatVideos.textContent = totalVideos;
+    if (elStatCarruseles) elStatCarruseles.textContent = totalCarruseles;
+    if (elStatEspacios) elStatEspacios.textContent = (ESPACIOS_ESCUELA.length - 1);
+  }
+
+  function renderizarPublicaciones() {
+    var contenedor = document.getElementById('contenedor-publicaciones');
+    if (!contenedor) return;
+
+    var filtradas = PUBLICACIONES_ESCUELA.filter(function (pub) {
+      var coincideEspacio = (estadoEscuela.espacioSeleccionado === 'todos') || (pub.espacio === estadoEscuela.espacioSeleccionado);
+      if (!coincideEspacio) return false;
+
+      if (!estadoEscuela.busqueda) return true;
+      var q = estadoEscuela.busqueda.toLowerCase();
+      var textoCompleto = (pub.titulo + ' ' + pub.descripcion + ' ' + (pub.etiquetas || []).join(' ') + ' ' + pub.espacio).toLowerCase();
+      return textoCompleto.indexOf(q) !== -1;
+    });
+
+    if (filtradas.length === 0) {
+      contenedor.innerHTML = '<div class="publicaciones-vacio">' +
+        '<h3 style="color:var(--text-main);margin-bottom:6px">No hay publicaciones</h3>' +
+        '<p>Prueba con otros términos de búsqueda o selecciona otro espacio.</p>' +
+        '<button type="button" class="boton" id="btn-limpiar-filtros" style="margin-top:14px">Restablecer filtros</button>' +
+        '</div>';
+
+      var btnLimpiar = document.getElementById('btn-limpiar-filtros');
+      if (btnLimpiar) {
+        btnLimpiar.addEventListener('click', function () {
+          estadoEscuela.espacioSeleccionado = 'todos';
+          estadoEscuela.busqueda = '';
+          var inputBusq = document.getElementById('input-buscador');
+          if (inputBusq) inputBusq.value = '';
+          renderizarEspacios();
+          renderizarPublicaciones();
+        });
+      }
+      return;
+    }
+
+    contenedor.innerHTML = '';
+
+    filtradas.forEach(function (pub) {
+      var espObj = ESPACIOS_ESCUELA.find(function (e) { return e.id === pub.espacio; }) || { icono: '📌', nombre: pub.espacio };
+      var card = document.createElement('article');
+      card.className = 'publicacion-card';
+      card.id = 'card-' + pub.id;
+
+      var metaHtml = '<div class="pub-meta-row">' +
+        '<span class="badge-espacio-soft">' + espObj.icono + ' ' + espObj.nombre + '</span>' +
+        '<span class="badge-tipo-soft">' +
+          (pub.tipo === 'video' ? '📹 Vídeo' : '📸 Carrusel (' + (pub.imagenes ? pub.imagenes.length : 0) + ')') +
+        '</span>' +
+        '</div>';
+
+      var tituloHtml = '<h3 class="pub-titulo">' + pub.titulo + '</h3>';
+
+      var mediaHtml = '';
+      if (pub.tipo === 'video') {
+        var ytId = obtenerIdYouTube(pub.youtubeUrl || pub.youtubeId);
+        mediaHtml = '<div class="media-video-box">' +
+          '<iframe src="https://www.youtube-nocookie.com/embed/' + ytId + '?rel=0&modestbranding=1" ' +
+          'title="' + pub.titulo.replace(/"/g, '&quot;') + '" ' +
+          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+          'allowfullscreen loading="lazy"></iframe>' +
+          '</div>';
+      } else if (pub.tipo === 'carrusel' && pub.imagenes && pub.imagenes.length > 0) {
+        var fotos = pub.imagenes;
+        var totalFotos = fotos.length;
+        var idxActivo = estadoEscuela.indicesCarrusel[pub.id] || 0;
+
+        var slidesHtml = '';
+        fotos.forEach(function (foto, fIdx) {
+          var captionText = foto.titulo || ('Diapositiva ' + (fIdx + 1) + ' de ' + totalFotos);
+          slidesHtml += '<div class="carrusel-slide">' +
+            '<img src="' + foto.url + '" alt="' + captionText.replace(/"/g, '&quot;') + '" loading="lazy" data-pubid="' + pub.id + '" data-idx="' + fIdx + '">' +
+            '<div class="carrusel-caption">' + captionText + '</div>' +
+            '</div>';
+        });
+
+        var dotsHtml = '';
+        for (var d = 0; d < totalFotos; d++) {
+          dotsHtml += '<button type="button" class="carrusel-dot' + (d === idxActivo ? ' activo' : '') + '" data-pubid="' + pub.id + '" data-slide="' + d + '" aria-label="Ir a foto ' + (d + 1) + '"></button>';
+        }
+
+        mediaHtml = '<div class="media-carrusel-box" id="carrusel-box-' + pub.id + '">' +
+          '<div class="carrusel-contador-pill" id="contador-' + pub.id + '">' + (idxActivo + 1) + ' / ' + totalFotos + '</div>' +
+          '<button type="button" class="carrusel-btn prev" data-pubid="' + pub.id + '" aria-label="Anterior">‹</button>' +
+          '<button type="button" class="carrusel-btn next" data-pubid="' + pub.id + '" aria-label="Siguiente">›</button>' +
+          '<div class="carrusel-track" id="track-' + pub.id + '" style="transform: translateX(-' + (idxActivo * 100) + '%);">' +
+            slidesHtml +
+          '</div>' +
+          '<div class="carrusel-dots" id="dots-' + pub.id + '">' + dotsHtml + '</div>' +
+          '</div>';
+      }
+
+      var tagsHtml = '';
+      if (pub.etiquetas && pub.etiquetas.length > 0) {
+        tagsHtml = '<div class="pub-tags">';
+        pub.etiquetas.forEach(function (t) {
+          tagsHtml += '<span class="tag-item-soft">#' + t + '</span>';
+        });
+        tagsHtml += '</div>';
+      }
+
+      var recursoLink = pub.recursoUrl || WHATSAPP;
+      var cuerpoHtml = '<div class="pub-cuerpo">' +
+        '<p class="pub-descripcion">' + pub.descripcion + '</p>' +
+        tagsHtml +
+        '<div class="pub-footer">' +
+          '<div class="pub-autor">' +
+            '<div class="autor-avatar-soft">PM</div>' +
+            '<span>' + (pub.autor || 'Pau Martí') + '</span>' +
+          '</div>' +
+          '<a href="' + recursoLink + '" class="btn-link-action" target="_blank" rel="noopener">' +
+            (pub.recursoTexto || 'Ver recursos →') +
+          '</a>' +
+        '</div>' +
+        '</div>';
+
+      card.innerHTML = metaHtml + tituloHtml + mediaHtml + cuerpoHtml;
+      contenedor.appendChild(card);
+    });
+
+    activarEventosCarruseles();
+  }
+
+  function moverCarrusel(pubId, nuevoIdx) {
+    var pub = PUBLICACIONES_ESCUELA.find(function (p) { return p.id === pubId; });
+    if (!pub || !pub.imagenes || pub.imagenes.length === 0) return;
+
+    var total = pub.imagenes.length;
+    if (nuevoIdx < 0) nuevoIdx = total - 1;
+    if (nuevoIdx >= total) nuevoIdx = 0;
+
+    estadoEscuela.indicesCarrusel[pubId] = nuevoIdx;
+
+    var track = document.getElementById('track-' + pubId);
+    if (track) track.style.transform = 'translateX(-' + (nuevoIdx * 100) + '%)';
+
+    var contador = document.getElementById('contador-' + pubId);
+    if (contador) contador.textContent = (nuevoIdx + 1) + ' / ' + total;
+
+    var dotsCont = document.getElementById('dots-' + pubId);
+    if (dotsCont) {
+      dotsCont.querySelectorAll('.carrusel-dot').forEach(function (d, i) {
+        d.classList.toggle('activo', i === nuevoIdx);
+      });
+    }
+  }
+
+  function activarEventosCarruseles() {
+    document.querySelectorAll('.carrusel-btn.prev').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var pId = this.dataset.pubid;
+        moverCarrusel(pId, (estadoEscuela.indicesCarrusel[pId] || 0) - 1);
+      });
+    });
+
+    document.querySelectorAll('.carrusel-btn.next').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var pId = this.dataset.pubid;
+        moverCarrusel(pId, (estadoEscuela.indicesCarrusel[pId] || 0) + 1);
+      });
+    });
+
+    document.querySelectorAll('.carrusel-dot').forEach(function (dot) {
+      dot.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var pId = this.dataset.pubid;
+        moverCarrusel(pId, parseInt(this.dataset.slide, 10));
+      });
+    });
+
+    document.querySelectorAll('.carrusel-slide img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        abrirLightbox(this.src, this.alt);
+      });
+    });
+
+    document.querySelectorAll('.media-carrusel-box').forEach(function (box) {
+      var startX = 0;
+      var pId = box.id.replace('carrusel-box-', '');
+
+      box.addEventListener('touchstart', function (e) {
+        startX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      box.addEventListener('touchend', function (e) {
+        var diff = startX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) {
+          var act = estadoEscuela.indicesCarrusel[pId] || 0;
+          moverCarrusel(pId, diff > 0 ? act + 1 : act - 1);
+        }
+      }, { passive: true });
+    });
+  }
+
+  /* Lightbox */
+  var modalLightbox = document.getElementById('modal-lightbox');
+  var imgLightbox = document.getElementById('lightbox-img');
+  var captionLightbox = document.getElementById('lightbox-caption');
+  var btnCerrarLightbox = document.getElementById('btn-cerrar-lightbox');
+
+  function abrirLightbox(src, caption) {
+    if (!modalLightbox || !imgLightbox) return;
+    imgLightbox.src = src;
+    if (captionLightbox) captionLightbox.textContent = caption || '';
+    modalLightbox.classList.add('abierto');
+  }
+
+  function cerrarLightbox() {
+    if (modalLightbox) modalLightbox.classList.remove('abierto');
+  }
+
+  if (btnCerrarLightbox) btnCerrarLightbox.addEventListener('click', cerrarLightbox);
+  if (modalLightbox) {
+    modalLightbox.addEventListener('click', function (e) {
+      if (e.target === modalLightbox || e.target === btnCerrarLightbox) cerrarLightbox();
+    });
+  }
+
+  /* Buscador reactivo */
+  var inputBuscador = document.getElementById('input-buscador');
+  if (inputBuscador) {
+    inputBuscador.addEventListener('input', function (e) {
+      estadoEscuela.busqueda = e.target.value.trim();
+      renderizarPublicaciones();
+    });
+  }
+
+  /* Modal de Nueva Publicación */
+  var modalPub = document.getElementById('modal-publicacion');
+  var btnAbrirCrear = document.getElementById('btn-abrir-crear');
+  var btnCerrarModal = document.getElementById('btn-cerrar-modal');
+  var formPub = document.getElementById('form-publicacion');
+  var btnTipoVideo = document.getElementById('btn-tipo-video');
+  var btnTipoCarrusel = document.getElementById('btn-tipo-carrusel');
+  var campoVideo = document.getElementById('campo-video');
+  var campoCarrusel = document.getElementById('campo-carrusel');
+  var btnCargarEjemplo = document.getElementById('btn-cargar-fotos-ejemplo');
+  var btnCopiarCodigo = document.getElementById('btn-copiar-codigo');
+  var tipoSeleccionadoModal = 'video';
+
+  if (btnAbrirCrear && modalPub) {
+    btnAbrirCrear.addEventListener('click', function () {
+      modalPub.classList.add('abierto');
+    });
+  }
+
+  if (btnCerrarModal && modalPub) {
+    btnCerrarModal.addEventListener('click', function () {
+      modalPub.classList.remove('abierto');
+    });
+  }
+
+  if (modalPub) {
+    modalPub.addEventListener('click', function (e) {
+      if (e.target === modalPub) modalPub.classList.remove('abierto');
+    });
+  }
+
+  if (btnTipoVideo && btnTipoCarrusel) {
+    btnTipoVideo.addEventListener('click', function () {
+      tipoSeleccionadoModal = 'video';
+      btnTipoVideo.classList.add('activo');
+      btnTipoCarrusel.classList.remove('activo');
+      campoVideo.style.display = 'block';
+      campoCarrusel.style.display = 'none';
+    });
+
+    btnTipoCarrusel.addEventListener('click', function () {
+      tipoSeleccionadoModal = 'carrusel';
+      btnTipoCarrusel.classList.add('activo');
+      btnTipoVideo.classList.remove('activo');
+      campoVideo.style.display = 'none';
+      campoCarrusel.style.display = 'block';
+    });
+  }
+
+  if (btnCargarEjemplo) {
+    btnCargarEjemplo.addEventListener('click', function () {
+      var fotosEjemplo = [
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80',
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+        'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=80'
+      ].join('\n');
+      var area = document.getElementById('form-imagenes');
+      if (area) area.value = fotosEjemplo;
+    });
+  }
+
+  if (formPub) {
+    formPub.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var espacio = document.getElementById('form-espacio').value;
+      var titulo = document.getElementById('form-titulo').value.trim();
+      var descripcion = document.getElementById('form-descripcion').value.trim();
+      var etiquetasStr = document.getElementById('form-etiquetas').value.trim();
+      var etiquetas = etiquetasStr ? etiquetasStr.split(',').map(function (s) { return s.trim(); }).filter(Boolean) : [];
+
+      var nueva = {
+        id: 'pub-' + Date.now(),
+        espacio: espacio,
+        tipo: tipoSeleccionadoModal,
+        titulo: titulo,
+        descripcion: descripcion,
+        autor: 'Pau Martí',
+        fecha: 'Reciente',
+        etiquetas: etiquetas,
+        recursoTexto: 'Consultar en el Club →',
+        recursoUrl: WHATSAPP
+      };
+
+      if (tipoSeleccionadoModal === 'video') {
+        var yt = document.getElementById('form-youtube').value.trim();
+        nueva.youtubeUrl = yt || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        nueva.duracion = 'Vídeo';
+      } else {
+        var rawFotos = document.getElementById('form-imagenes').value.trim();
+        var urls = rawFotos ? rawFotos.split('\n').map(function (u) { return u.trim(); }).filter(Boolean) : [];
+        if (urls.length === 0) {
+          urls = ['https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80'];
+        }
+        nueva.imagenes = urls.map(function (u, i) {
+          return { url: u, titulo: 'Diapositiva ' + (i + 1) + ' — ' + titulo };
+        });
+        nueva.duracion = urls.length + ' fotos';
+        estadoEscuela.indicesCarrusel[nueva.id] = 0;
+      }
+
+      PUBLICACIONES_ESCUELA.unshift(nueva);
+      formPub.reset();
+      modalPub.classList.remove('abierto');
+      renderizarEspacios();
+      renderizarPublicaciones();
+
+      setTimeout(function () {
+        var elNueva = document.getElementById('card-' + nueva.id);
+        if (elNueva) elNueva.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    });
+  }
+
+  if (btnCopiarCodigo) {
+    btnCopiarCodigo.addEventListener('click', function () {
+      var espacio = document.getElementById('form-espacio').value;
+      var titulo = document.getElementById('form-titulo').value.trim() || 'Título de ejemplo';
+      var descripcion = document.getElementById('form-descripcion').value.trim() || 'Descripción de la lección';
+      var etiquetasStr = document.getElementById('form-etiquetas').value.trim();
+      var etiquetas = etiquetasStr ? etiquetasStr.split(',').map(function (s) { return s.trim(); }).filter(Boolean) : ['IA Hotelera'];
+
+      var objetoSnippet = {};
+      if (tipoSeleccionadoModal === 'video') {
+        var yt = document.getElementById('form-youtube').value.trim() || 'https://www.youtube.com/watch?v=...';
+        objetoSnippet = {
+          id: 'pub-' + Date.now(),
+          espacio: espacio,
+          tipo: 'video',
+          titulo: titulo,
+          descripcion: descripcion,
+          youtubeUrl: yt,
+          autor: 'Pau Martí',
+          fecha: '2026',
+          duracion: '15 min',
+          etiquetas: etiquetas
+        };
+      } else {
+        var rawFotos = document.getElementById('form-imagenes').value.trim();
+        var urls = rawFotos ? rawFotos.split('\n').map(function (u) { return u.trim(); }).filter(Boolean) : [];
+        if (urls.length === 0) urls = ['https://.../foto1.jpg'];
+        objetoSnippet = {
+          id: 'pub-' + Date.now(),
+          espacio: espacio,
+          tipo: 'carrusel',
+          titulo: titulo,
+          descripcion: descripcion,
+          imagenes: urls.map(function (u, i) { return { url: u, titulo: 'Diapositiva ' + (i + 1) }; }),
+          autor: 'Pau Martí',
+          fecha: '2026',
+          duracion: urls.length + ' fotos',
+          etiquetas: etiquetas
+        };
+      }
+
+      var codigoTexto = JSON.stringify(objetoSnippet, null, 2);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(codigoTexto).then(function () {
+          alert('¡Código copiado al portapapeles! Puedes pegarlo dentro del array PUBLICACIONES_ESCUELA en index.html.');
+        });
+      } else {
+        prompt('Copia este bloque de código y pégalo en PUBLICACIONES_ESCUELA:', codigoTexto);
+      }
+    });
+  }
+
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      cerrarLightbox();
+      if (modalPub) modalPub.classList.remove('abierto');
+    }
+  });
+
+  /* ========================================================
+     SISTEMA DE NAVEGACIÓN ENTRE PESTAÑAS (EL CLUB vs ESCUELA)
+     ======================================================== */
+  var tabClub = document.getElementById('tab-club');
+  var tabEscuela = document.getElementById('tab-escuela');
+  var vistaEscuela = document.getElementById('vista-escuela');
+
+  function cambiarPestana(pestana) {
+    var esEscuela = (pestana === 'escuela');
+
+    if (tabClub) {
+      tabClub.classList.toggle('activo', !esEscuela);
+      tabClub.setAttribute('aria-pressed', !esEscuela);
+    }
+    if (tabEscuela) {
+      tabEscuela.classList.toggle('activo', esEscuela);
+      tabEscuela.setAttribute('aria-pressed', esEscuela);
+    }
+
+    if (vistaEscuela) {
+      vistaEscuela.classList.toggle('activa', esEscuela);
+      if (esEscuela) vistaEscuela.scrollTop = 0;
+    }
+
+    if (elTarjeta && esEscuela) elTarjeta.classList.remove('abierta');
+    if (elRecorrido) elRecorrido.style.display = esEscuela ? 'none' : '';
+    var pistaEl = document.querySelector('.pista');
+    if (pistaEl) pistaEl.style.display = esEscuela ? 'none' : '';
+
+    if (mundo && mundo.controls()) {
+      mundo.controls().autoRotate = !esEscuela;
+    }
+
+    try {
+      history.replaceState(null, null, esEscuela ? '#escuela' : '#club');
+    } catch (err) {}
+  }
+
+  if (tabClub) tabClub.addEventListener('click', function () { cambiarPestana('club'); });
+  if (tabEscuela) tabEscuela.addEventListener('click', function () { cambiarPestana('escuela'); });
+
+  renderizarEspacios();
+  renderizarPublicaciones();
+
+  if (window.location.hash === '#escuela') {
+    cambiarPestana('escuela');
+    if (elBienvenida) elBienvenida.classList.add('oculta');
+  }
 
   elEntrar.addEventListener('click', function () {
     elBienvenida.classList.add('oculta');
-    /* pequeño tour de arranque: vuela a España */
     setTimeout(function () { if (mundo) volarA(DESTINOS[0]); }, 400);
   });
 })();
