@@ -1841,11 +1841,11 @@
       <div class="form-grupo">
         <label for="form-espacio">Espacio Temático</label>
         <select id="form-espacio" required>
-          <option value="recepcion">🤖 Recepción & Agentes 24/7</option>
-          <option value="revenue">📈 Revenue Management & Precios</option>
-          <option value="reputacion">⭐ Reputación & Reseñas Automáticas</option>
-          <option value="operaciones">👥 Gestión de Turnos & Equipos</option>
-          <option value="venta_directa">🎯 Venta Directa & Desintermediación</option>
+          <option value="visibilidad">🔍 Visibilidad</option>
+          <option value="asistentes">🤖 Crear tus asistentes</option>
+          <option value="contenido">🎨 Creación de contenido</option>
+          <option value="modelos">🧠 Modelos de IA</option>
+          <option value="agentes">⚡ Agentes de IA completos</option>
         </select>
       </div>
 
@@ -2278,17 +2278,17 @@
      ======================================================== */
   var ESPACIOS_ESCUELA = [
     { id: 'todos', nombre: 'Todo' },
-    { id: 'venta_directa', nombre: 'Google & Visibilidad' },
-    { id: 'recepcion', nombre: 'Recepción & Agentes' },
-    { id: 'operaciones', nombre: 'Vídeo con IA & Contenidos' },
-    { id: 'revenue', nombre: 'Modelos Flash & Razonamiento' },
-    { id: 'reputacion', nombre: 'Diseño & Retoque' }
+    { id: 'visibilidad', nombre: 'Visibilidad' },
+    { id: 'asistentes', nombre: 'Crear tus asistentes' },
+    { id: 'contenido', nombre: 'Creación de contenido' },
+    { id: 'modelos', nombre: 'Modelos de IA' },
+    { id: 'agentes', nombre: 'Agentes de IA completos' }
   ];
 
   var PUBLICACIONES_ESCUELA = [
     {
       id: 'pub-pau-1',
-      espacio: 'venta_directa',
+      espacio: 'visibilidad',
       tipo: 'video',
       titulo: 'Cómo aparecer en el nuevo Google con IA (2026)',
       descripcion: 'Pau Martí explica en detalle cómo funciona el nuevo algoritmo de Google impulsado por Inteligencia Artificial y qué estrategias técnicas aplicar para posicionar tu hotel en los primeros puestos de las respuestas generativas de búsqueda.',
@@ -2304,7 +2304,7 @@
     },
     {
       id: 'pub-pau-2',
-      espacio: 'operaciones',
+      espacio: 'contenido',
       tipo: 'video',
       titulo: 'Cómo hacer el VÍDEO de tu producto con IA (sin grabar) · Nuevo Higgsfield',
       descripcion: 'Masterclass paso a paso de Pau Martí donde enseña a generar clips cinematográficos y vídeos comerciales de alta definición a partir de fotografías existentes, sin tener que coordinar rodajes ni contratar productoras caras.',
@@ -2320,7 +2320,7 @@
     },
     {
       id: 'pub-pau-3',
-      espacio: 'recepcion',
+      espacio: 'modelos',
       tipo: 'video',
       titulo: 'Nuevo Google Gemini Notebook: TODO LO NUEVO',
       descripcion: 'Pau Martí analiza en profundidad todas las funciones de Google Gemini Notebook para organizar conocimiento empresarial, procesar documentos complejos y crear asistentes con fuentes verificadas.',
@@ -2336,7 +2336,7 @@
     },
     {
       id: 'pub-pau-4',
-      espacio: 'recepcion',
+      espacio: 'modelos',
       tipo: 'video',
       titulo: 'Google Gemini 3.8 Flash: ¿Cómo usarlo?',
       descripcion: 'Análisis práctico del nuevo modelo Gemini Flash, sus tiempos de respuesta en milisegundos y por qué es la alternativa más eficiente para conectar agentes inteligentes y automatizaciones conversacionales.',
@@ -2352,7 +2352,7 @@
     },
     {
       id: 'pub-pau-5',
-      espacio: 'reputacion',
+      espacio: 'contenido',
       tipo: 'video',
       titulo: 'Google Pics: 5 cosas que hace y ni Canva puede',
       descripcion: 'Pau Martí demuestra 5 funciones avanzadas de edición y generación visual de Google con IA que superan ampliamente a herramientas convencionales como Canva o Photoshop básico.',
@@ -2368,7 +2368,7 @@
     },
     {
       id: 'pub-pau-6',
-      espacio: 'revenue',
+      espacio: 'modelos',
       tipo: 'video',
       titulo: 'Google Gemini 3.7 Flash: 5 cosas que antes no podías hacer',
       descripcion: 'Guía práctica sobre razonamiento rápido y análisis masivo de datos para directores y gestores de empresas que necesitan tomar decisiones con velocidad.',
@@ -2384,7 +2384,7 @@
     },
     {
       id: 'pub-pau-7',
-      espacio: 'operaciones',
+      espacio: 'modelos',
       tipo: 'video',
       titulo: 'Google Gemini 4: TODO lo que se sabe y cuándo sale',
       descripcion: 'Pau Martí repasa los próximos avances de la Inteligencia Artificial multimodal de Google y cómo transformará los sistemas operativos y la gestión de negocios en los próximos meses.',
@@ -2400,7 +2400,7 @@
     },
     {
       id: 'pub-pau-8',
-      espacio: 'recepcion',
+      espacio: 'asistentes',
       tipo: 'video',
       titulo: 'Cómo Crear un Asistente de IA con Google Gemini Gems (GRATIS)',
       descripcion: 'Pau Martí enseña paso a paso a construir "Gems", asistentes personalizados de Google Gemini entrenados con instrucciones y procedimientos a medida sin necesidad de escribir código.',
@@ -2416,7 +2416,7 @@
     },
     {
       id: 'pub-pau-9',
-      espacio: 'recepcion',
+      espacio: 'agentes',
       tipo: 'video',
       titulo: 'Cómo hacer que Google Gemini Spark trabaje mientras duermes',
       descripcion: 'Tutorial sobre la automatización de flujos continuos y agentes autónomos para ejecutar tareas repetitivas en segundo plano durante la noche o fines de semana.',
@@ -2432,7 +2432,7 @@
     },
     {
       id: 'pub-pau-10',
-      espacio: 'reputacion',
+      espacio: 'contenido',
       tipo: 'video',
       titulo: 'Cómo crear FOTOS DE PRODUCTO profesionales con Google Gemini',
       descripcion: 'Pau Martí muestra las capacidades de generación y mejora fotográfica de Gemini para transformar fotos de móvil en composiciones con iluminación de estudio.',
@@ -2448,7 +2448,7 @@
     },
     {
       id: 'pub-pau-11',
-      espacio: 'reputacion',
+      espacio: 'contenido',
       tipo: 'video',
       titulo: 'Cómo Crear 30 Posts para Redes Sociales en 10 Minutos con IA (GRATIS)',
       descripcion: 'Metodología rápida para planificar un mes completo de contenidos en redes sociales combinando investigación de tendencias y generación de creatividades en pocos minutos.',
@@ -2464,7 +2464,7 @@
     },
     {
       id: 'pub-pau-12',
-      espacio: 'venta_directa',
+      espacio: 'modelos',
       tipo: 'video',
       titulo: 'Google AI Studio: TODAS las IAs de Google en un sitio (y GRATIS)',
       descripcion: 'Guía completa de Google AI Studio, la plataforma donde los profesionales pueden probar los modelos más potentes de Google con parámetros avanzados sin coste.',
@@ -2480,7 +2480,7 @@
     },
     {
       id: 'pub-pau-13',
-      espacio: 'operaciones',
+      espacio: 'agentes',
       tipo: 'video',
       titulo: 'Google Gemini Spark: Qué son los MCP y cómo conectar Canva paso a paso',
       descripcion: 'Explicación sencilla del protocolo Model Context Protocol (MCP) y cómo vincular herramientas externas con agentes de IA para sincronizar datos y diseños automáticamente.',
@@ -2496,7 +2496,7 @@
     },
     {
       id: 'pub-pau-14',
-      espacio: 'recepcion',
+      espacio: 'agentes',
       tipo: 'video',
       titulo: 'Cómo usar Google Gemini Spark: le estás pidiendo mal las cosas',
       descripcion: 'Los errores más comunes al dar instrucciones a la IA y cómo estructurar prompts precisos para obtener respuestas útiles y evitar alucinaciones.',
@@ -2512,7 +2512,7 @@
     },
     {
       id: 'pub-pau-15',
-      espacio: 'operaciones',
+      espacio: 'agentes',
       tipo: 'video',
       titulo: 'El Sistema de IA que me Permite Vivir Viajando',
       descripcion: 'Pau Martí desvela la infraestructura de automatizaciones y delegación inteligente que utiliza en su día a día para gestionar sus proyectos desde cualquier parte del mundo.',
@@ -2528,7 +2528,7 @@
     },
     {
       id: 'pub-pau-16',
-      espacio: 'operaciones',
+      espacio: 'contenido',
       tipo: 'video',
       titulo: 'Por qué despedí a mi editor de vídeo y no volvería a contratar uno | Google Omni',
       descripcion: 'Demostración de herramientas multimodales para generar cortes, subtítulos automáticos y adaptaciones de formato para vídeo publicitario sin intermediarios.',
@@ -2544,7 +2544,7 @@
     },
     {
       id: 'pub-pau-17',
-      espacio: 'revenue',
+      espacio: 'agentes',
       tipo: 'video',
       titulo: '10 tareas de Google Gemini Spark que te ayudarán a ganar dinero',
       descripcion: 'Casos de uso comercial de alto impacto con IA enfocados en captación de clientes, incremento de ventas cruzadas (upselling) y reducción de costes directos.',
